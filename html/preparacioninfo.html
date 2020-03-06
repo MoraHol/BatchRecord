@@ -283,7 +283,7 @@
     <div class="card-header" id="headingThree">
       <h5 class="mb-0">
         <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree" style="width: 100%">
-          Pesaje y dispensación
+          Preparación
         </button>
       </h5>
     </div>
@@ -291,26 +291,73 @@
       <div class="card-body">
                  <div class="row" style="margin: 1%">
                               <div class="col-md-12 col-2 align-self-center" >
-                                <h3 for="recipient-name" class="col-form-label" style="text-align: center; background-color: #C0C0C0">Pesaje</h3>
+                                <h3 for="recipient-name" class="col-form-label" style="text-align: center; background-color: #C0C0C0">Identificar</h3>
                               </div>
-                              <div class="col-md-12 col-2 align-self-center" >
-                                 <form>                           
-                               <table class="table">
-                                   <thead>
-                                            <tr>
-                                                <th>Referencia</th>
-                                                <th>Materia prima</th>
-                                                <th>Peso GRS</th>                                          
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                               <td><input type="text" class="form-control" id="pesogrs" value="01" readonly></td>
-                                                <td><input type="text" class="form-control" id="pesogrs" value="Materia01" readonly></td>
-                                                <td><input type="text" class="form-control" id="pesogrs"></td>
-                                            </tr>
-                               </table> 
-                                </form>
+                                <div class="col-md-6 col-2 align-self-right" >
+                                <label for="recipient-name" class="col-form-label">Identificaciòn agitador</label>
+                                <select class="selectpicker form-control">
+                                <option selected hidden></option>
+                                <option>Mustard</option>
+                                <option>Ketchup</option>
+                                <option>Relish</option>
+                                </select>
+                               </div>  
+                                <div class="col-md-6 col-2 align-self-right" >
+                                <label for="recipient-name" class="col-form-label">Identificaciòn de la marmita o tanque</label>
+                                <select class="selectpicker form-control">
+                                <option selected hidden></option>
+                                <option>Mustard</option>
+                                <option>Ketchup</option>
+                                <option>Relish</option>
+                                </select>
+                               </div>  
+                               </div>
+                               <div class="row" style="margin: 1%">
+                               <div class="col-md-12 col-2 align-self-center" >
+                                <h3 for="recipient-name" class="col-form-label" style="text-align: center; background-color: #C0C0C0">Instructivo de Preparaciòn</h3>
+                              </div>
+                              <div class="col-md-6 col-2 align-self-center">
+                                <label for="recipient-name" class="col-form-label">PASO 1: <br/>PASO 2: <br/>PASO 3: <br/>PASO 4: <br/>PASO 5: <br/></label>
+                                
+                              </div>
+                              <div class="col-md-6 col-2 align-self-center">
+                               <section class="clock">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-10 input-wrapper">
+                    <div class="input">
+                        <input type="number" id="num" class="form-control" min="0">
+                        <select id="measure" class="form-control">
+                            <option value="0">Seleccionar</option>
+                            <option value="s">Segundos</option>
+                            <option value="m">Minutos</option>
+                            <option value="h">Horas</option>
+                        </select>
+                    </div>
+                    <div class="buttons-wrapper">
+                        
+                        <button class="btn" id="start-countdown">Iniciar</button>
+                    </div>
+                </div>
+                <div id="timer" class="col-12">
+                  <div class="clock-wrapper">
+                      <span class="hours">00</span>
+                      <span class="dots">:</span>
+                      <span class="minutes">00</span>
+                      <span class="dots">:</span>
+                      <span class="seconds">00</span>
+                  </div>
+                </div>
+                <div class="buttons-wrapper">
+                  <button class="btn" id="resume-timer">Continuar</button>
+                  <button class="btn" id="stop-timer">Pausa</button>
+                  <button class="btn" id="reset-timer">Reiniciar</button>
+                </div>
+            </div>
+        </div>
+    </section>
+                                
+                              </div>
                               </div>
 
          </div>
@@ -338,11 +385,6 @@
             </div>
              </div>
 
-            <footer>
-                © <b>2020</b> Desarrollado por Teenus S.A.S <a href="https://www.teenus.com.co/" target="_blank"><img src="../assets/images/logo-teenus.png" alt="Teenus"/></a></div>
-            </footer>
-            </div>
-
 
     <!-- ============================================================== -->
     <!-- All Jquery -->
@@ -365,6 +407,7 @@
     <!--Custom JavaScript -->
     <script src="js/custom.min.js"></script>
     <script src="js/datatables.js"></script>
+    <script src="js/clock.js"></script>
    
 </body>
 
