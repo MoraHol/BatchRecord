@@ -106,7 +106,7 @@
                 <!-- ============================================================== -->
                 <div class="row page-titles">
                     <div class="col-md-5 col-2 align-self-center">
-                        <h1 class="text-themecolor m-b-0 m-t-0">Pesaje</h1> 
+                        <h1 class="text-themecolor m-b-0 m-t-0">Aprobación</h1> 
                     </div>
                     <div class="col-md-3 col-4 align-self-center">
                         <!-- Search form -->
@@ -168,7 +168,7 @@
       </div>
     </div>
   </div>
-  <div class="card">
+<div class="card">
     <div class="card-header" id="headingTwo">
       <h5 class="mb-0">
         <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo"style="width: 100%">
@@ -286,7 +286,7 @@
     <div class="card-header" id="headingThree">
       <h5 class="mb-0">
         <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree" style="width: 100%">
-          Pesaje y dispensación
+          Loteado
         </button>
       </h5>
     </div>
@@ -294,31 +294,50 @@
       <div class="card-body">
                  <div class="row" style="margin: 1%">
                               <div class="col-md-12 col-2 align-self-center" >
-                                <h3 for="recipient-name" class="col-form-label" style="text-align: center; background-color: #C0C0C0">Pesaje</h3>
+                                <h3 for="recipient-name" class="col-form-label" style="text-align: center; background-color: #C0C0C0">Loteado</h3>
                               </div>
-                              <div class="col-md-12 col-2 align-self-center" >
-                                 <form>                           
-                               <table class="table">
-                                   <thead>
-                                            <tr>
-                                                <th>Referencia</th>
-                                                <th>Materia prima</th>
-                                                <th>Peso GRS</th>                                          
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                               <td><input type="text" class="form-control" id="pesogrs" value="01" readonly></td>
-                                                <td><input type="text" class="form-control" id="pesogrs" value="Materia01" readonly></td>
-                                                <td><input type="text" class="form-control" id="pesogrs"></td>
-                                            </tr>
-                               </table> 
-                                </form>
+                       
+                               <div class="col-md-3 col-2 align-self-center" style="margin-top: 1%">
+                                <label for="recipient-name" class="col-form-label">Identificación banda transportadora:</label>   
                               </div>
+                               <div class="col-md-3 col-2 align-self-center">
+                                <select class="selectpicker form-control">
+                                <option selected hidden></option>
+                                <option>Mustard</option>
+                                <option>Ketchup</option>
+                                <option>Relish</option>
+                      </select>
+                              </div>   
+                               <div class="col-md-3 col-2 align-self-center" style="margin-top: 1%">
+                                <label for="recipient-name" class="col-form-label">Identificación de la loteadora Video Jet:</label>   
+                              </div>
+                               <div class="col-md-3 col-2 align-self-center">
+                                <select class="selectpicker form-control">
+                                <option selected hidden></option>
+                                <option>Mustard</option>
+                                <option>Ketchup</option>
+                                <option>Relish</option>
+                      </select>
+                              </div>  
 
-         </div>
-                 <div class="row" style="margin: 1%">
-                               <div class="col-md-4 col-2 align-self-center">
+                              
+            </div>   
+            <div class="row" style="margin: 1%">
+                              <div class="col-md-12 col-2 align-self-center" >
+                                <h3 for="recipient-name" class="col-form-label" style="text-align: center; background-color: #C0C0C0">Control de proceso</h3>
+                              </div>
+                              <div class="col-md-3 col-2 align-self-center" style="margin-top: 1%">
+                                <label for="recipient-name" class="col-form-label">Cantidad de muestras:</label>   
+                              </div>
+                               <div class="col-md-3 col-2 align-self-center" style="margin-top: 1%">
+                                 <input type="text" class="form-control" id="Muestras">   
+                              </div>
+                               <div class="col-md-1 col-2 align-self-center" style="margin-top: 1%">
+                                <button type="button" class="btn waves-effect waves-light btn-danger" style="width: 100%; height: 38px;">Iniciar</button>
+                              </div>
+                             </div>
+                               <div class="row" style="margin: 1%">
+                              <div class="col-md-4 col-2 align-self-center">
                                 <label for="recipient-name" class="col-form-label">Realizado Por:</label>
                                  <input type="text" class="form-control" id="recipient2-name">
                               </div>
@@ -332,15 +351,16 @@
                               </div>
                               <div class="col-md-2 col-2 align-self-center" style="margin-top: 2.8%">
                                 <button type="button" class="btn waves-effect waves-light btn-danger" style="width: 100%; height: 38px;">Firmar</button>
-                              </div>      
-            </div>    
-            <div class="row" style="margin: 1%">
+                              </div>
+                              </div>
+                               <div class="row" style="margin: 1%">
                             <div class="col-md-12 col-2 align-self-center"  style="margin-left: 85%">
                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-                           <button type="button" class="btn btn-primary" onclick="window.location.href = '../html/preparacion.html';">Aceptar</button>
-                           </div>                           
-            </div>
-
+                           <button type="button" class="btn btn-primary" onclick="window.location.href = '../html/acondicionamiento.html';">Aceptar</button>
+                           </div>                             
+  
+             </div>
+             
 
                 <!-- ============================================================== -->
                 <!-- End PAge Content -->
@@ -349,7 +369,6 @@
              </div>
 
             </div>
-
 
     <!-- ============================================================== -->
     <!-- All Jquery -->
