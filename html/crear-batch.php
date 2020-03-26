@@ -20,6 +20,8 @@
 
       <link rel="stylesheet" type="text/css" href="vendor/datatables/datatables.min.css">
       <link rel="stylesheet" type="text/css" href="vendor/datatables/DataTables-1.10.20/css/dataTables.bootstrap4.min.css">
+      <script src="https://kit.fontawesome.com/6589be6481.js" crossorigin="anonymous"></script>
+
      
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -38,26 +40,28 @@
     $sql5 = mysqli_query($conn, "SELECT * From producto");
     $sql6 = mysqli_query($conn, "SELECT * FROM batch INNER JOIN producto ON batch.id_producto = producto.id INNER JOIN linea ON batch.id_linea = linea.id INNER JOIN propietario ON batch.id_propietario = propietario.id INNER JOIN presentacion_comercial ON batch.id_presentacion = presentacion_comercial.id");
   if (isset($_GET['edit'])) {
-      $id_batch = $_GET['edit'];
+    $idbatch = $_GET['edit'];
+    $update = true;
+    $record = mysqli_query($conn, "SELECT * FROM batch WHERE id_batch=$idbatch");
 
-      $rec = mysqli_query($conn, "SELECT * FROM batch WHERE id_batch=$id_batch");
-      $record = mysqli_fetch_array($rec);
-      $norefenrencia = $record ['norefenrencia'];
-      $nombrereferencia = $record ['nombrereferencia'];
-      $nombreproducto = $record ['nombreproducto'];
-      $notificacionsanitaria =$record ['notificacionsanitaria'];
-      $linea = $record ['linea'];
-      $marca = $record ['marca'];
-      $propietario = $record ['propietario'];
-      $presentacion = $record ['presentacion'];
-      $fechahoy = $record ['fechahoy'];
-      $fechaprogramacion =$record ['fechaprogramacion'];
-      $numerodelote = $record ['numerodelote'];
-      $tamañototallote = $record ['tamañototallote'];
-      $tamañolotepresentacion = $record ['tamañolotepresentacion'];
-      $unidadesxlote = $record ['unidadesxlote'];
-      $idbatch = $record ['idbatch'];
-      
+    if (count($record) == 1 ) {
+      $n = mysqli_fetch_array($record);
+      $norefenrencia = $n['numero_orden'];
+      $nombrereferencia = $n['nombre_referencia'];
+      $nombreproducto = $n['id_producto'];
+      $notificacionsanitaria =$n['notificacion_sanitaria'];
+      $linea = $n['id_linea'];
+      $marca = $n['id_marca'];
+      $propietario = $n['id_propietario'];
+      $presentacion = $n['id_presentacion'];
+      $fechahoy = $n['fecha_hoy'];
+      $fechaprogramacion =$n['fecha_programacion'];
+      $numerodelote = $n['numero_lote'];
+      $tamañototallote = $n['tamano_lote'];
+      $tamañolotepresentacion = $n['tamano_lote_presentacion'];
+      $unidadesxlote = $n['unidades_x_lote'];
+
+      }
     }
 
 
@@ -160,7 +164,7 @@
                         <select class="selectpicker form-control">
                         <option selected hidden>Acciones</option>
                         <option>Crear</option>
-                        <option>Editar</option>
+                        <option value="" id="Name2">Editar</option>
                         <option>Eliminar</option>
                       </select>
                     </div>
@@ -199,7 +203,7 @@
                               <div class="col-md-6 col-2 align-self-center">
                                 <label for="recipient-name" class="col-form-label">Marca:</label>
                                  <select class="form-control " name="marca" id="marca" required value="<?php echo $marca; ?>">
-                                        <option>Seleccione...</option>
+                                        <option  value="<?php echo $marca; ?>">Seleccione...</option>
                                         <?php
                                         while ($row = mysqli_fetch_array($sql)){
                                         echo "<option  value='".$row['id']."'>".$row['nombre'] . "</option>";
@@ -218,8 +222,8 @@
                               </div>
                               <div class="col-md-6 col-2 align-self-center">
                                 <label for="recipient-name" class="col-form-label">Propietario:</label>
-                                 <select class="form-control " name="propietario" id="propietario" required  value="<?php echo $propietario; ?>" >
-                                        <option>Seleccione...</option>
+                                 <select class="form-control " name="propietario" id="propietario" required   value="<?php echo $marca; ?>" >
+                                        <option  value="<?php echo $marca; ?>">Seleccione...</option>
                                         <?php
                                         while ($row = mysqli_fetch_array($sql2)){
                                         echo "<option  value='".$row['id']."'>".$row['nombre_propietario'] . "</option>";
@@ -232,7 +236,7 @@
                               <div class="col-md-6 col-2 align-self-center">
                                 <label for="recipient-name" class="col-form-label">Nombre producto:</label>
                                 <select class="form-control " name="nombreproducto" id="nombreproducto" required value="<?php echo $nombreproducto; ?>">
-                                        <option>Seleccione...</option>
+                                        <option value="<?php echo $nombreproducto; ?>">Seleccione...</option>
                                         <?php
                                         while ($row = mysqli_fetch_array($sql5)){
                                         echo "<option  value='".$row['id']."'>".$row['nombre_producto'] . "</option>";
@@ -243,7 +247,7 @@
                               <div class="col-md-6 col-2 align-self-center">
                                 <label for="recipient-name" class="col-form-label">Presentación comercial:</label>
                                     <select class="form-control " name="presentacion" id="presentacion" required  value="<?php echo $presentacion; ?>">
-                                        <option>Seleccione...</option>
+                                        <option value="<?php echo $presentacion; ?>">Seleccione...</option>
                                         <?php
                                         while ($row = mysqli_fetch_array($sql3)){
                                         echo "<option  value='".$row['id']."'>".$row['presentacion'] . "</option>";
@@ -260,7 +264,7 @@
                               <div class="col-md-6 col-2 align-self-center">
                                 <label for="recipient-name" class="col-form-label">Linea:</label>
                                  <select class="form-control " name="linea" id="linea" required  value="<?php echo $linea; ?>" >
-                                        <option>Seleccione...</option>
+                                        <option value="<?php echo $linea; ?>">Seleccione...</option>
                                         <?php
                                         while ($row = mysqli_fetch_array($sql4)){
                                         echo "<option  value='".$row['id']."'>".$row['nombre_linea'] . "</option>";
@@ -301,10 +305,16 @@
                               </div>
                               <div class="modal-footer">
                                 
-                                <?php if ($edit_state == false): ?>
+                                <?php if ($update == false): ?>
                                   <button type="submit" class="btn btn-primary" name="save">Crear</button>
+                                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
                                 <?php else: ?>
-                                  <button type="submit" class="btn btn-primary" name="update">modificar</button>
+                                  <button type="submit" class="btn btn-primary" name="update">Modificar</button>
+                                  <script type="text/javascript">
+                                  $(window).on('load',function(){
+                                      $('#myModal').modal('show');
+                                  });
+                                  </script>
                                 <?php endif ?>
                                  <!-- <button type="submit" class="btn btn-primary" name="save">Crear</button>
                                   <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>-->
@@ -531,36 +541,33 @@
                                                 <th>Linea</th>
                                                 <th>Fecha de Creación</th>
                                                 <th>Fecha de Programación</th>
-                                                <th>Estado</th>
+                                                <th></th>
+                                                <th></th>
                                                 
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <tr data-toggle="modal" data-target="#myModal3">
-                                                <td>1</td>
-                                                <td>Deshmukh</td>
-                                                <td>Prohaska</td>
-                                                <td>@Genelia</td>
-                                                <td>@Genelia</td>
-                                                <td>@Genelia</td>
-                                                <td>@Genelia</td>
-                                            </tr>
+                                      
                                             <?php 
                                                 while ($rows=mysqli_fetch_assoc($sql6))  
                                                 {                                                                                           
                                              ?>
                                              <tr>
-                                                <td> <a href="crear-batch.php?edit=<?php echo $rows['id_batch']; ?>" class="edit_btn" >Edit</a></td>
+                                                
+                                            <td><input type="checkbox" value="<?php echo $rows['id_batch']; ?>" id="Name1" name="Name1" onchange="copyTextValue(this);"></td>
+                                            
                                                 <td><?php echo $rows['id_batch']; ?></td>
                                                 <td><?php echo $rows['nombre_referencia']; ?></td>
                                                  <td><?php echo $rows['nombre_producto']; ?></td>
                                                 <td><?php echo $rows['nombre_propietario']; ?></td>
                                                 <td><?php echo $rows['presentacion']; ?></td>
                                                 <td><?php echo $rows['nombre_linea']; ?></td>
-
                                                  <td><?php echo $rows['fecha_hoy']; ?></td>
                                                 <td><?php echo $rows['fecha_programacion']; ?></td>
-                                                <td><?php echo $rows['estado']; ?></td>
+                                                <td><a href="crear-batch.php?edit=<?php echo $rows ['id_batch']; ?>" class="btn btn-primary" ><i class="fas fa-edit"></i></a></td>
+                                                <td><a href="crear-batch.php?del=<?php echo $rows ['id_batch']; ?>" class="btn btn-primary" ><i class="fas fa-trash"></i></a></td>
+                                                
+                                                
 
                                             </tr>
                                              <?php                                                
@@ -614,6 +621,15 @@
     <script src="js/jquery.slimscroll.js"></script>
     <!--Wave Effects -->
     <script src="js/waves.js"></script>
+
+  <script type="text/javascript"> 
+    function copyTextValue(bf) {
+  var text1 = bf.checked ? document.getElementById("Name1").value : '';
+  document.getElementById("Name2").value = text1;
+  document.getElementById("Name3").value = text1;
+}
+</script>
+    <!--stickey kit -->
     <!--Menu sidebar -->
     <script src="js/sidebarmenu.js"></script>
     <!--stickey kit -->

@@ -6778,9 +6778,9 @@ File: scss
    ========================================================================== */
 [type="radio"]:not(:checked),
 [type="radio"]:checked {
-  position: absolute;
-  left: -9999px;
-  opacity: 0; }
+  position: relative;
+  left: 0px;
+  opacity: 100; }
 
 [type="radio"]:not(:checked) + label,
 [type="radio"]:checked + label {

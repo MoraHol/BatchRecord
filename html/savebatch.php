@@ -19,33 +19,31 @@ require('../conexion.php');
 		$unidadesxlote = "";
 		$idbatch = "0";
 
-$edit_state = false;
-
+$update = false;
 
 if (isset($_POST['save'])) {
 
-		$norefenrencia = mysqli_real_escape_string($conn, $_POST['norefenrencia']);
-		$nombrereferencia = mysqli_real_escape_string($conn, $_POST['nombrereferencia']);
-		$nombreproducto = mysqli_real_escape_string($conn, $_POST['nombreproducto']);
-		$notificacionsanitaria = mysqli_real_escape_string($conn, $_POST['notificacionsanitaria']);
-		$linea = mysqli_real_escape_string($conn, $_POST['linea']);
-		$marca = mysqli_real_escape_string($conn, $_POST['marca']);
-		$propietario = mysqli_real_escape_string($conn, $_POST['propietario']);
-		$presentacion = mysqli_real_escape_string($conn, $_POST['presentacion']);
-		$norefenrencia = mysqli_real_escape_string($conn, $_POST['norefenrencia']);
-		$fechahoy = mysqli_real_escape_string($conn, $_POST['fechahoy']);
-		$fechaprogramacion = mysqli_real_escape_string($conn, $_POST['fechaprogramacion']);
-		$numerodelote = mysqli_real_escape_string($conn, $_POST['numerodelote']);
-		$tamañototallote = mysqli_real_escape_string($conn, $_POST['tamañototallote']);
-		$tamañolotepresentacion = mysqli_real_escape_string($conn, $_POST['tamañolotepresentacion']);
-		$unidadesxlote = mysqli_real_escape_string($conn, $_POST['unidadesxlote']);
+		$norefenrencia = $_POST['norefenrencia'];
+		$nombrereferencia = $_POST['nombrereferencia'];
+		$nombreproducto = $_POST['nombreproducto'];
+		$notificacionsanitaria = $_POST['notificacionsanitaria'];
+		$linea = $_POST['linea'];
+		$marca = $_POST['marca'];
+		$propietario = $_POST['propietario'];
+		$presentacion = $_POST['presentacion'];
+		$norefenrencia = $_POST['norefenrencia'];
+		$fechahoy = $_POST['fechahoy'];
+		$fechaprogramacion = $_POST['fechaprogramacion'];
+		$numerodelote = $_POST['numerodelote'];
+		$tamañototallote = $_POST['tamañototallote'];
+		$tamañolotepresentacion = $_POST['tamañolotepresentacion'];
+		$unidadesxlote = $_POST['unidadesxlote'];
 		
 
+		mysqli_query($conn, "INSERT INTO batch (numero_orden, fecha_hoy, fecha_programacion, numero_lote, tamano_lote, tamano_lote_presentacion, unidades_x_lote, nombre_referencia,  notificacion_sanitaria, id_linea, id_marca, id_propietario, id_presentacion, id_producto) VALUES ('$norefenrencia', '$fechahoy', '$fechaprogramacion', '$numerodelote','$tamañototallote', '$tamañolotepresentacion', '$unidadesxlote', '$nombrereferencia', '$notificacionsanitaria', '$linea', '$marca', '$propietario', '$presentacion', '$nombreproducto')");
+		$_SESSION['message'] = "Address saved"; 
 
-$sql = "INSERT INTO batch (numero_orden, fecha_hoy, fecha_programacion, numero_lote, tamano_lote, tamano_lote_presentacion, unidades_x_lote, nombre_referencia,  notificacion_sanitaria, id_linea, id_marca, id_propietario, id_presentacion, id_producto) VALUES ('$norefenrencia', '$fechahoy', '$fechaprogramacion', '$numerodelote','$tamañototallote', '$tamañolotepresentacion', '$unidadesxlote', '$nombrereferencia', '$notificacionsanitaria', '$linea', '$marca', '$propietario', '$presentacion', '$nombreproducto')";
-
-$resul = mysqli_query($conn,$sql); // call 2nd query
-	header('location: crear-batch.php');
+		header('location: crear-batch.php');
 	}
 
 
@@ -53,24 +51,37 @@ $resul = mysqli_query($conn,$sql); // call 2nd query
 
 	if (isset($_POST['update'])) {
 
-		$norefenrencia = mysqli_real_escape_string($conn, $_POST['norefenrencia']);
-		$nombrereferencia = mysqli_real_escape_string($conn, $_POST['nombrereferencia']);
-		$nombreproducto = mysqli_real_escape_string($conn, $_POST['nombreproducto']);
-		$notificacionsanitaria = mysqli_real_escape_string($conn, $_POST['notificacionsanitaria']);
-		$linea = mysqli_real_escape_string($conn, $_POST['linea']);
-		$marca = mysqli_real_escape_string($conn, $_POST['marca']);
-		$propietario = mysqli_real_escape_string($conn, $_POST['propietario']);
-		$presentacion = mysqli_real_escape_string($conn, $_POST['presentacion']);
-		$norefenrencia = mysqli_real_escape_string($conn, $_POST['norefenrencia']);
-		$fechahoy = mysqli_real_escape_string($conn, $_POST['fechahoy']);
-		$fechaprogramacion = mysqli_real_escape_string($conn, $_POST['fechaprogramacion']);
-		$numerodelote = mysqli_real_escape_string($conn, $_POST['numerodelote']);
-		$tamañototallote = mysqli_real_escape_string($conn, $_POST['tamañototallote']);
-		$tamañolotepresentacion = mysqli_real_escape_string($conn, $_POST['tamañolotepresentacion']);
-		$unidadesxlote = mysqli_real_escape_string($conn, $_POST['unidadesxlote']);
-		$idbatch  = mysqli_real_escape_string($conn, $_POST['idbatch']);
+		$idbatch = $_POST['idbatch'];
+		$norefenrencia = $_POST['norefenrencia'];
+		$nombrereferencia = $_POST['nombrereferencia'];
+		$nombreproducto = $_POST['nombreproducto'];
+		$notificacionsanitaria = $_POST['notificacionsanitaria'];
+		$linea = $_POST['linea'];
+		$marca = $_POST['marca'];
+		$propietario = $_POST['propietario'];
+		$presentacion = $_POST['presentacion'];
+		$fechahoy = $_POST['fechahoy'];
+		$fechaprogramacion = $_POST['fechaprogramacion'];
+		$numerodelote = $_POST['numerodelote'];
+		$tamañototallote = $_POST['tamañototallote'];
+		$tamañolotepresentacion = $_POST['tamañolotepresentacion'];
+		$unidadesxlote = $_POST['unidadesxlote'];
 
-		}
+	$modify = mysqli_query($conn, "UPDATE batch SET numero_orden='$norefenrencia', fecha_hoy='$fechahoy', fecha_programacion='$fechaprogramacion', numero_lote='$numerodelote', tamano_lote='$tamañototallote', tamano_lote_presentacion='$tamañolotepresentacion', unidades_x_lote='$unidadesxlote', nombre_referencia='$nombrereferencia', notificacion_sanitaria='$notificacionsanitaria', id_linea='$linea', id_marca='$marca', id_propietario='$propietario', id_presentacion='$presentacion', id_producto='$nombreproducto' WHERE id_batch=$idbatch");
+	$_SESSION['message'] = "Address updated!"; 
+	header('location: crear-batch.php');
+
+
+}
+
+if (isset($_GET['del'])) {
+	$idbatch = $_GET['del'];
+
+	mysqli_query($conn, "DELETE FROM batch WHERE id_batch=$idbatch");
+	$_SESSION['message'] = "Address deleted!"; 
+	header('location: crear-batch.php');
+
+}
 
  ?>
  
