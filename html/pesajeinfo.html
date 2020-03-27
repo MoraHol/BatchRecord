@@ -106,7 +106,7 @@
                 <!-- ============================================================== -->
                 <div class="row page-titles">
                     <div class="col-md-5 col-2 align-self-center">
-                        <h1 class="text-themecolor m-b-0 m-t-0">Pesaje</h1> 
+                        <h1 class="text-themecolor m-b-0 m-t-0"><b>Pesaje</b></h1> 
                     </div>
                     <div class="col-md-3 col-4 align-self-center">
                         <!-- Search form -->
@@ -121,12 +121,6 @@
     <div class="container">
   <!-- Trigger the modal with a button -->
 
-  <select class="selectpicker form-control">
-                        <option selected hidden>Acciones</option>
-                        <option>Mustard</option>
-                        <option>Ketchup</option>
-                        <option>Relish</option>
-                      </select>
                     </div>
                     </div>
                  </div>
@@ -144,7 +138,7 @@
     <div class="card-header" id="headingOne">
       <h5 class="mb-0">
         <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne" style="width: 100%">
-          Información del producto
+          <b>INFORMACIÓN DEL PRODUCTO</b>
         </button>
       </h5>
     </div>
@@ -153,15 +147,29 @@
       <div class="card-body">
         <div class="row" style="margin: 1%">
                               <div class="col-md-4 col-2 align-self-right" >
-                                <label for="recipient-name" class="col-form-label">No. Lote:</label>
+                                <label for="recipient-name" class="col-form-label">Fecha:</label>
+                                <input type="date" class="form-control" id="recipient2-name">
+                              </div>
+                              <div class="col-md-4 col-2 align-self-center">
+                                <label for="recipient-name" class="col-form-label">No Orden:</label>
+                                 <input type="text" class="form-control" id="recipient2-name">
+                              </div>
+                              <div class="col-md-4 col-2 align-self-center">
+                                <label for="recipient-name" class="col-form-label">No Lote:</label>
+                                 <input type="text" class="form-control" id="recipient2-name">
+                              </div>
+            </div>
+             <div class="row" style="margin: 1%">
+                              <div class="col-md-4 col-2 align-self-right" >
+                                <label for="recipient-name" class="col-form-label">Referencia:</label>
                                 <input type="text" class="form-control" id="recipient-name">
                               </div>
                               <div class="col-md-4 col-2 align-self-center">
-                                <label for="recipient-name" class="col-form-label">Fecha:</label>
-                                 <input type="date" class="form-control" id="recipient2-name">
+                                <label for="recipient-name" class="col-form-label">Nombre Referencia:</label>
+                                 <input type="text" class="form-control" id="recipient2-name">
                               </div>
                               <div class="col-md-4 col-2 align-self-center">
-                                <label for="recipient-name" class="col-form-label">No OP:</label>
+                                <label for="recipient-name" class="col-form-label">Linea:</label>
                                  <input type="text" class="form-control" id="recipient2-name">
                               </div>
             </div>
@@ -172,7 +180,7 @@
     <div class="card-header" id="headingTwo">
       <h5 class="mb-0">
         <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo"style="width: 100%">
-          Despeje de lineas y procesos
+          <b>DESPEJE DE LINEAS Y PROCESOS</b>
         </button>
       </h5>
     </div>
@@ -248,7 +256,7 @@
                                 <option>Mustard</option>
                                 <option>Ketchup</option>
                                 <option>Relish</option>
-                      </select>
+                               </select>
                               </div>
                               <div class="col-md-8 col-2 align-self-center">
                                 <label for="recipient-name" class="col-form-label">Observaciones:</label>
@@ -286,11 +294,42 @@
     <div class="card-header" id="headingThree">
       <h5 class="mb-0">
         <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree" style="width: 100%">
-          Pesaje y dispensación
+          <b>PESAJE Y DISPENSACIÓN</b>
         </button>
       </h5>
     </div>
     <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
+      <div class="card-body">
+                 <div class="row" style="margin: 1%">
+                              <div class="col-md-12 col-2 align-self-center" >
+                                <h3 for="recipient-name" class="col-form-label" style="text-align: center; background-color: #C0C0C0">Formula Maestra</h3>
+                              </div>
+                              <div class="row" style="margin: 1%">
+                              <div class="col-md-12 col-2 align-self-right" >
+                                <label for="recipient-name" class="col-form-label">Fecha:</label>
+                                <input type="date" class="form-control" id="recipient2-name">
+                              </div>
+                            </div>
+                           
+                            <div class="row" style="margin: 1%; text-align: center;">
+                              <div class="col-md-3 col-2 align-self-right" >
+                                <label for="recipient-name" class="col-form-label">Entrega de formula Maestra para solicitud de materia prima</label>
+                                <input type="text" class="form-control" id="recipient-name" readonly>
+                              </div>
+                              <div class="col-md-3 col-2 align-self-center" style="margin-top: 2%">
+                                <label for="recipient-name" class="col-form-label">Lleva Materia prima a la escusa</label>
+                                 <input type="text" class="form-control" id="recipient-name" readonly>
+                              </div>
+                              <div class="col-md-3 col-2 align-self-center">
+                                <label for="recipient-name" class="col-form-label">Verificación del estado de Identificación y Aprovación Materias primas</label>
+                                 <input type="text" class="form-control" id="recipient-name" readonly>
+                              </div>
+                              <div class="col-md-3 col-2 align-self-center" style="margin-top: 2%">
+                                <label for="recipient-name" class="col-form-label">Toma de materia prima de la esclusa</label>
+                                 <input type="text" class="form-control" id="recipient-name" readonly>
+                              </div>
+            </div>
+            </div>
       <div class="card-body">
                  <div class="row" style="margin: 1%">
                               <div class="col-md-12 col-2 align-self-center" >

@@ -5499,6 +5499,7 @@ button.close {
           justify-content: space-between;
   padding: 15px;
   border-bottom: 1px solid #eceeef;
+  background-color: #FF8D6D !important;
 }
 
 .modal-title {

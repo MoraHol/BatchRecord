@@ -129,7 +129,7 @@
                         <!-- ============================================================== -->
                         <li class="nav-item dropdown">
                             <!-- <a class="nav-link dropdown-toggle text-muted waves-effect waves-dark" href="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="../assets/images/campana.png" alt="noty" class="profile-pic m-r-12" /></a>-->
-                            <a class="nav-link dropdown-toggle text-muted waves-effect waves-dark" href="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="../assets/images/users/1.jpg" alt="user" class="profile-pic m-r-10" />Jonathan Hernandez</a>
+                            <a class="nav-link dropdown-toggle text-muted waves-effect waves-dark" href="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Jonathan Hernandez</a>
                         </li>
                     </ul>
                 </div>
@@ -154,7 +154,7 @@
                 <!-- ============================================================== -->
                 <div class="row page-titles">
                     <div class="col-md-5 col-2 align-self-right">
-                        <h1 class="text-themecolor m-b-0 m-t-0" style="margin-left: 7%">Batch Record</h1> 
+                        <h1 class="text-themecolor m-b-0 m-t-0" style="margin-left: 7%"><b>Batch Record</b></h1> 
                     </div>
                     <div class="col-md-3 col-4 align-self-center">
                         <!-- Search form -->
@@ -180,7 +180,7 @@
      <div class="modal fade" id="myModal" role="dialog" tabindex="-1">
         <div class="modal-dialog modal-lg">
         <div class="modal-content">
-                          <div class="modal-header">
+                          <div class="modal-header" style="  background-color: #FF8D6D !important;">
                             <h5 class="modal-title" id="exampleModalLabel">Crear Batch Record</h5>
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                               <span aria-hidden="true">&times;</span>
