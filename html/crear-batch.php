@@ -129,7 +129,11 @@
                         <!-- ============================================================== -->
                         <li class="nav-item dropdown">
                             <!-- <a class="nav-link dropdown-toggle text-muted waves-effect waves-dark" href="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="../assets/images/campana.png" alt="noty" class="profile-pic m-r-12" /></a>-->
-                            <a class="nav-link dropdown-toggle text-muted waves-effect waves-dark" href="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Jonathan Hernandez</a>
+                            <a class="nav-link dropdown-toggle text-muted waves-effect waves-dark" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" id="dropdownMenuenlace">Jonathan Hernandez</a>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuenlace">
+                            <a href="#" class="dropdown-item">Cambiar contraseña</a>
+                            <a href="../index.html" class="dropdown-item">Cerrar sesión</a>
+                            </div>
                         </li>
                     </ul>
                 </div>
