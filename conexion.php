@@ -1,6 +1,6 @@
 <?php
 $servername = "localhost";
-$database = "teenuste_batchrecord2";
+$database = "teenuste_batchrecord";
 $username = "root";
 $password = "";
 // Create connection
