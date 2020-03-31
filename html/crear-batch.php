@@ -231,14 +231,23 @@ $sql5 = mysqli_query($conn, "SELECT * From producto");
                               </div>
                               <div class="row page">
                               <div class="col-md-6 col-2 align-self-center">
-                                <label for="recipient-name" class="col-form-label">Estado:</label>
-                                <
-                                 <select class="selectpicker form-control" id="filtrar1" name="numerodelote" style="width: 80%" value="<?php echo $estado; ?>">
-                                        <option selected hidden>Estado</option>
-                                        <option value="1">Activo</option>
+                                <?php if ($update == false): ?>
+                                  <label for="recipient-name" class="col-form-label">Estado:</label><br>
+                                
+                                 <select class="selectpicker form-control" id="filtrar1" name="numerodelote" style="width: 80%" disabled>
                                         <option value="0">Detenido</option>
+                                 </select>
+                                <?php else: ?>
+                                  <label for="recipient-name" class="col-form-label">Estado:</label><br>
+                                
+                                 <select class="selectpicker form-control" id="filtrar1" name="numerodelote" style="width: 80%" value="<?php echo $estado; ?>">
+                                       <option value="0">Detenido</option>
+                                        <option value="1">Activo</option>
                                         <option value="2">En proceso</option>
                                         </select>
+                                  </script>
+                                <?php endif ?>
+                                
                               </div>
                               <div class="col-md-6 col-2 align-self-center">
                                 <label for="recipient-name" class="col-form-label">Linea:</label>
@@ -594,11 +603,13 @@ $sql5 = mysqli_query($conn, "SELECT * From producto");
     <script src="js/waves.js"></script>
 
   <script type="text/javascript"> 
-    function copyTextValue(bf) {
-  var text1 = bf.checked ? document.getElementById("Name1").value : '';
-  document.getElementById("Name2").value = text1;
-  document.getElementById("Name3").value = text1;
-}
+$(function () {
+    var $src = $('#tamañototallote'),
+        $dst = $('#tamañolotepresentacion');
+    $src.on('input', function () {
+        $dst.val($src.val());
+    });
+});
 </script>
 
 <script type="text/javascript">
