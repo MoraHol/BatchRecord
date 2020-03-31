@@ -187,10 +187,28 @@ $sql5 = mysqli_query($conn, "SELECT * From producto");
                                 <input type="hidden" name="idbatch" value="<?php echo $idbatch; ?>">
                                 <div class="row page">
                               <div class="col-md-10 col-2 align-self-center">
-                                <label for="recipient-name" class="col-form-label">No. Referencia:</label>
-                                <input type="text" class="form-control" id="name" name="norefenrencia" value="<?php echo $norefenrencia; ?>">
-                               
-                               
+                                 
+                               <?php if ($update == false): ?>
+                                  <label for="recipient-name" class="col-form-label">No. Referencia:</label>
+                                <select class="form-control " name="norefenrencia" id="name" required  value="<?php echo $norefenrencia; ?>" >
+                                        <option  value="<?php echo $norefenrencia; ?>">Seleccione...</option>
+                                        <?php
+                                        while ($row = mysqli_fetch_array($sql5)){
+                                        echo "<option >".$row['referencia'] . "</option>";
+                                        }
+                                        ?>
+                                    </select>                                
+                                    <?php else: ?>
+                                    <label for="recipient-name" class="col-form-label">No. Referencia:</label>
+                                <select class="form-control " name="norefenrencia" id="name" required  value="<?php echo $norefenrencia; ?>" >
+                                        <option ><?php echo $norefenrencia; ?></option>
+                                        <?php
+                                        while ($row = mysqli_fetch_array($sql5)){
+                                        echo "<option >".$row['referencia'] . "</option>";
+                                        }
+                                        ?>
+                                    </select> 
+                                <?php endif ?>
                               </div>
                               <div class="col-md-2 col-2 align-self-center">                                
                                 <input type="button" class="btn btn-primary" id="name-submit" style="margin-top: 43%; background-color: #FF8D6D !important; border:#FF8D6D !important " value="Cargar">
