@@ -1,5 +1,5 @@
 $('input#name-submit').on('click', function(){
-        	var name = $('select#name').val();
+        	var name = $('input#name').val();
         	if ($.trim(name) != '') {
         		$.post('../html/controller/savedata.php',{name: name}, function(data){
 

@@ -33,6 +33,30 @@
     require('savebatch.php'); 
 $sql5 = mysqli_query($conn, "SELECT * From producto");
  $sql6 = mysqli_query($conn, "SELECT * FROM producto INNER JOIN batch ON batch.id_producto = producto.referencia INNER JOIN linea ON producto.id_linea = linea.id INNER JOIN propietario ON producto.id_propietario = propietario.id INNER JOIN presentacion_comercial ON producto.id_presentacion_comercial = presentacion_comercial.id");
+   if (isset($_GET['edit'])) {
+    $idbatch = $_GET['edit'];
+    $update = true;
+    $record = mysqli_query($conn, "SELECT * FROM producto INNER JOIN batch ON batch.id_producto = producto.referencia WHERE id_batch=$idbatch");
+
+    if (count($record) == 1 ) {
+      $n = mysqli_fetch_array($record);
+      $norefenrencia = $n['referencia'];
+      $nombrereferencia = $n['nombre_referencia'];
+      $nombreproducto = $n['id_nombre_producto'];
+      $notificacionsanitaria =$n['id_notificacion_sanitaria'];
+      $linea = $n['id_linea'];
+      $marca = $n['id_marca'];
+      $propietario = $n['id_propietario'];
+      $presentacion = $n['id_presentacion_comercial'];
+      $fechahoy = $n['fecha_creacion'];
+      $fechaprogramacion =$n['fecha_programacion'];
+      $numerodelote = $n['numero_lote'];
+      $tamañototallote = $n['tamano_lote'];
+      $tamañolotepresentacion = $n['lote_presentacion'];
+      $unidadesxlote = $n['unidad_lote'];
+
+      }
+    }
  ?>
  <script src="https://code.jquery.com/jquery-1.11.2.min.js"></script>
  <script type="text/javascript">
@@ -153,7 +177,7 @@ $sql5 = mysqli_query($conn, "SELECT * From producto");
         <div class="modal-dialog modal-lg">
         <div class="modal-content">
                           <div class="modal-header" style="  background-color: #FF8D6D !important;">
-                            <h5 class="modal-title" id="exampleModalLabel">Crear Batch Record</h5>
+                            <h5 class="modal-title" id="exampleModalLabel"><b>Crear Batch Record</b></h5>
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                               <span aria-hidden="true">&times;</span>
                             </button>
@@ -164,18 +188,12 @@ $sql5 = mysqli_query($conn, "SELECT * From producto");
                                 <div class="row page">
                               <div class="col-md-10 col-2 align-self-center">
                                 <label for="recipient-name" class="col-form-label">No. Referencia:</label>
-                                <select class="form-control " name="norefenrencia" id="name" required  value="<?php echo $norefenrencia; ?>" >
-                                        <option  value="<?php echo $norefenrencia; ?>">Seleccione...</option>
-                                        <?php
-                                        while ($row = mysqli_fetch_array($sql5)){
-                                        echo "<option >".$row['referencia'] . "</option>";
-                                        }
-                                        ?>
-                                    </select>
+                                <input type="text" class="form-control" id="name" name="norefenrencia" value="<?php echo $norefenrencia; ?>">
+                               
                                
                               </div>
                               <div class="col-md-2 col-2 align-self-center">                                
-                                <input type="button" class="btn btn-primary" id="name-submit" style="margin-top: 43%" value="Buscar">
+                                <input type="button" class="btn btn-primary" id="name-submit" style="margin-top: 43%; background-color: #FF8D6D !important; border:#FF8D6D !important " value="Cargar">
                               </div>
                               </div>
                                 <div class="row page">
@@ -213,8 +231,14 @@ $sql5 = mysqli_query($conn, "SELECT * From producto");
                               </div>
                               <div class="row page">
                               <div class="col-md-6 col-2 align-self-center">
-                                <label for="recipient-name" class="col-form-label">Numero de lote:</label>
-                                <input type="text" class="form-control" id="recipient-name" name="numerodelote" name="numerodelote" value="<?php echo $numerodelote; ?>">
+                                <label for="recipient-name" class="col-form-label">Estado:</label>
+                                <
+                                 <select class="selectpicker form-control" id="filtrar1" name="numerodelote" style="width: 80%" value="<?php echo $estado; ?>">
+                                        <option selected hidden>Estado</option>
+                                        <option value="1">Activo</option>
+                                        <option value="0">Detenido</option>
+                                        <option value="2">En proceso</option>
+                                        </select>
                               </div>
                               <div class="col-md-6 col-2 align-self-center">
                                 <label for="recipient-name" class="col-form-label">Linea:</label>
@@ -455,12 +479,9 @@ $sql5 = mysqli_query($conn, "SELECT * From producto");
                                             
                                               
                                             <tr><td>
-                                        <select class="selectpicker form-control" id="filtrar1" style="width: 80%">
-                                        <option selected hidden>Filtrar</option>
-                                        <option>Activo</option>
-                                        <option>Detenido</option>
-                                        <option>En proceso</option>
-                                        </select>
+                                          Estado<input type="text" id="est" name="est">
+                                          Fecha Creacion:<input type="text" id="min">
+                                          Fecha Programacion:<input type="text" id="max">
                                            </td> </tr>
                                                 <tr><td>
                                                   <button type="button" class="btn waves-effect waves-light btn-danger pull-center" data-toggle="modal" data-target="#myModal2" style="width: 80%">Multipresentación</button>
@@ -579,6 +600,38 @@ $sql5 = mysqli_query($conn, "SELECT * From producto");
   document.getElementById("Name3").value = text1;
 }
 </script>
+
+<script type="text/javascript">
+    $.fn.dataTable.ext.search.push(
+  function(settings, data, dataIndex) {
+    var est = parseInt($('#est').val(), 10);
+    var max = parseInt($('#est').val(), 10);
+    var age = parseFloat(data[9]) || 0; // use data for the age column
+
+    if ((isNaN(est) && isNaN(max)) ||
+      (isNaN(est) && age <= max) ||
+      (est <= age && isNaN(max)) ||
+      (est <= age && age <= max)) {
+      return true;
+    }
+    return false;
+  }
+);
+
+$(document).ready(function() {
+  var table = $('#example').DataTable();
+  table.destroy();
+
+  // Event listener to the two range filtering inputs to redraw on input
+  $('#est').keyup(function() {
+
+    table.draw();
+  });
+});
+
+</script>
+
+
     <!--stickey kit -->
     <!--Menu sidebar -->
     <script src="js/sidebarmenu.js"></script>
