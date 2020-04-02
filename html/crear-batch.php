@@ -1,8 +1,12 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
+<<<<<<< HEAD
     <meta charset="iso-8859-1">
+=======
+    <meta charset="ISO-8859-1">
+>>>>>>> a99dcbf46a0af370cd81ab99d746f47f0dec1e47
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <!-- Tell the browser to be responsive to screen width -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
