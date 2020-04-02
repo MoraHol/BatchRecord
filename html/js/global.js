@@ -24,7 +24,7 @@ $('input#name-submit').on('click', function(){
         		$.post('../html/controller/savedata5.php',{name: name}, function(data){
 
         			$('div#name-data5').text(data);
-
+                   
         		});
         		$.post('../html/controller/savedata6.php',{name: name}, function(data){
 

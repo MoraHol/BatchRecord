@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <meta charset="utf-8">
+    <meta charset="iso-8859-1">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <!-- Tell the browser to be responsive to screen width -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -51,8 +51,8 @@ $sql5 = mysqli_query($conn, "SELECT * From producto");
       $fechahoy = $n['fecha_creacion'];
       $fechaprogramacion =$n['fecha_programacion'];
       $numerodelote = $n['numero_lote'];
-      $tamañototallote = $n['tamano_lote'];
-      $tamañolotepresentacion = $n['lote_presentacion'];
+      $tamanototallote = $n['tamano_lote'];
+      $tamanolotepresentacion = $n['lote_presentacion'];
       $unidadesxlote = $n['unidad_lote'];
 
       }
@@ -61,9 +61,9 @@ $sql5 = mysqli_query($conn, "SELECT * From producto");
  <script src="https://code.jquery.com/jquery-1.11.2.min.js"></script>
  <script type="text/javascript">
   $(function(){
-            $('#tamañototallote, #tamañolotepresentacion').keyup(function(){
-               var value1 = parseFloat($('#tamañototallote').val()) || 0;
-               var value2 = parseFloat($('#tamañolotepresentacion').val()) || 0;
+            $('#tamanototallote, #tamanolotepresentacion').keyup(function(){
+               var value1 = parseFloat($('#tamanototallote').val()) || 0;
+               var value2 = parseFloat($('#tamanolotepresentacion').val()) || 0;
                $('#unidadesxlote').val(value1 / value2);
             });
          });
@@ -164,7 +164,9 @@ $sql5 = mysqli_query($conn, "SELECT * From producto");
                         <option>Eliminar</option>
                       </select>
                     </div>
-
+ <!--<button type="button" onclick="displayRadioValue()"> 
+        Submit 
+    </button> -->
 
     <div class="col-md-2 col-2 align-self-center">
     <div class="container">
@@ -275,11 +277,11 @@ $sql5 = mysqli_query($conn, "SELECT * From producto");
                                 <div class="row page">
                               <div class="col-md-4 col-2 align-self-center">
                                 <label for="recipient-name" class="col-form-label">Tamaño del lote Total:</label>
-                                <input type="number" name="tamañototallote" id="tamañototallote" class="form-control" min="1" value="<?php echo $tamañototallote; ?>" />
+                                <input type="number" name="tamanototallote" id="tamanototallote" class="form-control" min="1" value="<?php echo $tamanototallote; ?>" required/>
                               </div>
                               <div class="col-md-4 col-2 align-self-center">
                                 <label for="recipient-name" class="col-form-label">Tamaño del lote por presentación:</label>
-                                 <input type="number" name="tamañolotepresentacion" id="tamañolotepresentacion" class="form-control" min="1" value="<?php echo $tamañolotepresentacion; ?>"/>
+                                 <input type="number" name="tamanolotepresentacion" id="tamanolotepresentacion" class="form-control" min="1" value="<?php echo $tamanolotepresentacion; ?>" required/>
                               </div>
                               <div class="col-md-4 col-2 align-self-center">
                                 <label for="recipient-name" class="col-form-label">Unidades por lote solicitadas:</label>
@@ -290,7 +292,7 @@ $sql5 = mysqli_query($conn, "SELECT * From producto");
                                <div class="row page">
                               <div class="col-md-6 col-2 align-self-center">
                                 <label for="recipient-name" class="col-form-label">Fecha de programación:</label>
-                                <input type="date" class="form-control" id="recipient-name" name="fechaprogramacion" value="<?php echo $fechaprogramacion; ?>">
+                                <input type="date" class="form-control" id="fecha" name="fechaprogramacion" value="<?php echo $fechaprogramacion; ?>" min="<?php $hoy=date("Y-m-d"); echo $hoy;?>" required>
                               </div>
                               <div class="col-md-6 col-2 align-self-center">
                                 <button type="button" class="btn waves-effect waves-light btn-danger pull-center" data-toggle="modal" data-target="#myModal4"data-dismiss="modal" aria-label="Close" style="width: 80%; margin-top: 12%">Clonar Batch</button>
@@ -299,7 +301,7 @@ $sql5 = mysqli_query($conn, "SELECT * From producto");
                                <div class="row page">
                               <div class="col-md-12 col-2 align-self-center">
                                 <label for="recipient-name" class="col-form-label">Autoriza:</label>
-                                <input type="text" class="form-control" id="recipient-name" name="autoriza">
+                                <input type="text" class="form-control" id="recipient-name" name="autoriza" required>
                               </div>
                               </div>
                               <div class="modal-footer">
@@ -506,9 +508,12 @@ $sql5 = mysqli_query($conn, "SELECT * From producto");
                                             
                                               
                                             <tr><td>
-                                          Estado<input type="text" id="est" name="est">
-                                          Fecha Creacion:<input type="text" id="min">
-                                          Fecha Programacion:<input type="text" id="max">
+                                          <select class="selectpicker form-control" id="filtrar1" style="width: 80%">
+                                        <option selected hidden>Filtrar</option>
+                                        <option>Activo</option>
+                                        <option>Detenido</option>
+                                        <option>En proceso</option>
+                                        </select>
                                            </td> </tr>
                                                 <tr><td>
                                                   <button type="button" class="btn waves-effect waves-light btn-danger pull-center" data-toggle="modal" data-target="#myModal2" style="width: 80%">Multipresentación</button>
@@ -528,7 +533,8 @@ $sql5 = mysqli_query($conn, "SELECT * From producto");
                                    <table class="table table-striped table-bordered" id="example"   >
                                         <thead>
                                             <tr>
-                                                <th></th>
+                                              <th></th>
+                                               
                                                 <th># de Orden</th>
                                                 <th>Referencia</th>
                                                 <th>Nombre Referencia</th>
@@ -551,8 +557,8 @@ $sql5 = mysqli_query($conn, "SELECT * From producto");
                                              ?>
                                              <tr>
                                                 
-                                            <td><input type="checkbox" value="<?php echo $rows['id_batch']; ?>" id="Name1" name="Name1" onchange="copyTextValue(this);"></td>
                                             
+                                                 <td><input type="radio" id='express' name="optradio" value="<?php echo $rows['id_batch']; ?>"></td>
                                                 <td><?php echo $rows['id_batch']; ?></td>
                                                 <td><?php echo $rows['referencia']; ?></td>
                                                  <td><?php echo $rows['nombre_referencia']; ?></td>
@@ -573,6 +579,7 @@ $sql5 = mysqli_query($conn, "SELECT * From producto");
                                              ?>
                                         </tbody>
                                     </table>
+                                    <div id="result"></div>
                                 </div>
                             </div>
                         </div>
@@ -622,8 +629,8 @@ $sql5 = mysqli_query($conn, "SELECT * From producto");
 
   <script type="text/javascript"> 
 $(function () {
-    var $src = $('#tamañototallote'),
-        $dst = $('#tamañolotepresentacion');
+    var $src = $('#tamanototallote'),
+        $dst = $('#tamanolotepresentacion');
     $src.on('input', function () {
         $dst.val($src.val());
     });
@@ -635,7 +642,7 @@ $(function () {
   function(settings, data, dataIndex) {
     var est = parseInt($('#est').val(), 10);
     var max = parseInt($('#est').val(), 10);
-    var age = parseFloat(data[9]) || 0; // use data for the age column
+    var age = parseFloat(data[10]) || 0; // use data for the age column
 
     if ((isNaN(est) && isNaN(max)) ||
       (isNaN(est) && age <= max) ||
@@ -659,6 +666,19 @@ $(document).ready(function() {
 });
 
 </script>
+<script> 
+    function displayRadioValue() { 
+      var ele = document.getElementsByName('optradio'); 
+      
+      for(i = 0; i < ele.length; i++) { 
+        if(ele[i].checked) 
+        document.getElementById("result").innerHTML
+            = "you Gender: "+ele[i].value; 
+      } 
+    } 
+  </script> 
+
+
 
 
     <!--stickey kit -->
