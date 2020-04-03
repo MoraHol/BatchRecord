@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <meta charset="iso-8859-1">
+    <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <!-- Tell the browser to be responsive to screen width -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -134,6 +134,68 @@ $sql2 = mysqli_query($conn, "SELECT * FROM formula INNER JOIN materia_prima ON f
                     </div>
                     </div>
                  </div>
+                             <!-- Modal -->
+     <div class="modal fade" id="myModal2" role="dialog" tabindex="-1">
+        <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+                          <form method="post" onsubmit="return enviar();">
+                          <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Firmar</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                              <span aria-hidden="true">&times;</span>
+                            </button>
+                          </div>
+                          <div class="modal-body">                              
+                                <div class="row page">
+                              <div class="col-md-6 col-2 align-self-center">
+                                <label for="recipient-name" class="col-form-label">Usuario:</label>
+                                <input type="text" class="form-control" id="usuario">
+                              </div>
+                              <div class="col-md-6 col-2 align-self-center">
+                              <label for="recipient-name" class="col-form-label">Contraseña:</label>
+                                <input type="text" class="form-control" id="contrasena">
+                              </div>
+                              </div>                              
+                          </div>
+                          <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                            <input type="submit" class="btn btn-primary" value="Firmar">   
+                            </form>
+                          </div>
+                        </div>
+                        </div>
+                      </div>
+                             <!-- Modal -->
+                             <!-- Modal -->
+     <div class="modal fade" id="myModal3" role="dialog" tabindex="-1">
+        <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+                          <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Firmar</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                              <span aria-hidden="true">&times;</span>
+                            </button>
+                          </div>
+                          <div class="modal-body">
+                              <form>
+                                <div class="row page">
+                              <div class="col-md-6 col-2 align-self-center">
+                                <label for="recipient-name" class="col-form-label">Usuario:</label>
+                                <input type="text" class="form-control" id="user3">
+                              </div>
+                              <div class="col-md-6 col-2 align-self-center">
+                              <label for="recipient-name" class="col-form-label">Contraseña:</label>
+                                <input type="text" class="form-control" id="user4">
+                              </div>
+                              </div>                              
+                          </div>
+                          <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                            <input type="button" class="btn btn-primary" id="user-submit1" value="Firmar" data-dismiss="modal">                            
+                          </div>
+                        </div>
+                        </div>
+                      </div>
                 <!-- ============================================================== -->
                 <!-- End Bread crumb and right sidebar toggle -->
                 <!-- ============================================================== -->
@@ -236,37 +298,7 @@ $sql2 = mysqli_query($conn, "SELECT * FROM formula INNER JOIN materia_prima ON f
 
          </div>
           
-              <!-- Modal -->
-     <div class="modal fade" id="myModal2" role="dialog" tabindex="-1">
-        <div class="modal-dialog modal-lg">
-        <div class="modal-content">
-                          <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLabel">Firmar</h5>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                              <span aria-hidden="true">&times;</span>
-                            </button>
-                          </div>
-                          <div class="modal-body">
-                              <form>
-                                <div class="row page">
-                              <div class="col-md-6 col-2 align-self-center">
-                                <label for="recipient-name" class="col-form-label">Usuario:</label>
-                                <input type="text" class="form-control" id="user1">
-                              </div>
-                              <div class="col-md-6 col-2 align-self-center">
-                              <label for="recipient-name" class="col-form-label">Contraseña:</label>
-                                <input type="text" class="form-control" id="user2">
-                              </div>
-                              </div>                              
-                          </div>
-                          <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-                            <input type="button" class="btn btn-primary" id="user-submit" value="Firmar">
-                            <div id="firma-data" class="displayallinfo" name="nombrereferencia"></div>
-                          </div>
-                        </div>
-                        </div>
-                      </div>
+  
 
          <div class="row" style="margin: 1%">
                               <div class="col-md-12 col-2 align-self-right" >
@@ -295,7 +327,7 @@ $sql2 = mysqli_query($conn, "SELECT * FROM formula INNER JOIN materia_prima ON f
         <div class="row" style="margin: 1%">
                               <div class="col-md-4 col-2 align-self-center">
                                 <label for="recipient-name" class="col-form-label">Realizado Por:</label>
-                                 <div id="firma-data" class="displayallinfo" name="nombrereferencia"></div>
+                                 <div id="firma1" class="displayallinfo" name="nombrereferencia"></div>
                               </div>
                               <div class="col-md-2 col-2 align-self-center" style="margin-top: 2.8%">
                                  <input type="button" class="btn btn-danger" data-toggle="modal" data-target="#myModal2" style="width: 100%; height: 38px;" value="Firmar">
@@ -303,10 +335,10 @@ $sql2 = mysqli_query($conn, "SELECT * FROM formula INNER JOIN materia_prima ON f
                               
                               <div class="col-md-4 col-2 align-self-center">
                                 <label for="recipient-name" class="col-form-label">Verificado Por:</label>
-                                 <input type="text" class="form-control" id="recipient2-name">
+                                 <div id="firma-data1" class="displayallinfo" name="nombrereferencia"></div>
                               </div>
                               <div class="col-md-2 col-2 align-self-center" style="margin-top: 2.8%">
-                                <button type="button" class="btn waves-effect waves-light btn-danger" style="width: 100%; height: 38px;">Firmar</button>
+                                <input type="button" class="btn btn-danger" data-toggle="modal" data-target="#myModal3" style="width: 100%; height: 38px;" value="Firmar">
                               </div>
             </div>  
         <div class="row" style="margin: 1%">
@@ -463,7 +495,29 @@ $sql2 = mysqli_query($conn, "SELECT * FROM formula INNER JOIN materia_prima ON f
     <!--Custom JavaScript -->
     <script src="js/custom.min.js"></script>
     <script src="js/datatables.js"></script>
-    <script src="js/global2.js"></script>
+    <script>
+        function enviar (){
+
+          $('#myModal2').modal('hide');
+            var usuario= document.getElementById('usuario').value;
+            var contrasena= document.getElementById('contrasena').value;  
+
+            var dataen = 'usuario='+usuario+'&contrasena='+contrasena;
+
+            $.ajax({
+                type: 'POST',
+                url: 'controller/save.php',
+                data: dataen,
+                success:function(resp){
+                  $('#firma1').html(resp);
+
+
+                }
+            });
+            return false;          
+
+        }
+    </script>
    
 </body>
 
