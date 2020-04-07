@@ -31,16 +31,15 @@
     require('../conexion.php'); 
     $idbatch = $_POST['idbatch'];
     $referencia = $_POST['referencia'];
- $sql6 = mysqli_query($conn, "SELECT * FROM producto INNER JOIN batch ON batch.id_producto = producto.referencia INNER JOIN linea ON producto.id_linea = linea.id INNER JOIN propietario ON producto.id_propietario = propietario.id INNER JOIN presentacion_comercial ON producto.id_presentacion_comercial = presentacion_comercial.id WHERE batch.id_batch = $idbatch");
+  $sql6 = mysqli_query($conn, "SELECT * FROM producto INNER JOIN batch ON batch.id_producto = producto.referencia INNER JOIN linea ON producto.id_linea = linea.id INNER JOIN propietario ON producto.id_propietario = propietario.id INNER JOIN presentacion_comercial ON producto.id_presentacion_comercial = presentacion_comercial.id INNER JOIN color ON producto.id_color = color.id INNER JOIN olor ON producto.id_olor = olor.id INNER JOIN apariencia ON producto.id_apariencia = apariencia.id INNER JOIN untuosidad ON producto.id_untuosidad = untuosidad.id INNER JOIN poder_espumoso ON producto.id_poder_espumoso = poder_espumoso.id INNER JOIN recuento_mesofilos ON producto.id_recuento_mesofilos = recuento_mesofilos.id INNER JOIN pseudomona ON producto.id_pseudomona = pseudomona.id INNER JOIN escherichia ON producto.id_escherichia = escherichia.id INNER JOIN staphylococcus ON producto.id_staphylococcus = staphylococcus.id INNER JOIN ph ON producto.id_ph = ph.id INNER JOIN viscosidad ON producto.id_viscosidad = viscosidad.id INNER JOIN densidad_gravedad ON producto.id_densidad_gravedad = densidad_gravedad.id  INNER JOIN grado_alcohol ON producto.id_grado_alcohol = grado_alcohol.id WHERE batch.id_batch = $idbatch");
 $sql5 = mysqli_query($conn, "SELECT * FROM preguntas ORDER BY RAND()");   
 $sql4 = mysqli_query($conn, "SELECT * FROM desinfectante");   
 $sql3 = mysqli_query($conn, "SELECT cargo FROM cargo WHERE id = 1"); 
-$sql31 = mysqli_query($conn, "SELECT cargo FROM cargo WHERE id = 2"); 
-$sql32 = mysqli_query($conn, "SELECT cargo FROM cargo WHERE id = 3"); 
-$sql33 = mysqli_query($conn, "SELECT cargo FROM cargo WHERE id = 4"); 
-$sql2 = mysqli_query($conn, "SELECT * FROM formula INNER JOIN materia_prima ON formula.id_materiaprima = materia_prima.referencia WHERE formula.id_producto = $referencia");   
+$sql2 = mysqli_query($conn, "SELECT * FROM formula INNER JOIN materia_prima ON formula.id_materiaprima = materia_prima.referencia WHERE formula.id_producto = $referencia");  
+$sql1 = mysqli_query($conn, "SELECT * FROM agitador");    
+$sql0 = mysqli_query($conn, "SELECT * FROM marmita");    
  ?>
- 
+
 </head>
 
 <body class="fix-header fix-sidebar card-no-border">
@@ -124,10 +123,11 @@ $sql2 = mysqli_query($conn, "SELECT * FROM formula INNER JOIN materia_prima ON f
                 <!-- ============================================================== -->
                 <div class="row page-titles">
                     <div class="col-md-5 col-2 align-self-center">
-                        <h1 class="text-themecolor m-b-0 m-t-0"><b>Pesaje</b></h1> 
+                        <h1 class="text-themecolor m-b-0 m-t-0"><b>Preparación</b></h1> 
                     </div>
                     <div class="col-md-3 col-4 align-self-center">
                         <!-- Search form -->
+                     
                     </div>
                     <div class="col-md-2 col-8 align-self-center">
                       
@@ -138,9 +138,19 @@ $sql2 = mysqli_query($conn, "SELECT * FROM formula INNER JOIN materia_prima ON f
     <div class="container">
   <!-- Trigger the modal with a button -->
 
+
                     </div>
                     </div>
                  </div>
+
+                <!-- ============================================================== -->
+                <!-- End Bread crumb and right sidebar toggle -->
+                <!-- ============================================================== -->
+                <!-- ============================================================== -->
+                <!-- Start Page Content -->
+                <!-- ============================================================== -->
+                                        <!-- Modal -->
+
                              <!-- Modal -->
      <div class="modal fade" id="myModal2" role="dialog" tabindex="-1">
         <div class="modal-dialog modal-lg">
@@ -172,8 +182,9 @@ $sql2 = mysqli_query($conn, "SELECT * FROM formula INNER JOIN materia_prima ON f
                         </div>
                         </div>
                       </div>
+
                              <!-- Modal -->
-                               <div class="modal fade" id="myModal3" role="dialog" tabindex="-1">
+     <div class="modal fade" id="myModal3" role="dialog" tabindex="-1">
         <div class="modal-dialog modal-lg">
         <div class="modal-content">
                           <form method="post" onsubmit="return enviar2();">
@@ -203,15 +214,10 @@ $sql2 = mysqli_query($conn, "SELECT * FROM formula INNER JOIN materia_prima ON f
                         </div>
                         </div>
                       </div>
-
-
-                <!-- ============================================================== -->
-                <!-- End Bread crumb and right sidebar toggle -->
-                <!-- ============================================================== -->
-                <!-- ============================================================== -->
-                <!-- Start Page Content -->
-                <!-- ============================================================== -->
-                <div class="row">
+                             <!-- Modal -->
+                             <!-- Modal -->
+   
+                    <div class="row">
                     <!-- column -->
                     <div class="col-lg-12">
                         <div id="accordion">
@@ -223,7 +229,7 @@ $sql2 = mysqli_query($conn, "SELECT * FROM formula INNER JOIN materia_prima ON f
     <div class="card-header" id="headingOne">
       <h5 class="mb-0">
         <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne" style="width: 100%">
-          <b>INFORMACIÓN DEL PRODUCTO</b>
+           <b>INFORMACIÓN DEL PRODUCTO</b>
         </button>
       </h5>
     </div>
@@ -299,26 +305,13 @@ $sql2 = mysqli_query($conn, "SELECT * FROM formula INNER JOIN materia_prima ON f
                               <label class="checkbox"> <input type="checkbox" name='checkboxvar[]' value="no" /></label>
                               </div>
                               <input type="text" name='checkboxvar[]' value="<?php echo $rows['id']; ?>" hidden/>
-                              
+                              <input type="text" name='checkboxvar[]' value="<?php echo $idbatch; ?>" hidden/>
                                 <?php 
           }
 
    ?>
 
          </div>
-                                            <?php 
-
-          while ($rows=mysqli_fetch_array($sql6))  {  
-
-
-                           ?>
-                               <input type="text" name="idbatch" value="<?php echo $idbatch $?>" readonly class="form-control datepicker" hidden>
-                                <?php 
-          }
-
-   ?>
-
-        
           
   
 
@@ -335,7 +328,7 @@ $sql2 = mysqli_query($conn, "SELECT * FROM formula INNER JOIN materia_prima ON f
                                         <option selected="true" disabled="disabled">Seleccione...</option>
                                         <?php
                                         while ($rows=mysqli_fetch_assoc($sql4))   {  
-                                        echo "<option value="$rows['id']">".$rows['nombre'] . "</option>";
+                                        echo "<option >".$rows['nombre'] . "</option>";
                                         }
                                         ?>
                                     </select> 
@@ -366,9 +359,9 @@ $sql2 = mysqli_query($conn, "SELECT * FROM formula INNER JOIN materia_prima ON f
         <div class="row" style="margin: 1%">
                             <div class="col-md-12 col-2 align-self-center" style="margin-left: 85%">
                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-                           <button type="button" class="btn btn-primary">Aceptar</button>
+                           <button type="submit" class="btn btn-primary">Aceptar</button>
                            </div>     
-                                           
+                           </form>                
             </div>                       
             </div>
       </div>
@@ -378,144 +371,242 @@ $sql2 = mysqli_query($conn, "SELECT * FROM formula INNER JOIN materia_prima ON f
     <div class="card-header" id="headingThree">
       <h5 class="mb-0">
         <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree" style="width: 100%">
-          <b>PESAJE Y DISPENSACIÓN</b>
+          <b>PREPARACIÓN</b>
         </button>
       </h5>
     </div>
     <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
       <div class="card-body">
                  <div class="row" style="margin: 1%">
-                              <div class="col-md-12 col-2 align-self-center" >                                
-                                <h3 for="recipient-name" class="col-form-label" style="text-align: center; background-color: #C0C0C0">Formula Maestra</h3>
-                              </div>
-                            <div class="row" style="margin: 1%; text-align: center;">
-                              <div class="col-md-3 col-2 align-self-right" >
-                                <label for="recipient-name" class="col-form-label"><b>Entrega de formula Maestra para solicitud de materia prima</b></label>
-                               
-                              </div>
-                              <div class="col-md-3 col-2 align-self-center">
-                                <label for="recipient-name" class="col-form-label"><b>Lleva Materia prima a la escusa</b></label>
-                                 
-                              </div>
-                              <div class="col-md-3 col-2 align-self-center">
-                                <label for="recipient-name" class="col-form-label"><b>Verificación del estado de Identificación y Aprovación Materias primas</b></label>
-                                
-                              </div>
-                              <div class="col-md-3 col-2 align-self-center">
-                                <label for="recipient-name" class="col-form-label"><b>Toma de materia prima de la esclusa</b></label>
-                                 
-                              </div>
-            </div>
-            </div>
-                                  
-                            <div class="row" style="margin: 1%; text-align: center;">
-                              <?php 
-                                   while ($rows=mysqli_fetch_assoc($sql32))  
-                                  {  
-                                  ?>
-                              <div class="col-md-3 col-2 align-self-right" >
-                                
-                                <input type="text" class="form-control" id="recipient-name"  value="<?php echo $rows['cargo']; ?>" readonly style="text-align: center !important;">
-                              </div>
-                              <?php 
-                                }
-
-                         ?>
-
-                                 <?php 
-                                   while ($rows=mysqli_fetch_assoc($sql31))  
-                                  {  
-                                  ?>
-                              <div class="col-md-3 col-2 align-self-right" >
-                                
-                                <input type="text" class="form-control" id="recipient-name"  value="<?php echo $rows['cargo']; ?>" readonly style="text-align: center !important;">
-                              </div>
-                              <?php 
-                                }
-
-                         ?>
-                                  <?php 
-                                   while ($rows=mysqli_fetch_assoc($sql33))  
-                                  {  
-                                  ?>
-                              <div class="col-md-3 col-2 align-self-right" >
-                                
-                                <input type="text" class="form-control" id="recipient-name"  value="<?php echo $rows['cargo']; ?>" readonly style="text-align: center !important;">
-                              </div>
-                              <?php 
-                                }
-
-                         ?>
-                                 <?php 
-                                   while ($rows=mysqli_fetch_assoc($sql3))  
-                                  {  
-                                  ?>
-                              <div class="col-md-3 col-2 align-self-right" >
-                                
-                                <input type="text" class="form-control" id="recipient-name"  value="<?php echo $rows['cargo']; ?>" readonly style="text-align: center !important;">
-                              </div>
-                              <?php 
-                                }
-
-                         ?>
-            </div>
-            
-      <div class="card-body">
-                 <div class="row" style="margin: 1%">
                               <div class="col-md-12 col-2 align-self-center" >
-                                <h3 for="recipient-name" class="col-form-label" style="text-align: center; background-color: #C0C0C0">Pesaje</h3>
+                                <h3 for="recipient-name" class="col-form-label" style="text-align: center; background-color: #C0C0C0">Identificar</h3>
                               </div>
-                              <div class="col-md-12 col-2 align-self-center" >
-                                                        
-                               <table class="table">
-                                   <thead>
-                                            <tr>
-                                                <th>Referencia</th>
-                                                <th>Materia prima</th>
-                                                <th>Peso GRS</th>                                          
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <?php 
-                                                while ($rows=mysqli_fetch_assoc($sql2))  
-                                                {                                                                                           
-                                             ?> 
-                                            <tr>
-                                               <td><input type="text" class="form-control" nombre="referencia" value="<?php echo $rows['referencia']; ?>" readonly></td>
-                                                <td><input type="text" class="form-control" nombre="alias" value="<?php echo $rows['alias']; ?>" readonly></td>
-                                                <td><input type="text" class="form-control" nombre="alias" value="<?php echo $rows['porcentaje']; ?>" readonly></td>
-                                            </tr>
-                                                 <?php 
-                                                      }
-                                               ?>
-                               </table>                            
+                                <div class="col-md-6 col-2 align-self-right" >
+                                <label for="recipient-name" class="col-form-label">Identificaciòn agitador</label>
+                               <select class="form-control " name="desinfectante" required >
+                                        <option selected="true" disabled="disabled">Seleccione...</option>
+                                        <?php
+                                        while ($rows=mysqli_fetch_assoc($sql1))   {  
+                                        echo "<option >".$rows['nombre'] . "</option>";
+                                        }
+                                        ?>
+                                    </select> 
+                              </div>
+                  
+                                <div class="col-md-6 col-2 align-self-right" >
+                                <label for="recipient-name" class="col-form-label">Identificaciòn de la marmita o tanque</label>
+                               <select class="form-control " name="desinfectante" required >
+                                        <option selected="true" disabled="disabled">Seleccione...</option>
+                                        <?php
+                                        while ($rows=mysqli_fetch_assoc($sql0))   {  
+                                        echo "<option >".$rows['nombre'] . "</option>";
+                                        }
+                                        ?>
+                                    </select> 
+                              </div>  
+                               </div>
+                               <div class="row" style="margin: 1%">
+                               <div class="col-md-12 col-2 align-self-center" >
+                                <h3 for="recipient-name" class="col-form-label" style="text-align: center; background-color: #C0C0C0">Instructivo de Preparaciòn</h3>
+                              </div>
+                              <div class="col-md-6 col-2 align-self-center">
+                                <label for="recipient-name" class="col-form-label">PASO 1: <br/>PASO 2: <br/>PASO 3: <br/>PASO 4: <br/>PASO 5: <br/></label>
+                                
+                              </div>
+                              <div class="col-md-6 col-2 align-self-center">
+                               <section class="clock">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-10 input-wrapper">
+                    <div class="input">
+                        <input type="number" id="num" class="form-control" min="0">
+                        <select id="measure" class="form-control">
+                            <option value="0">Seleccionar</option>
+                            <option value="s">Segundos</option>
+                            <option value="m">Minutos</option>
+                            <option value="h">Horas</option>
+                        </select>
+                    </div>
+                    <div class="buttons-wrapper">
+                        
+                        <button class="btn" id="start-countdown">Iniciar</button>
+                    </div>
+                </div>
+                <div id="timer" class="col-12">
+                  <div class="clock-wrapper">
+                      <span class="hours">00</span>
+                      <span class="dots">:</span>
+                      <span class="minutes">00</span>
+                      <span class="dots">:</span>
+                      <span class="seconds">00</span>
+                  </div>
+                </div>
+                <div class="buttons-wrapper">
+                  <button class="btn" id="resume-timer">Continuar</button>
+                  <button class="btn" id="stop-timer">Pausa</button>
+                  <button class="btn" id="reset-timer">Reiniciar</button>
+                </div>
+            </div>
+        </div>
+    </section>
+                                
+                              </div>
                               </div>
 
          </div>
-                 <div class="row" style="margin: 1%">
+          <div class="row" style="margin: 1%">
+                              <div class="col-md-12 col-2 align-self-center" >
+                                <h3 for="recipient-name" class="col-form-label" style="text-align: center; background-color: #C0C0C0">Control de proceso</h3>
+                              </div>
+                               <div class="col-md-12 col-2 align-self-center">
+                               <div class="card">
+                            <div class="card-block">
+                                 <!--<h4 class="card-title">Basic Table</h4>
+                                <h6 class="card-subtitle">Add class <code>.table</code></h6>-->
+                                <div class="table-responsive">
+                              
+                               <table class="table table-striped table-bordered">
+                                   <thead>
+                                            <tr>
+                                                <th>Parametros</th>
+                                                <th>Especificaciones</th>
+                                                <th>Resultados</th>                                              
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>Color</td>
+                                                <td>Especificacion del area</td>
+                                                <td><select class="selectpicker form-control">
+                                                <option selected hidden> </option>
+                                                <option>Cumple</option>
+                                                <option>No cumple</option>
+                                                <option>No aplica</option>
+                                                </select>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>Olor</td>
+                                                <td>Especificacion del area</td>
+                                                <td><select class="selectpicker form-control">
+                                                <option selected hidden> </option>
+                                                <option>Cumple</option>
+                                                <option>No cumple</option>
+                                                <option>No aplica</option>
+                                                </select>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>Apariencia</td>
+                                                <td>Especificacion del area</td>
+                                                <td><select class="selectpicker form-control">
+                                                <option selected hidden> </option>
+                                                <option>Cumple</option>
+                                                <option>No cumple</option>
+                                                <option>No aplica</option>
+                                                </select>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>PH</td>
+                                                <td>Especificacion del area</td>
+                                                <td><select class="selectpicker form-control">
+                                                <option selected hidden> </option>
+                                                <option>Cumple</option>
+                                                <option>No cumple</option>
+                                                <option>No aplica</option>
+                                                </select>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>Viscocidad CPS</td>
+                                                <td>Especificacion del area</td>
+                                                <td><select class="selectpicker form-control">
+                                                <option selected hidden> </option>
+                                                <option>Cumple</option>
+                                                <option>No cumple</option>
+                                                <option>No aplica</option>
+                                                </select>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>Densidad o gravedad especifica G/ML</td>
+                                                <td>Especificacion del area</td>
+                                                <td><select class="selectpicker form-control">
+                                                <option selected hidden> </option>
+                                                <option>Cumple</option>
+                                                <option>No cumple</option>
+                                                <option>No aplica</option>
+                                                </select>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>Untuosidad</td>
+                                                <td>Especificacion del area</td>
+                                                <td><select class="selectpicker form-control">
+                                                <option selected hidden> </option>
+                                                <option>Cumple</option>
+                                                <option>No cumple</option>
+                                                <option>No aplica</option>
+                                                </select>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>Poder Espumoso</td>
+                                                <td>Especificacion del area</td>
+                                                <td><select class="selectpicker form-control">
+                                                <option selected hidden> </option>
+                                                <option>Cumple</option>
+                                                <option>No cumple</option>
+                                                <option>No aplica</option>
+                                                </select>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>Grado Alcohol</td>
+                                                <td>Especificacion del area</td>
+                                                <td><select class="selectpicker form-control">
+                                                <option selected hidden> </option>
+                                                <option>Cumple</option>
+                                                <option>No cumple</option>
+                                                <option>No aplica</option>
+                                                </select>
+                                                </td>
+                                            </tr>
+                               </table> 
+                              </div>
+                              </div>
+                              </div>
+                              </div>
+ <div class="row" style="margin: 1%">
                               <div class="col-md-4 col-2 align-self-center">
                                 <label for="recipient-name" class="col-form-label">Realizado Por:</label>
-                                 <div id="firma1" class="displayallinfo" name="nombrereferencia"></div>
+                                 <input type="text" class="form-control" id="recipient2-name">
                               </div>
                               <div class="col-md-2 col-2 align-self-center" style="margin-top: 2.8%">
-                                 <input type="button" class="btn btn-danger" data-toggle="modal" data-target="#myModal4" style="width: 100%; height: 38px;" value="Firmar">
+                                <button type="button" class="btn waves-effect waves-light btn-danger" style="width: 100%; height: 38px;">Firmar</button>
                               </div>
                               
                               <div class="col-md-4 col-2 align-self-center">
                                 <label for="recipient-name" class="col-form-label">Verificado Por:</label>
-                                 <div id="firma-data1" class="displayallinfo" name="nombrereferencia"></div>
+                                 <input type="text" class="form-control" id="recipient2-name">
                               </div>
                               <div class="col-md-2 col-2 align-self-center" style="margin-top: 2.8%">
-                                <input type="button" class="btn btn-danger" data-toggle="modal" data-target="#myModal5" style="width: 100%; height: 38px;" value="Firmar">
+                                <button type="button" class="btn waves-effect waves-light btn-danger" style="width: 100%; height: 38px;">Firmar</button>
                               </div>
+                               </div>
+
+            </div>
+                          <div class="row" style="margin: 1%">
+                             <button type="button" class="btn waves-effect waves-light btn-danger pull-right hidden-sm-down" data-toggle="modal" data-target="#myModal1" style="margin-left: 1%">Requiere Ajuste</button>                           
             </div>    
             <div class="row" style="margin: 1%">
-                            <div class="col-md-12 col-2 align-self-center"  style="margin-left: 86.5%">
+                            <div class="col-md-12 col-2 align-self-center"  style="margin-left: 85%">
                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-                           <button type="submit" class="btn btn-primary">Aceptar</button>
-                           </div>     
-                           </form>                           
+                           <button type="button" class="btn btn-primary" onclick="window.location.href = '../html/aprobacion.html';">Aceptar</button>
+                           </div>                           
             </div>
+
 
 
                 <!-- ============================================================== -->
@@ -523,8 +614,6 @@ $sql2 = mysqli_query($conn, "SELECT * FROM formula INNER JOIN materia_prima ON f
                 <!-- ============================================================== -->
             </div>
              </div>
-
-            </div>
 
 
     <!-- ============================================================== -->
@@ -548,7 +637,8 @@ $sql2 = mysqli_query($conn, "SELECT * FROM formula INNER JOIN materia_prima ON f
     <!--Custom JavaScript -->
     <script src="js/custom.min.js"></script>
     <script src="js/datatables.js"></script>
-    <script>
+    <script src="js/clock.js"></script>
+        <script>
         function enviar (){
 
           $('#myModal2').modal('hide');
@@ -571,7 +661,7 @@ $sql2 = mysqli_query($conn, "SELECT * FROM formula INNER JOIN materia_prima ON f
 
         }
     </script>
-        <script>
+            <script>
         function enviar2 (){
 
           $('#myModal3').modal('hide');

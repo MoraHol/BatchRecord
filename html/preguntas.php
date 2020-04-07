@@ -6,6 +6,7 @@ if (isset($_POST['checkboxvar']))
 	$checkboxvar =$_POST['checkboxvar'];
 	$desinfectante =$_POST['desinfectante'];
 	$observaciones =$_POST['observaciones'];
+	$idbatch =$_POST['idbatch'];
 
     $respuestas = implode($checkboxvar);
 
@@ -36,6 +37,10 @@ if (isset($_POST['checkboxvar']))
 					)");
 
 
+        $create2 = mysqli_query($conn, "INSERT INTO observaciones_desinfectante (observaciones, id_desinfectante, id_modulo, id_batch) 
+			VALUES  ('$observaciones', '$desinfectante', '1', '$idbatch')");
+
+header('location: pesaje.php');
 }
 
 

@@ -559,7 +559,7 @@ $sql5 = mysqli_query($conn, "SELECT * From producto");
                                                 
                                             
                                                  <td><input type="radio" id='express' name="optradio" value="<?php echo $rows['id_batch']; ?>"></td>
-                                                <td><?php echo $rows['id_batch']; ?></td>
+                                                <td><?php echo $rows['numero_orden']; ?></td>
                                                 <td><?php echo $rows['referencia']; ?></td>
                                                  <td><?php echo $rows['nombre_referencia']; ?></td>
                                                 <td><?php echo $rows['presentacion']; ?></td>

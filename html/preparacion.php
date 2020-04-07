@@ -143,7 +143,7 @@ $sql5 = mysqli_query($conn, "SELECT * From producto");
                 <!-- ============================================================== -->
                 <div class="row page-titles">
                     <div class="col-md-5 col-2 align-self-right">
-                        <h1 class="text-themecolor m-b-0 m-t-0" style="margin-left: 7%"><b>Pesaje</b></h1> 
+                        <h1 class="text-themecolor m-b-0 m-t-0" style="margin-left: 7%"><b>Preparacion</b></h1> 
                     </div>
                     <div class="col-md-3 col-4 align-self-center">
                         <!-- Search form -->
@@ -186,7 +186,7 @@ $sql5 = mysqli_query($conn, "SELECT * From producto");
                                             
                                               
                                             <tr><td>
-                                            <select class="selectpicker form-control" id="filtrar1" style="width: 80%">
+                                             <select class="selectpicker form-control" id="filtrar1" style="width: 80%">
                                         <option selected hidden>Filtrar</option>
                                         <option>Activo</option>
                                         <option>Detenido</option>
@@ -243,7 +243,7 @@ $sql5 = mysqli_query($conn, "SELECT * From producto");
                                                 <td><?php echo $rows['estado']; ?></td>
                                                 
                                                <td>
-                                                  <form method="post" action="pesajeinfo.php">
+                                                  <form method="post" action="preparacioninfo.php">
                                                     <input type="submit" name="action" value="Ingresar" class="btn btn-primary"/>                                     
                                                     <input type="hidden" name="idbatch" value="<?php echo $rows['id_batch']; ?>" />
                                                      <input type="hidden" name="referencia" value="<?php echo $rows['referencia']; ?>" />
