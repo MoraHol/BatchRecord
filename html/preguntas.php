@@ -7,8 +7,12 @@ if (isset($_POST['checkboxvar']))
 	$desinfectante =$_POST['desinfectante'];
 	$observaciones =$_POST['observaciones'];
 	$idbatch =$_POST['idbatch'];
+	$fechaprogramacion =$_POST['fechaprogramacion'];
+	$usuario1form =$_POST['usuario1form'];
+	$contrasena1form =$_POST['contrasena1form'];
+	$usuario2form =$_POST['usuario2form'];
+	$contrasena2form =$_POST['contrasena2form'];
 
-    $respuestas = implode($checkboxvar);
 
     $array1 = array_slice($checkboxvar, 0, 3);
     $array2 = array_slice($checkboxvar, 3, 3);
@@ -20,7 +24,6 @@ if (isset($_POST['checkboxvar']))
 	$array8 = array_slice($checkboxvar, 21, 3);
 	$array9 = array_slice($checkboxvar, 24, 3);
 	$array10 = array_slice($checkboxvar, 27, 3);
-
 
 
     $create = mysqli_query($conn, "INSERT INTO solucion_pregunta (solucion, id_pregunta, id_modulo, id_batch) 
@@ -37,10 +40,28 @@ if (isset($_POST['checkboxvar']))
 					)");
 
 
-        $create2 = mysqli_query($conn, "INSERT INTO observaciones_desinfectante (observaciones, id_desinfectante, id_modulo, id_batch) 
+    $create2 = mysqli_query($conn, "INSERT INTO observaciones_desinfectante (observaciones, id_desinfectante, id_modulo, id_batch) 
 			VALUES  ('$observaciones', '$desinfectante', '1', '$idbatch')");
 
-header('location: pesaje.php');
+    $create3 = mysqli_query($conn, "UPDATE batch SET fecha_actual='$fechaprogramacion' WHERE id_batch=$idbatch");
+
+    $create4 = mysqli_query($conn, "SELECT * FROM usuario WHERE email='$usuario1form' AND password='$contrasena1form'");
+
+    while($row=mysqli_fetch_array($create4)) {
+$idus1 = $row['id'];
+}
+
+	$create5 = mysqli_query($conn, "SELECT * FROM usuario WHERE email='$usuario2form' AND password='$contrasena2form'");
+
+    while($rows=mysqli_fetch_array($create5)) {
+$idus2 = $rows['id'];
+}
+
+	$create6 = mysqli_query($conn, "INSERT INTO firma (fecha, id_primerfirma, id_segundafirma, id_area, id_batch) 
+			VALUES  ('$fechaprogramacion', '$idus1', '$idus2', '1', '$idbatch')");
+	header('location: aprobacion.php');
+}
+
 }
 
 

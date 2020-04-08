@@ -156,11 +156,11 @@ $sql2 = mysqli_query($conn, "SELECT * FROM formula INNER JOIN materia_prima ON f
                                 <div class="row page">
                               <div class="col-md-6 col-2 align-self-center">
                                 <label for="recipient-name" class="col-form-label">Usuario:</label>
-                                <input type="text" class="form-control" id="usuario">
+                                <input type="text" class="form-control" id="usuario" name="usuario">
                               </div>
                               <div class="col-md-6 col-2 align-self-center">
                               <label for="recipient-name" class="col-form-label">Contraseña:</label>
-                                <input type="text" class="form-control" id="contrasena">
+                                <input type="password" class="form-control" id="contrasena" name="contrasena">
                               </div>
                               </div>                              
                           </div>
@@ -187,11 +187,11 @@ $sql2 = mysqli_query($conn, "SELECT * FROM formula INNER JOIN materia_prima ON f
                                 <div class="row page">
                               <div class="col-md-6 col-2 align-self-center">
                                 <label for="recipient-name" class="col-form-label">Usuario:</label>
-                                <input type="text" class="form-control" id="usuario2">
+                                <input type="text" class="form-control" id="usuario2" name="usuario2">
                               </div>
                               <div class="col-md-6 col-2 align-self-center">
                               <label for="recipient-name" class="col-form-label">Contraseña:</label>
-                                <input type="text" class="form-control" id="contrasena2">
+                                <input type="password" class="form-control" id="contrasena2" name="contrasena2">
                               </div>
                               </div>                              
                           </div>
@@ -203,6 +203,70 @@ $sql2 = mysqli_query($conn, "SELECT * FROM formula INNER JOIN materia_prima ON f
                         </div>
                         </div>
                       </div>
+                        <!-- Modal -->
+     <div class="modal fade" id="myModal4" role="dialog" tabindex="-1">
+        <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+                          <form method="post">
+                          <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Firmar</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                              <span aria-hidden="true">&times;</span>
+                            </button>
+                          </div>
+                          <div class="modal-body">                              
+                                <div class="row page">
+                              <div class="col-md-6 col-2 align-self-center">
+                                <label for="recipient-name" class="col-form-label">Usuario:</label>
+                                <input type="text" class="form-control" id="usuario3">
+                              </div>
+                              <div class="col-md-6 col-2 align-self-center">
+                              <label for="recipient-name" class="col-form-label">Contraseña:</label>
+                                <input type="password" class="form-control" id="contrasena3">
+                              </div>
+                              </div>                              
+                          </div>
+                          <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                            <input type="submit" class="btn btn-primary" value="Firmar">   
+                            </form>
+                          </div>
+                        </div>
+                        </div>
+                      </div>
+                        <!-- Modal -->
+     <div class="modal fade" id="myModal5" role="dialog" tabindex="-1">
+        <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+                          <form method="post">
+                          <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Firmar</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                              <span aria-hidden="true">&times;</span>
+                            </button>
+                          </div>
+                          <div class="modal-body">                              
+                                <div class="row page">
+                              <div class="col-md-6 col-2 align-self-center">
+                                <label for="recipient-name" class="col-form-label">Usuario:</label>
+                                <input type="text" class="form-control" id="usuario4">
+                              </div>
+                              <div class="col-md-6 col-2 align-self-center">
+                              <label for="recipient-name" class="col-form-label">Contraseña:</label>
+                                <input type="password" class="form-control" id="contrasena4">
+                              </div>
+                              </div>                              
+                          </div>
+                          <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                            <input type="submit" class="btn btn-primary" value="Firmar">   
+                            </form>
+                          </div>
+                        </div>
+                        </div>
+                      </div>
+                             <!-- Modal -->
+                             <!-- Modal -->
 
 
                 <!-- ============================================================== -->
@@ -230,14 +294,17 @@ $sql2 = mysqli_query($conn, "SELECT * FROM formula INNER JOIN materia_prima ON f
 
     <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
       <div class="card-body">
+        <form method='post' id='userform' action='preguntas.php'>
         <div class="row" style="margin: 1%">
+
                               <div class="col-md-4 col-2 align-self-right" >
                                 <label for="recipient-name" class="col-form-label">Fecha:</label>
-                                <input type="date" class="form-control" id="fecha" name="fechaprogramacion" value="<?php echo $fechaprogramacion; ?>" min="<?php $hoy=date("Y-m-d"); echo $hoy;?>" required>
+                                <input type="date" class="form-control" id="fecha" name="fechaprogramacion"  min="<?php $hoy=date("Y-m-d");?>" required>
                               </div>
                               <div class="col-md-4 col-2 align-self-center">
                                 <label for="recipient-name" class="col-form-label">No Orden:</label>
-                                 <input type="text" class="form-control" id="recipient2-name" value="<?php echo $rows['id_batch']; ?>" readonly>
+                                 <input type="text" class="form-control" id="recipient2-name" value="<?php echo $rows['numero_orden']; ?>" readonly>
+                                 <input type="text" class="form-control" name="idbatch" value="<?php echo $rows['id_batch']; ?>" hidden>
                               </div>
                               <div class="col-md-4 col-2 align-self-center">
                                 <label for="recipient-name" class="col-form-label">No Lote:</label>
@@ -280,7 +347,7 @@ $sql2 = mysqli_query($conn, "SELECT * FROM formula INNER JOIN materia_prima ON f
                                 <h3 for="recipient-name" class="col-form-label" style="text-align: center; background-color: #C0C0C0">Parámetros de control</h3>
                               </div>
          </div>
-          <form method='post' id='userform' action='preguntas.php'>
+          
          <div class="row" style="margin: 1%">
          
                                     <?php 
@@ -299,6 +366,7 @@ $sql2 = mysqli_query($conn, "SELECT * FROM formula INNER JOIN materia_prima ON f
                               <label class="checkbox"> <input type="checkbox" name='checkboxvar[]' value="no" /></label>
                               </div>
                               <input type="text" name='checkboxvar[]' value="<?php echo $rows['id']; ?>" hidden/>
+                              <input type="text" name='checkboxvar[]' value="<?php echo $idbatch; ?>" hidden/>
                               
                                 <?php 
           }
@@ -306,21 +374,7 @@ $sql2 = mysqli_query($conn, "SELECT * FROM formula INNER JOIN materia_prima ON f
    ?>
 
          </div>
-                                            <?php 
-
-          while ($rows=mysqli_fetch_array($sql6))  {  
-
-
-                           ?>
-                               <input type="text" name="idbatch" value="<?php echo $idbatch $?>" readonly class="form-control datepicker" hidden>
-                                <?php 
-          }
-
-   ?>
-
-        
-          
-  
+              
 
          <div class="row" style="margin: 1%">
                               <div class="col-md-12 col-2 align-self-right" >
@@ -335,7 +389,7 @@ $sql2 = mysqli_query($conn, "SELECT * FROM formula INNER JOIN materia_prima ON f
                                         <option selected="true" disabled="disabled">Seleccione...</option>
                                         <?php
                                         while ($rows=mysqli_fetch_assoc($sql4))   {  
-                                        echo "<option value="$rows['id']">".$rows['nombre'] . "</option>";
+                                        echo "<option value=".$rows['id'].">".$rows['nombre'] . "</option>";
                                         }
                                         ?>
                                     </select> 
@@ -349,7 +403,7 @@ $sql2 = mysqli_query($conn, "SELECT * FROM formula INNER JOIN materia_prima ON f
         <div class="row" style="margin: 1%">
                               <div class="col-md-4 col-2 align-self-center">
                                 <label for="recipient-name" class="col-form-label">Realizado Por:</label>
-                                 <div id="firma1" class="displayallinfo" name="nombrereferencia"></div>
+                                 <div id="firma1" class="displayallinfo" name="firma1"></div>
                               </div>
                               <div class="col-md-2 col-2 align-self-center" style="margin-top: 2.8%">
                                  <input type="button" class="btn btn-danger" data-toggle="modal" data-target="#myModal2" style="width: 100%; height: 38px;" value="Firmar">
@@ -493,9 +547,13 @@ $sql2 = mysqli_query($conn, "SELECT * FROM formula INNER JOIN materia_prima ON f
 
          </div>
                  <div class="row" style="margin: 1%">
+                  <input type="text" name="usuario1form" id="usuario1form" class="form-control" hidden/>
+                  <input type="text" name="contrasena1form" id="contrasena1form" class="form-control" hidden/>
+                  <input type="text" name="usuario2form" id="usuario2form" class="form-control" hidden/>
+                  <input type="text" name="contrasena2form" id="contrasena2form" class="form-control" hidden/>
                               <div class="col-md-4 col-2 align-self-center">
                                 <label for="recipient-name" class="col-form-label">Realizado Por:</label>
-                                 <div id="firma1" class="displayallinfo" name="nombrereferencia"></div>
+                                 <div id="firma3" class="displayallinfo" name="nombrereferencia"></div>
                               </div>
                               <div class="col-md-2 col-2 align-self-center" style="margin-top: 2.8%">
                                  <input type="button" class="btn btn-danger" data-toggle="modal" data-target="#myModal4" style="width: 100%; height: 38px;" value="Firmar">
@@ -503,7 +561,7 @@ $sql2 = mysqli_query($conn, "SELECT * FROM formula INNER JOIN materia_prima ON f
                               
                               <div class="col-md-4 col-2 align-self-center">
                                 <label for="recipient-name" class="col-form-label">Verificado Por:</label>
-                                 <div id="firma-data1" class="displayallinfo" name="nombrereferencia"></div>
+                                 <div id="firma4" class="displayallinfo" name="nombrereferencia"></div>
                               </div>
                               <div class="col-md-2 col-2 align-self-center" style="margin-top: 2.8%">
                                 <input type="button" class="btn btn-danger" data-toggle="modal" data-target="#myModal5" style="width: 100%; height: 38px;" value="Firmar">
@@ -594,7 +652,42 @@ $sql2 = mysqli_query($conn, "SELECT * FROM formula INNER JOIN materia_prima ON f
 
         }
     </script>
-   
+     <script type="text/javascript"> 
+$(function () {
+    var $src = $('#usuario'),
+        $dst = $('#usuario1form');
+    $src.on('input', function () {
+        $dst.val($src.val());
+    });
+});
+</script>
+     <script type="text/javascript"> 
+$(function () {
+    var $src = $('#contrasena'),
+        $dst = $('#contrasena1form');
+    $src.on('input', function () {
+        $dst.val($src.val());
+    });
+});
+</script>
+     <script type="text/javascript"> 
+$(function () {
+    var $src = $('#usuario2'),
+        $dst = $('#usuario2form');
+    $src.on('input', function () {
+        $dst.val($src.val());
+    });
+});
+</script>
+     <script type="text/javascript"> 
+$(function () {
+    var $src = $('#contrasena2'),
+        $dst = $('#contrasena2form');
+    $src.on('input', function () {
+        $dst.val($src.val());
+    });
+});
+</script>
 </body>
 
 </html>
