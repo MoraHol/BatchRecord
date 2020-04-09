@@ -61,8 +61,4 @@ $idus2 = $rows['id'];
 			VALUES  ('$fechaprogramacion', '$idus1', '$idus2', '1', '$idbatch')");
 	header('location: aprobacion.php');
 }
-
-}
-
-
- ?>
+?>
