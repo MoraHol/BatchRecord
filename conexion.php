@@ -1,8 +1,5 @@
 <?php
-$servername = "localhost";
-$database = "teenuste_batchrecord";
-$username = "teenuste_prueba";
-$password = "XnENOtLLEJmr";
+require_once __DIR__."/env.php";
 // Create connection
 $conn = mysqli_connect($servername, $username, $password, $database);
 ?>

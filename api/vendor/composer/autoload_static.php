@@ -4,7 +4,7 @@
 
 namespace Composer\Autoload;
 
-class ComposerStaticInit0fa8295ce673f1af44b2e69a1d281be7
+class ComposerStaticInitaf044aad5490b44d56900b1dd8f04c80
 {
     public static $files = array (
         '7b11c4dc42b3b3023073cb14e519683c' => __DIR__ . '/..' . '/ralouphie/getallheaders/src/getallheaders.php',
@@ -27,26 +27,29 @@ class ComposerStaticInit0fa8295ce673f1af44b2e69a1d281be7
         '786bf90caabc9e09b6ad4cc5ca8f0e30' => __DIR__ . '/..' . '/laminas/laminas-diactoros/src/functions/normalize_uploaded_files.legacy.php',
         '751a5a3f463e4be759be31748b61737c' => __DIR__ . '/..' . '/laminas/laminas-diactoros/src/functions/parse_cookie_header.legacy.php',
         '253c157292f75eb38082b5acb06f3f01' => __DIR__ . '/..' . '/nikic/fast-route/src/functions.php',
-        '320cde22f66dd4f5d3fd621d3e88b98f' => __DIR__ . '/..' . '/symfony/polyfill-ctype/bootstrap.php',
     );
 
     public static $prefixLengthsPsr4 = array (
         'S' => 
         array (
-            'Symfony\\Polyfill\\Ctype\\' => 23,
+            'Symfony\\Component\\Dotenv\\' => 25,
             'Slim\\' => 5,
         ),
         'P' => 
         array (
+            'Psr\\Log\\' => 8,
             'Psr\\Http\\Server\\' => 16,
             'Psr\\Http\\Message\\' => 17,
             'Psr\\Container\\' => 14,
-            'PhpOption\\' => 10,
         ),
         'N' => 
         array (
             'Nyholm\\Psr7\\' => 12,
             'Nyholm\\Psr7Server\\' => 18,
+        ),
+        'M' => 
+        array (
+            'Monolog\\' => 8,
         ),
         'L' => 
         array (
@@ -66,20 +69,20 @@ class ComposerStaticInit0fa8295ce673f1af44b2e69a1d281be7
         array (
             'FastRoute\\' => 10,
         ),
-        'D' => 
-        array (
-            'Dotenv\\' => 7,
-        ),
     );
 
     public static $prefixDirsPsr4 = array (
-        'Symfony\\Polyfill\\Ctype\\' => 
+        'Symfony\\Component\\Dotenv\\' => 
         array (
-            0 => __DIR__ . '/..' . '/symfony/polyfill-ctype',
+            0 => __DIR__ . '/..' . '/symfony/dotenv',
         ),
         'Slim\\' => 
         array (
             0 => __DIR__ . '/..' . '/slim/slim/Slim',
+        ),
+        'Psr\\Log\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/psr/log/Psr/Log',
         ),
         'Psr\\Http\\Server\\' => 
         array (
@@ -88,16 +91,12 @@ class ComposerStaticInit0fa8295ce673f1af44b2e69a1d281be7
         ),
         'Psr\\Http\\Message\\' => 
         array (
-            0 => __DIR__ . '/..' . '/psr/http-factory/src',
-            1 => __DIR__ . '/..' . '/psr/http-message/src',
+            0 => __DIR__ . '/..' . '/psr/http-message/src',
+            1 => __DIR__ . '/..' . '/psr/http-factory/src',
         ),
         'Psr\\Container\\' => 
         array (
             0 => __DIR__ . '/..' . '/psr/container/src',
-        ),
-        'PhpOption\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/phpoption/phpoption/src/PhpOption',
         ),
         'Nyholm\\Psr7\\' => 
         array (
@@ -106,6 +105,10 @@ class ComposerStaticInit0fa8295ce673f1af44b2e69a1d281be7
         'Nyholm\\Psr7Server\\' => 
         array (
             0 => __DIR__ . '/..' . '/nyholm/psr7-server/src',
+        ),
+        'Monolog\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/monolog/monolog/src/Monolog',
         ),
         'Laminas\\ZendFrameworkBridge\\' => 
         array (
@@ -131,17 +134,13 @@ class ComposerStaticInit0fa8295ce673f1af44b2e69a1d281be7
         array (
             0 => __DIR__ . '/..' . '/nikic/fast-route/src',
         ),
-        'Dotenv\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/vlucas/phpdotenv/src',
-        ),
     );
 
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->prefixLengthsPsr4 = ComposerStaticInit0fa8295ce673f1af44b2e69a1d281be7::$prefixLengthsPsr4;
-            $loader->prefixDirsPsr4 = ComposerStaticInit0fa8295ce673f1af44b2e69a1d281be7::$prefixDirsPsr4;
+            $loader->prefixLengthsPsr4 = ComposerStaticInitaf044aad5490b44d56900b1dd8f04c80::$prefixLengthsPsr4;
+            $loader->prefixDirsPsr4 = ComposerStaticInitaf044aad5490b44d56900b1dd8f04c80::$prefixDirsPsr4;
 
         }, null, ClassLoader::class);
     }

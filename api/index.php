@@ -2,8 +2,10 @@
 use Psr\Http\Message\ResponseInterface as Response;
 use Psr\Http\Message\ServerRequestInterface as Request;
 use Slim\Factory\AppFactory;
+use BatchRecord\Dao\Connection;
 
 require __DIR__ . '/vendor/autoload.php';
+require_once __DIR__.'/src/Autoloader.php';
 
 /**
  * Instantiate App
@@ -17,13 +19,14 @@ $app = AppFactory::create();
 // Add Routing Middleware
 $app->addRoutingMiddleware();
 
-$app->setBasePath('/api');
+$app->setBasePath('cd ../api');
 
 
 $errorMiddleware = $app->addErrorMiddleware(true, true, true);
 
 // Define app routes
-$app->get('/', function (Request $request, Response $response, $args) {   
+$app->get('/', function (Request $request, Response $response, $args) {
+    $connection = Connection::getInstance()->getConnection();
     $response->getBody()->write("Hello world");
     return $response;
 });
