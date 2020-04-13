@@ -35,7 +35,7 @@
  * @license http://opensource.org/licenses/MIT  MIT License
  * @author  Rob Dunham <contact@robunham.info>
  */
-class Autoloader
+class AutoloaderSourceCode
 {
     /**
      * File extension as a string. Defaults to ".php".
@@ -114,7 +114,11 @@ class Autoloader
 
 }
 
-Autoloader::setFileExt('.php');
-spl_autoload_register('Autoloader::loader');
+AutoloaderSourceCode::setFileExt('.php');
+spl_autoload_register(function ($className) {
+    $names = explode("\\" , $className);
+    $className = $names[count($names)-1];
+    AutoloaderSourceCode::loader($className);
+});
 
 // EOF

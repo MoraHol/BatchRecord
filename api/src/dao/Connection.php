@@ -2,6 +2,8 @@
 
 namespace BatchRecord\Dao;
 
+use BatchRecord\Constants\Constants;
+use Monolog\Handler\StreamHandler;
 use Monolog\Logger;
 
 use Symfony\Component\Dotenv\Dotenv;
@@ -17,8 +19,8 @@ class Connection
      */
     public function __construct()
     {
-        $logger = new Logger(self::class);
-        $logger->pushHandler(new StreamHandler(Constants::getPath(Constants::LOGS_PATH) . 'app.log', Logger::DEBUG));
+        $this->logger = new Logger(self::class);
+        $this->logger->pushHandler(new StreamHandler(Constants::getPath(Constants::LOGS_PATH) . 'app.log', Logger::DEBUG));
         $dotenv = new Dotenv();
         $dotenv->load(__DIR__ . '/../../environment.env');
         try {
@@ -26,9 +28,10 @@ class Connection
             $dbname = $_ENV["DB_NAME"];
             $dbport = $_ENV["DB_PORT"];
             $dsn = "mysql:host=$host;port=$dbport;dbname=$dbname";
-            $this->dbh = new PDO($dsn, $_ENV["DB_USER"], $_ENV["DB_PASS"]);
+            $this->dbh = new \PDO($dsn, $_ENV["DB_USER"], $_ENV["DB_PASS"]);
+            $this->logger->info("Connection SuccesFully DB",array("pdo"=> $this->dbh));
         } catch (PDOException $e) {
-            $logger->error($e->getMessage());
+            $this->logger->error($e->getMessage());
         }
     }
 
