@@ -316,10 +316,10 @@
                                                    class="form-control" min="1" value="<?= $tamanototallote; ?>"
                                                    required/>
                                         </div>
-                                        <!--<div class="col-md-4 col-2 align-self-center">
+                                        <div class="col-md-4 col-2 align-self-center d-none">
                           <label for="recipient-name" class="col-form-label">Tamaño del lote por presentación:</label>
                           <input type="number" name="tamanolotepresentacion" id="tamanolotepresentacion" class="form-control" min="1" value="<?= $tamanolotepresentacion; ?>" required/>
-                        </div>-->
+                        </div>
                                         <div class="col-md-4 col-2 align-self-center">
                                             <label for="recipient-name" class="col-form-label">Unidades por lote
                                                 solicitadas:</label>
@@ -747,6 +747,8 @@
         }else{
             $('#filtrar1').val(0);
         }
+
+        $('#tamanolotepresentacion').val($('#name-data6').text())
 
         return true;
     }
