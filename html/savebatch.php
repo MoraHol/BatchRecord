@@ -12,7 +12,7 @@
   if (isset($_POST['save'])) {
     $norefenrencia = $_POST['norefenrencia'];
     $fechahoy = $_POST['fechahoy'];
-    if(isset($_POST['fechaprogramacion'])){
+    if(isset($_POST['fechaprogramacion']) && $_POST["fechaprogramacion"] != ""){
       $fechaprogramacion = $_POST['fechaprogramacion'];
     }else{
       $fechaprogramacion = "000-000-00";
