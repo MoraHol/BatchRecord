@@ -749,9 +749,9 @@
         }
 
         $('#tamanolotepresentacion').val($('#name-data6').text())
-
+        console.log($('#form-submit-batch').serialize());
         return true;
     }
 </script>
-</body>
+</body>gi t
 </html>
