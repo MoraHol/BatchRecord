@@ -12,10 +12,10 @@
   if (isset($_POST['save'])) {
     $norefenrencia = $_POST['norefenrencia'];
     $fechahoy = $_POST['fechahoy'];
-    if(isset($_POST['fechaprogramacion']) && $_POST["fechaprogramacion"] != ""){
+    if (isset($_POST['fechaprogramacion']) && $_POST["fechaprogramacion"] != "") {
       $fechaprogramacion = $_POST['fechaprogramacion'];
-    }else{
-      $fechaprogramacion = "0000-00-00";
+    } else {
+      $fechaprogramacion = null;
     }
 
 
@@ -25,9 +25,12 @@
     $unidadesxlote = $_POST['unidadesxlote'];
     $estado = $_POST["numerodelote"];
     echo $estado;
-    echo $fechaprogramacion;
-    $create = mysqli_query($conn, "INSERT INTO batch (fecha_creacion, fecha_programacion, fecha_actual, numero_orden, numero_lote, tamano_lote, lote_presentacion, unidad_lote, estado, id_producto) 
-			VALUES ('$fechahoy', '$fechaprogramacion', '$fechahoy', 'OP012020',' X0010320', '$tamanototallote', '$tamanolotepresentacion', '$unidadesxlote', '$estado', '$norefenrencia')") or die ("Problemas al insertar" . mysqli_error($conn));
+
+    $query = "INSERT INTO batch (fecha_creacion, fecha_programacion, fecha_actual, numero_orden, numero_lote, tamano_lote, lote_presentacion, unidad_lote, estado, id_producto) 
+			VALUES ('$fechahoy',";
+    $query .= $fechaprogramacion != null ? $fechaprogramacion : "NULL";
+    $query .= "'$fechahoy', 'OP012020',' X0010320', '$tamanototallote', '$tamanolotepresentacion', '$unidadesxlote', '$estado', '$norefenrencia')";
+    $create = mysqli_query($conn, $query) or die ("Problemas al insertar" . mysqli_error($conn));
     header('location: crear-batch.php');
   }
   if (isset($_POST['update'])) {
