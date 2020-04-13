@@ -6,6 +6,7 @@ require __DIR__ . "/../AutoloaderSourceCode.php";
 
 
 $connection = Connection::getInstance()->getConnection();
-$connection->prepare("SELECT * FROM producto");
-$connection->
+$smmt = $connection->prepare("SELECT * FROM producto");
+$smmt->execute();
+$smmt->fetchAll(PDO::FETCH_ASSOC);
 

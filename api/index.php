@@ -3,6 +3,7 @@ use Psr\Http\Message\ResponseInterface as Response;
 use Psr\Http\Message\ServerRequestInterface as Request;
 use Slim\Factory\AppFactory;
 use BatchRecord\Dao\Connection;
+use BatchRecord\Dao\ProductDao;
 require __DIR__ . '/vendor/autoload.php';
 include_once __DIR__ . '/AutoloaderSourceCode.php';
 
@@ -13,6 +14,10 @@ include_once __DIR__ . '/AutoloaderSourceCode.php';
  * a supported PSR-7 implementation of your choice e.g.: Slim PSR-7 and a supported
  * ServerRequest creator (included with Slim PSR-7)
  */
+//variables
+  $productDao = new ProductDao();
+
+
 $app = AppFactory::create();
 $app->setBasePath('/apps/BatchRecord/api');
 
@@ -30,6 +35,11 @@ $app->get('/', function (Request $request, Response $response, $args) {
     $response->getBody()->write("hello world");
     return $response;
 });
+  $app->get('/products', function (Request $request, Response $response, $args) use ($productDao){
+    $products = $productDao->findAll();
+    $response->getBody()->write(json_encode($products));
+    return $response;
+  });
 
 // Run app
 $app->run();

@@ -283,7 +283,8 @@
 
                                               <select class="selectpicker form-control" id="filtrar1"
                                                       name="numerodelote" style="width: 80%" >
-                                                  <option value="1">Detenido</option>
+                                                  <option value="0">Detenido</option>
+                                                  <option value="1">Activo</option>
                                               </select>
                                           </div>
                                       <?php else: ?>
@@ -740,13 +741,13 @@
         $('#unidadesxlote').val(this.value / $('#name-data6').text());
     });
     function onSubmit(){
-
-        if($('#fecha').val() != undefined){
+        let fecha =  $('#fecha').val()
+        if( fecha !== '' ){
             $('#filtrar1').val(1);
         }else{
             $('#filtrar1').val(0);
         }
-        // console.log($('#form-submit-batch').serialize())
+
         return true;
     }
 </script>

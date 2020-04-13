@@ -1,17 +1,12 @@
 <?php
-namespace BatchRecord\Constants;
-class Constants
-{
-    const DAO_PATH = "src/dao/";
-    const LOGS_PATH = "logs/";
-    const MODELS_PATH = "src/models/";
 
-    /**
-     * Este metodo retorna la ruta de un archivo en el servidor
-     * @param String $route
-     * @return string Ruta asignada
-     */
-    public static function getPath(String $route){
-        return $_SERVER["DOCUMENT_ROOT"] . "/api/".$route;
-    }
-}
+  namespace BatchRecord\Constants;
+  class Constants
+  {
+    const API_PATH = __DIR__ . "/../../";
+    const DAO_PATH = self::API_PATH ."src/dao/";
+    const LOGS_PATH = self::API_PATH."logs/";
+    const MODELS_PATH = self::API_PATH ."src/models/";
+
+
+  }

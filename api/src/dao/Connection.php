@@ -20,7 +20,7 @@ class Connection
     public function __construct()
     {
         $this->logger = new Logger(self::class);
-        $this->logger->pushHandler(new StreamHandler(Constants::getPath(Constants::LOGS_PATH) . 'app.log', Logger::DEBUG));
+        $this->logger->pushHandler(new StreamHandler(Constants::LOGS_PATH . 'app.log', Logger::DEBUG));
         $dotenv = new Dotenv();
         $dotenv->load(__DIR__ . '/../../environment.env');
         try {
