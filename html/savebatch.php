@@ -15,7 +15,7 @@
     if(isset($_POST['fechaprogramacion']) && $_POST["fechaprogramacion"] != ""){
       $fechaprogramacion = $_POST['fechaprogramacion'];
     }else{
-      $fechaprogramacion = "000-000-00";
+      $fechaprogramacion = "0000-00-00";
     }
 
 
