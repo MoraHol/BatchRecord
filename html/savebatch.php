@@ -25,6 +25,7 @@
     $unidadesxlote = $_POST['unidadesxlote'];
     $estado = $_POST["numerodelote"];
     echo $estado;
+    echo $fechaprogramacion;
     $create = mysqli_query($conn, "INSERT INTO batch (fecha_creacion, fecha_programacion, fecha_actual, numero_orden, numero_lote, tamano_lote, lote_presentacion, unidad_lote, estado, id_producto) 
 			VALUES ('$fechahoy', '$fechaprogramacion', '$fechahoy', 'OP012020',' X0010320', '$tamanototallote', '$tamanolotepresentacion', '$unidadesxlote', '$estado', '$norefenrencia')") or die ("Problemas al insertar" . mysqli_error($conn));
     header('location: crear-batch.php');
