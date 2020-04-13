@@ -17,6 +17,7 @@
     <!-- You can change the theme colors from here -->
     <link href="css/colors/blue.css" id="theme" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="vendor/datatables/datatables.min.css">
+    <link rel="stylesheet" href="vendor/jquery-confirm/jquery-confirm.min.css">
     <link rel="stylesheet" type="text/css"
           href="vendor/datatables/DataTables-1.10.20/css/dataTables.bootstrap4.min.css">
     <script src="https://kit.fontawesome.com/6589be6481.js" crossorigin="anonymous"></script>
@@ -27,6 +28,7 @@
     <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
     <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
+
   <?php
     require('savebatch.php');
     $idbatch = "";
@@ -237,12 +239,11 @@
                                         <div class="col-md-6 col-2 align-self-center">
                                             <label for="recipient-name" class="col-form-label">Nombre
                                                 Referencia:</label><br>
-                                            <div id="name-data" class="displayallinfo" name="nombrereferencia"></div>
+                                            <input id="name-data" class="displayallinfo" readonly name="nombrereferencia">
                                         </div>
                                         <div class="col-md-6 col-2 align-self-center">
                                             <label for="recipient-name" class="col-form-label">Marca:</label>
-                                            <div id="name-data2" class="displayallinfo" name="marca"
-                                                 value="<?= $marca; ?>"></div>
+                                            <input id="name-data2" class="displayallinfo" readonly name="marca">
                                         </div>
                                     </div>
 
@@ -253,26 +254,26 @@
                                         <div class="col-md-6 col-2 align-self-center">
                                             <label for="recipient-name" class="col-form-label">Notificación
                                                 sanitaria:</label>
-                                            <div id="name-data3" class="displayallinfo" name="notificacionsanitaria"
-                                                 value="<?= $notificacionsanitaria; ?>"></div>
+                                            <input id="name-data3" class="displayallinfo" readonly name="notificacionsanitaria"
+                                                 >
                                         </div>
                                         <div class="col-md-6 col-2 align-self-center">
                                             <label for="recipient-name" class="col-form-label">Propietario:</label>
-                                            <div id="name-data4" class="displayallinfo" name="propietario"
-                                                 value="<?= $marca; ?>"></div>
+                                            <input id="name-data4" class="displayallinfo" readonly name="propietario"
+                                                 >
                                         </div>
                                     </div>
                                     <div class="row page">
                                         <div class="col-md-6 col-2 align-self-center">
                                             <label for="recipient-name" class="col-form-label">Nombre producto:</label>
-                                            <div id="name-data5" class="displayallinfo" name="nombreproducto"
-                                                 value="<?= $nombreproducto; ?>"></div>
+                                            <input id="name-data5" class="displayallinfo" readonly name="nombreproducto"
+                                                 value="">
                                         </div>
                                         <div class="col-md-6 col-2 align-self-center">
                                             <label for="recipient-name" class="col-form-label">Presentación
                                                 comercial:</label>
-                                            <div id="name-data6" class="displayallinfo" name="presentacion"
-                                                 value="<?= $presentacion; ?>"></div>
+                                            <input id="name-data6" class="displayallinfo" readonly name="presentacion" readonly
+                                                 value="">
                                         </div>
                                     </div>
                                     <div class="row page">
@@ -304,8 +305,8 @@
 
                                         <div class="col-md-6 col-2 align-self-center">
                                             <label for="recipient-name" class="col-form-label">Linea:</label>
-                                            <div id="name-data7" class="displayallinfo" name="linea"
-                                                 value="<?= $linea; ?>"></div>
+                                            <input id="name-data7" class="displayallinfo" readonly name="linea"
+                                                 readonly>
                                         </div>
                                     </div>
                                     <div class="row page">
@@ -622,7 +623,7 @@
                                   <td><?= $rows['numero_lote']?></td>
                                   <td><a href="crear-batch.php?edit=<?= $rows ['id_batch']; ?>"
                                          class="btn btn-primary"><i class="fas fa-edit"></i></a></td>
-                                  <td><a href="crear-batch.php?del=<?= $rows ['id_batch']; ?>"
+                                  <td><a href="#" onclick="deleteBatch(event)" attr-id="<?= $rows ['id_batch']; ?>"
                                          class="btn btn-primary"><i class="fas fa-trash"></i></a></td>
 
 
@@ -732,13 +733,14 @@
 <script src="js/global.js"></script>
 <script src="js/custom.min.js"></script>
 <script src="js/datatables.js"></script>
+<script src="vendor/jquery-confirm/jquery-confirm.min.js"></script>
 
 <?php if($update){ ?>
     <script>cargarData()</script>
 <?php } ?>
 <script>
     $('#tamanototallote').change(function(){
-        $('#unidadesxlote').val(this.value / $('#name-data6').text());
+        $('#unidadesxlote').val(this.value / $('#name-data6').val());
     });
     function onSubmit(){
         let fecha =  $('#fecha').val()
@@ -748,9 +750,25 @@
             $('#filtrar1').val(0);
         }
 
-        $('#tamanolotepresentacion').val($('#name-data6').text())
+        $('#tamanolotepresentacion').val($('#name-data6').val())
         console.log($('#form-submit-batch').serialize());
         return true;
+    }
+    function deleteBatch(event) {
+        let id = $(event.target).attr('attr-id');
+        $.confirm({
+            title: '¿Esta seguro de Eliminar?',
+            content: '',
+            buttons: {
+                confirmar: function () {
+                    // $.alert('Confirmed!');
+                    location.href= `savebatch.php?del=${id}`;
+                },
+                cancelar: function () {
+                    // $.alert('Canceled!');
+                }
+            }
+        });
     }
 </script>
 </body>

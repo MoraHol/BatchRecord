@@ -5,37 +5,37 @@ function  cargarData() {
 	if ($.trim(name) != '') {
 		$.post('../html/controller/savedata.php',{name: name}, function(data){
 
-			$('div#name-data').text(data);
+			$('#name-data').val(data);
 
 		});
 		$.post('../html/controller/savedata2.php',{name: name}, function(data){
 
-			$('div#name-data2').text(data);
+			$('#name-data2').val(data);
 
 		});
 		$.post('../html/controller/savedata3.php',{name: name}, function(data){
 
-			$('div#name-data3').text(data);
+			$('#name-data3').val(data);
 
 		});
 		$.post('../html/controller/savedata4.php',{name: name}, function(data){
 
-			$('div#name-data4').text(data);
+			$('#name-data4').val(data);
 
 		});
 		$.post('../html/controller/savedata5.php',{name: name}, function(data){
 
-			$('div#name-data5').text(data);
+			$('#name-data5').val(data);
 
 		});
 		$.post('../html/controller/savedata6.php',{name: name}, function(data){
 
-			$('div#name-data6').text(data);
+			$('#name-data6').val(data);
 
 		});
 		$.post('../html/controller/savedata7.php',{name: name}, function(data){
 
-			$('div#name-data7').text(data);
+			$('#name-data7').val(data);
 
 		});
 
