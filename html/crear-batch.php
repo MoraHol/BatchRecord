@@ -614,8 +614,8 @@
                                   <td><?= $rows['referencia']; ?></td>
                                   <td><?= $rows['nombre_referencia']; ?></td>
                                   <td><?= $rows['presentacion']; ?></td>
-                                  <td><?= $rows['nombre']; ?></td>
                                   <td><?= $rows['nombre_linea']; ?></td>
+                                  <td><?= $rows['nombre']; ?></td>
                                   <td><?= $rows['fecha_creacion']; ?></td>
                                   <td><?= $rows['fecha_programacion']; ?></td>
                                   <td><?= $rows['estado'] == 1 ? "Activo" : "Inactivo" ?></td>
