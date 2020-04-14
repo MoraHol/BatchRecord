@@ -32,7 +32,7 @@
   $cargoDao = new CargoDao();
 
   $app = AppFactory::create();
-  $app->setBasePath('/apps/BatchRecord/api');
+  $app->setBasePath('/api');
 
 
 // Add Routing Middleware

@@ -8,16 +8,16 @@
 
   $router->setRequestUri($_SERVER['REQUEST_URI']);
 
-  $router->setBasePath('/apps/BatchRecord');
+  $router->setBasePath('/');
   $router->add('/', function () {
     return file_get_contents('index.html');
   });
 
-  $router->add('/pesaje',function(){
-  return Router::getRenderedHTML('html/pesaje.html');
-});
+  $router->add('/pesaje', function () {
+    return Router::getRenderedHTML('html/pesaje.html');
+  });
 
-  $router->add('/pesajeinfo/:idBatch/:referencia',function($idBatch,$referencia){
+  $router->add('/pesajeinfo/:idBatch/:referencia', function ($idBatch, $referencia) {
     return Router::getRenderedHTML('html/pesajeinfo.html');
   });
 
