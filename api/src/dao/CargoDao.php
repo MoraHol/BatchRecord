@@ -1,14 +1,14 @@
 <?php
 
 
-  namespace BatchRecord\Dao;
+  namespace BatchRecord\dao;
+
 
   use BatchRecord\Constants\Constants;
-  use BatchRecord\Dao\Connection;
   use Monolog\Handler\StreamHandler;
   use Monolog\Logger;
 
-  class ProductDao
+  class CargoDao
   {
     private $logger;
 
@@ -21,10 +21,12 @@
     public function findAll()
     {
       $connection = Connection::getInstance()->getConnection();
-      $stmt = $connection->prepare("SELECT * FROM producto WHERE ?");
-      $stmt->execute(array(1));
-      $products = $stmt->fetchAll($connection::FETCH_ASSOC);
+      $stmt = $connection->prepare("SELECT * FROM cargo ORDER BY id");
+      $stmt->execute();
       $this->logger->info(__FUNCTION__, array('query' => $stmt->queryString, 'errors' => $stmt->errorInfo()));
-      return $products;
+      $pesajes = $stmt->fetchAll($connection::FETCH_ASSOC);
+      $this->logger->notice("Cargos Obtenidos", array('cargo' => $pesajes));
+      return $pesajes;
+
     }
   }

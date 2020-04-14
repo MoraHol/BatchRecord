@@ -1,14 +1,14 @@
 <?php
 
 
-  namespace BatchRecord\Dao;
+  namespace BatchRecord\dao;
+
 
   use BatchRecord\Constants\Constants;
-  use BatchRecord\Dao\Connection;
   use Monolog\Handler\StreamHandler;
   use Monolog\Logger;
 
-  class ProductDao
+  class MateriaPrimaDao
   {
     private $logger;
 
@@ -18,13 +18,14 @@
       $this->logger->pushHandler(new StreamHandler(Constants::LOGS_PATH . 'querys.log', Logger::DEBUG));
     }
 
-    public function findAll()
+    public function findByProduct($idProduct)
     {
       $connection = Connection::getInstance()->getConnection();
-      $stmt = $connection->prepare("SELECT * FROM producto WHERE ?");
-      $stmt->execute(array(1));
-      $products = $stmt->fetchAll($connection::FETCH_ASSOC);
+      $stmt = $connection->prepare("SELECT * FROM formula INNER JOIN materia_prima ON formula.id_materiaprima = materia_prima.referencia WHERE formula.id_producto = :referencia");
+      $stmt->execute(array('referencia'=> $idProduct));
       $this->logger->info(__FUNCTION__, array('query' => $stmt->queryString, 'errors' => $stmt->errorInfo()));
-      return $products;
+      $pesajes = $stmt->fetchAll($connection::FETCH_ASSOC);
+      $this->logger->notice("materia Primas Obtenidas", array('materias Primas' => $pesajes));
+      return $pesajes;
     }
   }

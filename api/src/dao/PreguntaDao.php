@@ -1,14 +1,14 @@
 <?php
 
 
-  namespace BatchRecord\Dao;
+  namespace BatchRecord\dao;
+
 
   use BatchRecord\Constants\Constants;
-  use BatchRecord\Dao\Connection;
   use Monolog\Handler\StreamHandler;
   use Monolog\Logger;
 
-  class ProductDao
+  class PreguntaDao
   {
     private $logger;
 
@@ -18,13 +18,12 @@
       $this->logger->pushHandler(new StreamHandler(Constants::LOGS_PATH . 'querys.log', Logger::DEBUG));
     }
 
-    public function findAll()
-    {
+    public function findAll(){
       $connection = Connection::getInstance()->getConnection();
-      $stmt = $connection->prepare("SELECT * FROM producto WHERE ?");
-      $stmt->execute(array(1));
-      $products = $stmt->fetchAll($connection::FETCH_ASSOC);
+      $stmt = $connection->prepare("SELECT * FROM preguntas ORDER BY RAND()");
+      $stmt->execute();
+      $preguntas =$stmt->fetchAll($connection::FETCH_ASSOC);
       $this->logger->info(__FUNCTION__, array('query' => $stmt->queryString, 'errors' => $stmt->errorInfo()));
-      return $products;
+      return $preguntas;
     }
   }

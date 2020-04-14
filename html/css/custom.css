@@ -19,3 +19,6 @@
     overflow: hidden;
     word-wrap: break-word;
 }
+.card-header b{
+    font-size: 1.2rem;
+}
