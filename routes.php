@@ -8,7 +8,7 @@
 
   $router->setRequestUri($_SERVER['REQUEST_URI']);
 
-  $router->setBasePath('/');
+  $router->setBasePath('');
   $router->add('/', function () {
     return file_get_contents('index.html');
   });
