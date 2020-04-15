@@ -21,7 +21,7 @@
     public function findAll()
     {
       $connection = Connection::getInstance()->getConnection();
-      $stmt = $connection->prepare("SELECT * FROM preguntas ORDER BY RAND()");
+      $stmt = $connection->prepare("SELECT * FROM preguntas");
       $stmt->execute();
       $this->logger->info(__FUNCTION__, array('query' => $stmt->queryString, 'errors' => $stmt->errorInfo()));
       $pesajes = $stmt->fetchAll($connection::FETCH_ASSOC);
