@@ -27,9 +27,9 @@ $('#tablePesaje').dataTable({
         },
         {
             title: 'Peso GRS',
-            data: 'porcentaje'
+            data: 'porcentaje',
             render: (data, type, row) => {
-                return `${data * 100} %`
+                return `${data * 100} %`;
             }
         }
     ]
