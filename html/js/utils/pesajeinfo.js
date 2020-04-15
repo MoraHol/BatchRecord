@@ -29,7 +29,7 @@ $('#tablePesaje').dataTable({
         },
         {
             title: 'Peso GRS',
-            data: 'procentaje'
+            data: 'porcentaje'
         }
     ]
 })
