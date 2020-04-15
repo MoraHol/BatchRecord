@@ -22,8 +22,9 @@
       $connection = Connection::getInstance()->getConnection();
       $stmt = $connection->prepare("SELECT * FROM preguntas ORDER BY RAND()");
       $stmt->execute();
-      $preguntas =$stmt->fetchAll($connection::FETCH_ASSOC);
+      $preguntas = $stmt->fetchAll($connection::FETCH_ASSOC);
       $this->logger->info(__FUNCTION__, array('query' => $stmt->queryString, 'errors' => $stmt->errorInfo()));
+      $this->logger->notice("preguntas Obtenidos", array('pesajes' => $preguntas));
       return $preguntas;
     }
   }
