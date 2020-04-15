@@ -1,5 +1,3 @@
-
-
 $.ajax({
     url: `../../api/cargos`,
     type: 'GET'
@@ -30,6 +28,9 @@ $('#tablePesaje').dataTable({
         {
             title: 'Peso GRS',
             data: 'porcentaje'
+            render: (data, type, row) => {
+                return `${data * 100} %`
+            }
         }
     ]
 })
