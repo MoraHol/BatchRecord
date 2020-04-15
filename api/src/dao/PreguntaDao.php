@@ -18,13 +18,14 @@
       $this->logger->pushHandler(new StreamHandler(Constants::LOGS_PATH . 'querys.log', Logger::DEBUG));
     }
 
-    public function findAll(){
+    public function findAll()
+    {
       $connection = Connection::getInstance()->getConnection();
       $stmt = $connection->prepare("SELECT * FROM preguntas ORDER BY RAND()");
       $stmt->execute();
-      $preguntas = $stmt->fetchAll($connection::FETCH_ASSOC);
       $this->logger->info(__FUNCTION__, array('query' => $stmt->queryString, 'errors' => $stmt->errorInfo()));
-      $this->logger->notice("preguntas Obtenidos", array('pesajes' => $preguntas));
-      return $preguntas;
+      $pesajes = $stmt->fetchAll($connection::FETCH_ASSOC);
+      $this->logger->notice("preguntas Obtenidos", array('preguntas' => $pesajes));
+      return $pesajes;
     }
   }
