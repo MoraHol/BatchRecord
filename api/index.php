@@ -67,7 +67,11 @@
 
   $app->get('/questions', function (Request $request, Response $response, $args) use ($preguntaDao) {
     $batch = $preguntaDao->findAll();
-    $response->getBody()->write(json_encode($batch, JSON_NUMERIC_CHECK));
+    if($batch == null){
+      $response->getBody()->write('');
+    }else{
+      $response->getBody()->write(json_encode($batch, JSON_NUMERIC_CHECK));
+    }
     return $response->withHeader('Content-Type', 'application/json');
   });
 

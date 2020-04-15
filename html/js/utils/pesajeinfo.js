@@ -1,5 +1,5 @@
-let idBatch = location.href.split('/')[6];
-let referencia = location.href.split('/')[7];
+let idBatch = location.href.split('/')[4];
+let referencia = location.href.split('/')[5];
 
 Date.prototype.toDateInputValue = (function () {
     var local = new Date(this);
