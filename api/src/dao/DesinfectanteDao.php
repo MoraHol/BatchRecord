@@ -8,6 +8,11 @@
   use Monolog\Handler\StreamHandler;
   use Monolog\Logger;
 
+  /**
+   * Class DesinfectanteDao
+   * @package BatchRecord\dao
+   * @author Alexis Holguin <MoraHol>
+   */
   class DesinfectanteDao
   {
     private $logger;

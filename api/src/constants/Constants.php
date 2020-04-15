@@ -1,6 +1,11 @@
 <?php
 
   namespace BatchRecord\Constants;
+  /**
+   * Class Constants
+   * @package BatchRecord\Constants
+   * @author Alexis Holguin <MoraHol>
+   */
   class Constants
   {
     const API_PATH = __DIR__ . "/../../";

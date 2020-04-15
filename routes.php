@@ -20,6 +20,11 @@
   $router->add('/pesajeinfo/:idBatch/:referencia', function ($idBatch, $referencia) {
     return Router::getRenderedHTML('html/pesajeinfo.html');
   });
-
+  $router->add('/preparacion',function (){
+    return Router::getRenderedHTML('html/preparacion.html');
+  });
+  $router->add('/preparacioninfo/:idBatch/:referencia', function ($idBatch, $referencia) {
+    return Router::getRenderedHTML('html/preparacioninfo.html');
+  });
 
   $router->run();

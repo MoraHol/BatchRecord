@@ -8,6 +8,11 @@
   use Monolog\Handler\StreamHandler;
   use Monolog\Logger;
 
+  /**
+   * Class ProductDao
+   * @package BatchRecord\Dao
+   * @author Alexis Holguin <MoraHol>
+   */
   class ProductDao
   {
     private $logger;

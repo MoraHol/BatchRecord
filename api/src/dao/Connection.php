@@ -8,6 +8,11 @@ use Monolog\Logger;
 
 use Symfony\Component\Dotenv\Dotenv;
 
+/**
+ * Class Connection
+ * @package BatchRecord\Dao
+ * @author Alexis Holguin <MoraHol>
+ */
 class Connection
 {
     protected $dbh;

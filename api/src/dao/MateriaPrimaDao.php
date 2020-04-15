@@ -8,6 +8,11 @@
   use Monolog\Handler\StreamHandler;
   use Monolog\Logger;
 
+  /**
+   * Class MateriaPrimaDao
+   * @package BatchRecord\dao
+   * @author Alexis Holguin <MoraHol>
+   */
   class MateriaPrimaDao
   {
     private $logger;

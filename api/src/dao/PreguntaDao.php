@@ -8,6 +8,11 @@
   use Monolog\Handler\StreamHandler;
   use Monolog\Logger;
 
+  /**
+   * Class PreguntaDao
+   * @package BatchRecord\dao
+   * @author Alexis Holguin <MoraHol>
+   */
   class PreguntaDao
   {
     private $logger;
@@ -18,7 +23,7 @@
       $this->logger->pushHandler(new StreamHandler(Constants::LOGS_PATH . 'querys.log', Logger::DEBUG));
     }
 
-    public function findAll()
+    public function findAll():array
     {
       $connection = Connection::getInstance()->getConnection();
       $stmt = $connection->prepare("SELECT * FROM preguntas");

@@ -8,12 +8,7 @@
   use Monolog\Handler\StreamHandler;
   use Monolog\Logger;
 
-  /**
-   * Class CargoDao
-   * @package BatchRecord\dao
-   * @author Alexis Holguin <MoraHol>
-   */
-  class CargoDao
+  class MarmitaDao
   {
     private $logger;
 
@@ -26,11 +21,11 @@
     public function findAll()
     {
       $connection = Connection::getInstance()->getConnection();
-      $stmt = $connection->prepare("SELECT * FROM cargo ORDER BY id");
+      $stmt = $connection->prepare("SELECT * FROM marmita");
       $stmt->execute();
       $this->logger->info(__FUNCTION__, array('query' => $stmt->queryString, 'errors' => $stmt->errorInfo()));
       $pesajes = $stmt->fetchAll($connection::FETCH_ASSOC);
-      $this->logger->notice("Cargos Obtenidos", array('cargo' => $pesajes));
+      $this->logger->notice("Marmitas Obtenidos", array('marmitas' => $pesajes));
       return $pesajes;
 
     }

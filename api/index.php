@@ -1,5 +1,6 @@
 <?php
 
+  use BatchRecord\dao\AgitadorDao;
   use BatchRecord\dao\BatchDao;
   use BatchRecord\dao\CargoDao;
   use BatchRecord\Dao\Connection;
@@ -11,6 +12,7 @@
   use Psr\Http\Message\ResponseInterface as Response;
   use Psr\Http\Message\ServerRequestInterface as Request;
   use Slim\Factory\AppFactory;
+  use BatchRecord\dao\MarmitaDao;
 
   require __DIR__ . '/vendor/autoload.php';
   include_once __DIR__ . '/AutoloaderSourceCode.php';
@@ -30,6 +32,8 @@
   $desinfectanteDao = new DesinfectanteDao();
   $materiaPrimaDao = new MateriaPrimaDao();
   $cargoDao = new CargoDao();
+  $agitadorDAo = new AgitadorDao();
+  $marmitaDao = new MarmitaDao();
 
   $app = AppFactory::create();
   $app->setBasePath('/api');
@@ -65,11 +69,18 @@
     return $response->withHeader('Content-Type', 'application/json');
   });
 
+  $app->get('/batch', function (Request $request, Response $response, $args) use ($batchDao) {
+    $batch = $batchDao->findAll();
+    $response->getBody()->write(json_encode($batch, JSON_NUMERIC_CHECK));
+    return $response->withHeader('Content-Type', 'application/json');
+  });
+
   $app->get('/questions', function (Request $request, Response $response, $args) use ($preguntaDao) {
-    $batch = utf8_string_array_encode($preguntaDao->findAll());
-    if($batch == null){
+    $array = $preguntaDao->findAll();
+    $batch = utf8_string_array_encode($array);
+    if ($batch == null) {
       $response->getBody()->write('');
-    }else{
+    } else {
       $response->getBody()->write(json_encode($batch));
 
     }
@@ -93,22 +104,35 @@
     $response->getBody()->write(json_encode($batch, JSON_NUMERIC_CHECK));
     return $response->withHeader('Content-Type', 'application/json');
   });
+
+  $app->get('/agitadores', function (Request $request, Response $response, $args) use ($agitadorDAo) {
+    $batch = $agitadorDAo->findAll();
+    $response->getBody()->write(json_encode(utf8_string_array_encode($batch), JSON_NUMERIC_CHECK));
+    return $response->withHeader('Content-Type', 'application/json');
+  });
+
+  $app->get('/marmitas', function (Request $request, Response $response, $args) use ($marmitaDao) {
+    $batch = $marmitaDao->findAll();
+    $response->getBody()->write(json_encode(utf8_string_array_encode($batch), JSON_NUMERIC_CHECK));
+    return $response->withHeader('Content-Type', 'application/json');
+  });
 // Run app
   $app->run();
 
 
-  function utf8_string_array_encode(&$array){
-    $func = function(&$value,&$key){
-      if(is_string($value)){
+  function utf8_string_array_encode(array &$array)
+  {
+    $func = function (&$value, &$key) {
+      if (is_string($value)) {
         $value = utf8_encode($value);
       }
-      if(is_string($key)){
+      if (is_string($key)) {
         $key = utf8_encode($key);
       }
-      if(is_array($value)){
+      if (is_array($value)) {
         utf8_string_array_encode($value);
       }
     };
-    array_walk($array,$func);
+    array_walk($array, $func);
     return $array;
   }
