@@ -66,11 +66,12 @@
   });
 
   $app->get('/questions', function (Request $request, Response $response, $args) use ($preguntaDao) {
-    $batch = $preguntaDao->findAll();
+    $batch = utf8_string_array_encode($preguntaDao->findAll());
     if($batch == null){
       $response->getBody()->write('');
     }else{
-      $response->getBody()->write(json_encode($batch, JSON_NUMERIC_CHECK));
+      $response->getBody()->write(json_encode($batch));
+
     }
     return $response->withHeader('Content-Type', 'application/json');
   });
@@ -94,3 +95,20 @@
   });
 // Run app
   $app->run();
+
+
+  function utf8_string_array_encode(&$array){
+    $func = function(&$value,&$key){
+      if(is_string($value)){
+        $value = utf8_encode($value);
+      }
+      if(is_string($key)){
+        $key = utf8_encode($key);
+      }
+      if(is_array($value)){
+        utf8_string_array_encode($value);
+      }
+    };
+    array_walk($array,$func);
+    return $array;
+  }
