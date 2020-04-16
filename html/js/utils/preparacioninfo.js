@@ -69,6 +69,18 @@ $.ajax({
     });
 });
 
+
+$.ajax({
+    url: `/api/productsDetails/${referencia}`,
+    type: 'GET'
+}).done((data, status, xhr) => {
+    $('#espec_color').html(data.color);
+    $('#espec_olor').html(data.olor);
+    $('#espec_apariencia').html(data.apariencia);
+    $('#espec_poder_espumoso').html(data.poder_espumoso);
+    $('#espec_untosidad').html(data.untosidad);
+});
+
 $.ajax({
     url: `/api/instructivos/${referencia}`,
     type: 'GET'

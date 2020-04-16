@@ -5,6 +5,8 @@
   use BatchRecord\dao\CargoDao;
   use BatchRecord\Dao\Connection;
   use BatchRecord\dao\DesinfectanteDao;
+  use BatchRecord\dao\IntructivoPreparacionDao;
+  use BatchRecord\dao\MarmitaDao;
   use BatchRecord\dao\MateriaPrimaDao;
   use BatchRecord\Dao\PesajeDao;
   use BatchRecord\dao\PreguntaDao;
@@ -12,8 +14,6 @@
   use Psr\Http\Message\ResponseInterface as Response;
   use Psr\Http\Message\ServerRequestInterface as Request;
   use Slim\Factory\AppFactory;
-  use BatchRecord\dao\MarmitaDao;
-  use BatchRecord\dao\IntructivoPreparacionDao;
 
   require __DIR__ . '/vendor/autoload.php';
   include_once __DIR__ . '/AutoloaderSourceCode.php';
@@ -57,6 +57,13 @@
   $app->get('/products', function (Request $request, Response $response, $args) use ($productDao) {
     $products = $productDao->findAll();
     $response->getBody()->write(json_encode(utf8_string_array_encode($products)), JSON_NUMERIC_CHECK);
+    return $response;
+  });
+
+  $app->get('/productsDetails/{idProducto}', function (Request $request, Response $response, $args) use ($productDao) {
+    $products = $productDao->findDetailsByProduct($args["idProducto"]);
+    $response->getBody()->write(json_encode(utf8_string_array_encode($products)), JSON_NUMERIC_CHECK);
+    return $response->withHeader('Content-Type', 'application/json');
     return $response;
   });
 
