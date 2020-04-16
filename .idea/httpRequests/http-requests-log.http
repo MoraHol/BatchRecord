@@ -1,3 +1,19 @@
+GET http://batch.localhost/api/batch/50
+Accept: */*
+Cache-Control: no-cache
+
+<> 2020-04-16T111247.200.json
+
+###
+
+GET http://batch.localhost/api/batch/40
+Accept: */*
+Cache-Control: no-cache
+
+<> 2020-04-16T111235.200.json
+
+###
+
 GET http://batch.localhost/api/batch/40
 Accept: */*
 Cache-Control: no-cache

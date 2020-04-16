@@ -50,9 +50,12 @@
   }
   if (isset($_GET['del'])) {
     $idbatch = $_GET['del'];
-    mysqli_query($conn, "DELETE FROM batch WHERE id_batch=$idbatch");
+    if(mysqli_query($conn, "DELETE FROM batch WHERE id_batch=$idbatch")){
+     echo true;
+    }else{
+      echo false;
+    }
     $_SESSION['message'] = "Address deleted!";
-    header('location: crear-batch.php');
   }
   ob_end_flush();
 ?>

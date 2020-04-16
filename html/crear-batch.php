@@ -591,11 +591,11 @@
               <th># de Orden</th>
               <th>Referencia</th>
               <th>Nombre Referencia</th>
-              <!--                            <th>Presentacion comercial</th>-->
-              <!--                            <th>Linea</th>-->
-              <!--                            <th>Propietario</th>-->
-              <!--                            <th>Fecha de Creación</th>-->
+              <th>Presentacion comercial</th>
               <th># de lote de Producción</th>
+              <th>Linea</th>
+              <th>Propietario</th>
+              <th>Fecha de Creación</th>
               <th>Fecha de Programación</th>
               <th>Estado</th>
 
@@ -617,14 +617,15 @@
                   <td><?= $rows['numero_orden']; ?></td>
                   <td><?= $rows['referencia']; ?></td>
                   <td><?= $rows['nombre_referencia']; ?></td>
-                  <!--                  <td>--><?//= $rows['presentacion']; ?><!--</td>-->
-                  <!--                  <td>--><?//= $rows['nombre_linea']; ?><!--</td>-->
-                  <!--                  <td>--><?//= $rows['nombre']; ?><!--</td>-->
-                  <!--                  <td>--><?//= $rows['fecha_creacion']; ?><!--</td>-->
+                  <td><?= $rows['presentacion']; ?></td>
+
                   <td><?= $rows['numero_lote'] ?></td>
+                  <td><?= $rows['nombre_linea']; ?></td>
+                  <td><?= $rows['nombre']; ?></td>
+                  <td><?= $rows['fecha_creacion']; ?></td>
                   <td><?= $rows['fecha_programacion']; ?></td>
                   <td><?= $rows['estado'] == 1 ? "Activo" : "Inactivo" ?></td>
-                  
+
                   <td><a href="crear-batch.php?edit=<?= $rows ['id_batch']; ?>"
                          class="btn btn-primary"><i class="fas fa-edit"></i></a></td>
                   <td><a href="#" onclick="deleteBatch(event)" attr-id="<?= $rows ['id_batch']; ?>"
@@ -743,8 +744,9 @@
   <script>cargarData()</script>
 <?php } ?>
 <script>
+
     $('#tamanototallote').change(function () {
-        $('#unidadesxlote').val(this.value / $('#name-data6').val());
+        $('#unidadesxlote').val(parseFloat(this.value / $('#name-data6').val()).toFixed(2));
     });
 
     function onSubmit() {
@@ -767,8 +769,13 @@
             content: '',
             buttons: {
                 confirmar: function () {
-                    // $.alert('Confirmed!');
-                    location.href = `savebatch.php?del=${id}`;
+                    $.ajax({
+                        url: `savebatch.php?del=${id}`,
+                        type: 'GET'
+                    }).done((data, status, xhr) => {
+                        location.reload();
+                    });
+
                 },
                 cancelar: function () {
                     // $.alert('Canceled!');

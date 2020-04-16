@@ -18,6 +18,7 @@
   <!-- You can change the theme colors from here -->
   <link href="../../html/css/colors/blue.css" id="theme" rel="stylesheet">
   <link href="../../html/css/custom.css" rel="stylesheet">
+  <link rel="stylesheet" href="../../html/vendor/jquery-confirm/jquery-confirm.min.css">
 
   <link rel="stylesheet" type="text/css" href="../../html/vendor/datatables/datatables.min.css">
   <link rel="stylesheet" type="text/css"
@@ -241,7 +242,7 @@
     <div class="modal-content">
       <form method="post">
         <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Firmar</h5>
+          <h5 class="modal-title" id="exampleModalLabel">Firma QC/Supervisor</h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
@@ -303,27 +304,30 @@
                 <input type="text" class="form-control" name="idbatch"
                        hidden>
               </div>
-              <div class="col-md-4 col-2 align-self-center">
-                <label for="recipient-name" class="col-form-label">No Lote:</label>
-                <input type="text" class="form-control" id="in_numero_lote"
-                       readonly>
-              </div>
-            </div>
-            <div class="row" style="margin: 1%">
+
               <div class="col-md-4 col-2 align-self-right">
                 <label for="recipient-name" class="col-form-label">Referencia:</label>
                 <input type="text" class="form-control" id="in_referencia"
                        readonly>
               </div>
+
+            </div>
+            <div class="row" style="margin: 1%">
               <div class="col-md-4 col-2 align-self-center">
-                <label for="recipient-name" class="col-form-label">Nombre Referencia:</label>
-                <input type="text" class="form-control" id="in_nombre_referencia"
+                <label for="recipient-name" class="col-form-label">No Lote:</label>
+                <input type="text" class="form-control" id="in_numero_lote"
                        readonly>
               </div>
               <div class="col-md-4 col-2 align-self-center">
                 <label for="recipient-name" class="col-form-label">Linea:</label>
                 <input type="text" class="form-control" id="in_linea" readonly>
               </div>
+              <div class="col-md-4 col-2 align-self-center">
+                <label for="recipient-name" class="col-form-label">Fecha de Programacion:</label>
+                <input type="text" class="form-control" id="in_fecha_programacion"
+                       readonly>
+              </div>
+
             </div>
           </div>
         </div>
@@ -368,31 +372,31 @@
             <div class="row" style="margin: 1%">
               <div class="col-md-4 col-2 align-self-right">
                 <label for="sel_producto_desinfeccion" class="col-form-label">Producto de desinfección</label>
-                <select class="selectpicker form-control" id="sel_producto_desinfeccion">
+                <select class="selectpicker form-control in_desinfeccion" id="sel_producto_desinfeccion">
                   <option selected>Seleccione ...</option>
                 </select>
               </div>
               <div class="col-md-8 col-2 align-self-center">
                 <label for="in_observaciones" class="col-form-label">Observaciones:</label>
-                <input type="text" class="form-control" id="in_observaciones">
+                <input type="text" class="form-control in_desinfeccion" id="in_observaciones">
               </div>
             </div>
             <div class="row" style="margin: 1%">
               <div class="col-md-4 col-2 align-self-center">
                 <label for="in_realizado" class="col-form-label">Realizado Por:</label>
-                <input type="text" class="form-control" id="in_realizado">
+                <input type="text" class="form-control in_desinfeccion" id="in_realizado">
               </div>
               <div class="col-md-2 col-2 align-self-center" style="margin-top: 2.8%">
-                <input type="button" class="btn btn-danger" data-toggle="modal" data-target="#myModal2"
+                <input type="button" class="btn btn-danger in_desinfeccion" data-toggle="modal" data-target="#myModal2"
                        style="width: 100%; height: 38px;" value="Firmar">
               </div>
 
               <div class="col-md-4 col-2 align-self-center">
                 <label for="in_verificado" class="col-form-label">Verificado Por:</label>
-                <input type="text" class="form-control" id="in_verificado">
+                <input type="text" class="form-control in_desinfeccion" id="in_verificado">
               </div>
               <div class="col-md-2 col-2 align-self-center" style="margin-top: 2.8%">
-                <input type="button" class="btn btn-danger" data-toggle="modal" data-target="#myModal3"
+                <input type="button" class="btn btn-danger in_desinfeccion" data-toggle="modal" data-target="#myModal3"
                        style="width: 100%; height: 38px;" value="Firmar">
               </div>
             </div>
@@ -447,19 +451,19 @@
           <div class="row" style="margin: 1%; text-align: center;">
             <div class="col-md-3 col-2 align-self-right">
 
-              <input type="text" class="form-control" id="cargo-1" readonly>
+              <input type="text" class="form-control text-center" id="cargo-1" readonly>
             </div>
             <div class="col-md-3 col-2 align-self-center">
 
-              <input type="text" class="form-control" id="cargo-2" readonly>
+              <input type="text" class="form-control text-center" id="cargo-2" readonly>
             </div>
             <div class="col-md-3 col-2 align-self-center">
 
-              <input type="text" class="form-control" id="cargo-3" readonly>
+              <input type="text" class="form-control text-center" id="cargo-3" readonly>
             </div>
             <div class="col-md-3 col-2 align-self-center">
 
-              <input type="text" class="form-control" id="cargo-4" readonly>
+              <input type="text" class="form-control text-center" id="cargo-4" readonly>
             </div>
           </div>
           <div class="card-body">
@@ -481,7 +485,7 @@
             <div class="row" style="margin: 1%">
               <div class="col-md-2 col-2 align-self-right">
                 <label for="recipient-name" class="col-form-label">Fecha:</label>
-                <input type="date" class="form-control" id="recipient2-name">
+                <input type="date" class="form-control" id="in_fecha_pesaje" readonly>
               </div>
               <div class="col-md-3 col-2 align-self-center">
                 <label for="recipient-name" class="col-form-label">Realizado Por:</label>
@@ -501,8 +505,9 @@
                        style="width: 100%; height: 38px;" value="Firmar">
               </div>
             </div>
-            <div class="row" style="margin: 1%">
-              <div class="col-md-12 col-2 align-self-center" style="margin-left: 86.5%">
+
+            <div class="row justify-content-end mt-5" style="margin: 1%;text-align: right">
+              <div class="col-md-12 col-2 align-self-end" >
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
                 <button type="button" class="btn btn-primary"
                         onclick="window.location.href = './html/preparacion.html';">Aceptar
@@ -540,6 +545,7 @@
       <script src="../../assets/plugins/sticky-kit-master/dist/sticky-kit.min.js"></script>
       <!--Custom JavaScript -->
       <script src="../../html/js/custom.min.js"></script>
+      <script src="../../html/vendor/jquery-confirm/jquery-confirm.min.js"></script>
       <script src="../../html/js/datatables.js"></script>
       <script src="../../html/js/utils/loadinfo-global.js"></script>
       <script src="../../html/js/utils/pesajeinfo.js"></script>
