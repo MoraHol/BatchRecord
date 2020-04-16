@@ -13,6 +13,7 @@
   use Psr\Http\Message\ServerRequestInterface as Request;
   use Slim\Factory\AppFactory;
   use BatchRecord\dao\MarmitaDao;
+  use BatchRecord\dao\IntructivoPreparacionDao;
 
   require __DIR__ . '/vendor/autoload.php';
   include_once __DIR__ . '/AutoloaderSourceCode.php';
@@ -34,6 +35,7 @@
   $cargoDao = new CargoDao();
   $agitadorDAo = new AgitadorDao();
   $marmitaDao = new MarmitaDao();
+  $instructivoPreparacionDao = new IntructivoPreparacionDao();
 
   $app = AppFactory::create();
   $app->setBasePath('/api');
@@ -45,6 +47,7 @@
 
   $errorMiddleware = $app->addErrorMiddleware(true, true, true);
 
+
 // Define app routes
   $app->get('/', function (Request $request, Response $response, $args) {
     $connection = Connection::getInstance()->getConnection();
@@ -53,25 +56,25 @@
   });
   $app->get('/products', function (Request $request, Response $response, $args) use ($productDao) {
     $products = $productDao->findAll();
-    $response->getBody()->write(json_encode($products));
+    $response->getBody()->write(json_encode(utf8_string_array_encode($products)), JSON_NUMERIC_CHECK);
     return $response;
   });
 
   $app->get('/pesajes', function (Request $request, Response $response, $args) use ($pesajeDao) {
     $pesajes = $pesajeDao->findAll();
-    $response->getBody()->write(json_encode($pesajes, JSON_NUMERIC_CHECK));
+    $response->getBody()->write(json_encode(utf8_string_array_encode($pesajes), JSON_NUMERIC_CHECK));
     return $response->withHeader('Content-Type', 'application/json');
   });
 
   $app->get('/batch/{id}', function (Request $request, Response $response, $args) use ($batchDao) {
     $batch = $batchDao->findById($args["id"]);
-    $response->getBody()->write(json_encode($batch, JSON_NUMERIC_CHECK));
+    $response->getBody()->write(json_encode(utf8_string_array_encode($batch), JSON_NUMERIC_CHECK));
     return $response->withHeader('Content-Type', 'application/json');
   });
 
   $app->get('/batch', function (Request $request, Response $response, $args) use ($batchDao) {
     $batch = $batchDao->findAll();
-    $response->getBody()->write(json_encode($batch, JSON_NUMERIC_CHECK));
+    $response->getBody()->write(json_encode(utf8_string_array_encode($batch), JSON_NUMERIC_CHECK));
     return $response->withHeader('Content-Type', 'application/json');
   });
 
@@ -89,19 +92,19 @@
 
   $app->get('/desinfectantes', function (Request $request, Response $response, $args) use ($desinfectanteDao) {
     $batch = $desinfectanteDao->findAll();
-    $response->getBody()->write(json_encode($batch, JSON_NUMERIC_CHECK));
+    $response->getBody()->write(json_encode(utf8_string_array_encode($batch), JSON_NUMERIC_CHECK));
     return $response->withHeader('Content-Type', 'application/json');
   });
 
   $app->get('/materiasp/{idProduct}', function (Request $request, Response $response, $args) use ($materiaPrimaDao) {
     $batch = $materiaPrimaDao->findByProduct($args["idProduct"]);
-    $response->getBody()->write(json_encode($batch, JSON_NUMERIC_CHECK));
+    $response->getBody()->write(json_encode(utf8_string_array_encode($batch), JSON_NUMERIC_CHECK));
     return $response->withHeader('Content-Type', 'application/json');
   });
 
   $app->get('/cargos', function (Request $request, Response $response, $args) use ($cargoDao) {
     $batch = $cargoDao->findAll();
-    $response->getBody()->write(json_encode($batch, JSON_NUMERIC_CHECK));
+    $response->getBody()->write(json_encode(utf8_string_array_encode($batch), JSON_NUMERIC_CHECK));
     return $response->withHeader('Content-Type', 'application/json');
   });
 
@@ -116,7 +119,13 @@
     $response->getBody()->write(json_encode(utf8_string_array_encode($batch), JSON_NUMERIC_CHECK));
     return $response->withHeader('Content-Type', 'application/json');
   });
-// Run app
+
+  $app->get('/instructivos/{idProducto}', function (Request $request, Response $response, $args) use ($instructivoPreparacionDao) {
+    $batch = $instructivoPreparacionDao->findByProduct($args["idProducto"]);
+    $response->getBody()->write(json_encode(utf8_string_array_encode($batch), JSON_NUMERIC_CHECK));
+    return $response->withHeader('Content-Type', 'application/json');
+  });
+  // Run app
   $app->run();
 
 

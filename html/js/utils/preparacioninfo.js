@@ -68,3 +68,19 @@ $.ajax({
         $('#sel_agitador').append(`<option value="${agitador.nombre}">${agitador.nombre}</option>`);
     });
 });
+
+$.ajax({
+    url: `/api/instructivos/${referencia}`,
+    type: 'GET'
+}).done((data, status, xhr) => {
+    $('#pasos_instructivo').html('');
+
+    data.forEach((instructivo, indx) => {
+        $('#pasos_instructivo').append(`<a href="javascript:void(0)" onclick="procesoTiempo(event)" class="proceso-instructivo" attr-tiempo="${instructivo.tiempo}">PASO ${indx + 1}: ${instructivo.proceso} </a>  <br/>`);
+    });
+});
+
+function procesoTiempo(event) {
+    let tiempo = $(event.target).attr('attr-tiempo');
+    $('#tiempo_instructivo').val(tiempo);
+}
