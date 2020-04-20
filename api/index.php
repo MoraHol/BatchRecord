@@ -152,10 +152,10 @@
   {
     $func = function (&$value, &$key) {
       if (is_string($value)) {
-        $value = utf8_encode($value);
+        $value = utf8_decode($value);
       }
       if (is_string($key)) {
-        $key = utf8_encode($key);
+        $key = utf8_decode($key);
       }
       if (is_array($value)) {
         utf8_string_array_encode($value);
