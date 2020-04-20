@@ -1,5 +1,6 @@
 let idBatch = location.href.split('/')[4];
 let referencia = location.href.split('/')[5];
+let batch;
 
 Date.prototype.toDateInputValue = (function () {
     var local = new Date(this);
@@ -13,6 +14,7 @@ $.ajax({
     url: `../../api/batch/${idBatch}`,
     type: 'GET'
 }).done((data, status, xhr) => {
+    batch = data;
     $('#in_numero_orden').val(data.numero_orden);
     $('#in_numero_lote').val(data.numero_lote);
     $('#in_referencia').val(data.referencia);
@@ -22,13 +24,12 @@ $.ajax({
 });
 
 
-
 $.ajax({
     url: `../../api/desinfectantes`,
     type: 'GET'
 }).done((data, status, xhr) => {
     data.forEach(desinfectante => {
         $('#sel_producto_desinfeccion').append(`<option value="${desinfectante.id}">${desinfectante.nombre}</option>`);
-    })
+    });
 
 });

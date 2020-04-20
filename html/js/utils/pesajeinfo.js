@@ -1,3 +1,5 @@
+let flagWeight = false;
+
 $.ajax({
     url: `../../api/questions/1`,
     type: 'GET'
@@ -29,7 +31,7 @@ $.ajax({
 
 });
 
-$('#tablePesaje').dataTable({
+let tablePesaje = $('#tablePesaje').dataTable({
     ajax: {
         url: `../../api/materiasp/${referencia}`,
         dataSrc: ''
@@ -37,6 +39,7 @@ $('#tablePesaje').dataTable({
     paging: false,
     info: false,
     searching: false,
+    sorting: false,
     columns: [
         {
             title: 'Referencia',
@@ -47,14 +50,27 @@ $('#tablePesaje').dataTable({
             data: 'alias'
         },
         {
-            title: 'Peso GRS',
+            title: 'Peso (<a href="javascript:cambioConversion();" class="conversion_weight">g</a>)',
+            className: 'conversion_weight_column',
             data: 'porcentaje',
             render: (data, type, row) => {
-                return `${data * 100} %`;
+                if (flagWeight) {
+                    return (data * batch.tamano_lote) / 1000;
+                } else {
+                    return data * batch.tamano_lote;
+                }
+
             }
         }
     ]
-})
+});
+
+// $('.conversion_weight').click(function (event) {
+// event.preventDefault();
+// flagWeight = !flagWeight;
+// tablePesaje.api().ajax.reload();
+// $(tablePesaje.api().column(2).header()).html(`Peso (<a href="javascript:void(0);" class="conversion_weight">${flagWeight ? 'kg' : 'g'}</a>)`);
+// });
 
 $('.in_desinfeccion').click((event) => {
     event.preventDefault();
@@ -84,3 +100,9 @@ Date.prototype.toDateInputValue = (function () {
 
 $('#in_fecha_pesaje').val(new Date().toDateInputValue());
 $('#in_fecha_pesaje').attr('min', new Date().toDateInputValue());
+
+function cambioConversion() {
+    flagWeight = !flagWeight;
+    tablePesaje.api().ajax.reload();
+    $(tablePesaje.api().column(2).header()).html(`Peso (<a href="javascript:cambioConversion();" class="conversion_weight">${flagWeight ? 'kg' : 'g'}</a>)`);
+}
