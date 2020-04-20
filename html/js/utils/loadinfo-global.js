@@ -21,26 +21,7 @@ $.ajax({
     $('#in_fecha_programacion').val(data.fecha_programacion);
 });
 
-$.ajax({
-    url: `../../api/questions`,
-    type: 'GET'
-}).done((data, status, xhr) => {
-    $('#preguntas-div').html('');
-    data.forEach((question,indx) => {
-        $('#preguntas-div').append(`<div class="col-md-10 col-2 align-self-right">
-                    <a for="recipient-name" class="col-form-label">${question.pregunta}</a>
-                  </div>
-                  <div class="col-md-1 col-0 align-self-center">
-                    <label class="checkbox"> <input type="radio" class="questions" name="question-${question.id}" value="si"/>
-                    </label>
-                  </div>
-                  <div class="col-md-1 col-0 align-self-center">
-                    <label class="checkbox"> <input type="radio" name="question-${question.id}" value="no"/>
-                    </label>
-                  </div>`);
-    });
 
-});
 
 $.ajax({
     url: `../../api/desinfectantes`,

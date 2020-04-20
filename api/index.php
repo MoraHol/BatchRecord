@@ -96,6 +96,18 @@
     }
     return $response->withHeader('Content-Type', 'application/json');
   });
+  // preguntas por modulo
+  $app->get('/questions/{idModule}', function (Request $request, Response $response, $args) use ($preguntaDao) {
+    $array = $preguntaDao->findByModule($args["idModule"]);
+    $batch = utf8_string_array_encode($array);
+    if ($batch == null) {
+      $response->getBody()->write('');
+    } else {
+      $response->getBody()->write(json_encode($batch));
+
+    }
+    return $response->withHeader('Content-Type', 'application/json');
+  });
 
   $app->get('/desinfectantes', function (Request $request, Response $response, $args) use ($desinfectanteDao) {
     $batch = $desinfectanteDao->findAll();

@@ -21,7 +21,7 @@ $.ajax({
 });
 
 $.ajax({
-    url: `../../api/questions`,
+    url: `../../api/questions/2`,
     type: 'GET'
 }).done((data, status, xhr) => {
     $('#preguntas-div').html('');
@@ -56,7 +56,7 @@ $.ajax({
     type: 'GET'
 }).done((data, status, xhr) => {
     data.forEach(agitador => {
-        $('#sel_agitador').append(`<option value="${agitador.nombre}">${agitador.nombre}</option>`);
+        $('#sel_agitador').append(`<option value="${agitador.id}">${agitador.nombre}</option>`);
     });
 });
 
@@ -65,7 +65,7 @@ $.ajax({
     type: 'GET'
 }).done((data, status, xhr) => {
     data.forEach(agitador => {
-        $('#sel_agitador').append(`<option value="${agitador.nombre}">${agitador.nombre}</option>`);
+        $('#sel_marmita').append(`<option value="${agitador.id}">${agitador.nombre}</option>`);
     });
 });
 

@@ -7,10 +7,10 @@ $('#preparacionTable').dataTable({
         url: '//cdn.datatables.net/plug-ins/1.10.20/i18n/Spanish.json'
     },
     columns: [
-        {
-            title: '# de Orden',
-            data: 'numero_orden'
-        },
+        // {
+        //     title: '# de Orden',
+        //     data: 'numero_orden'
+        // },
         {
             title: 'Referencia',
             data: 'referencia'
@@ -20,13 +20,13 @@ $('#preparacionTable').dataTable({
             data: 'nombre_referencia'
         },
         {
-            title: 'No. Lote',
-            data: 'numero_lote'
+            title: 'Tamaño Lote',
+            data: 'tamano_lote'
         },
-        {
-            title: 'Fecha de Programacion',
-            data: 'fecha_programacion'
-        },
+        // {
+        //     title: 'Fecha de Programacion',
+        //     data: 'fecha_programacion'
+        // },
         {
             title: 'Estado',
             data: 'estado',
