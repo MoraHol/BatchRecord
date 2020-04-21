@@ -48,12 +48,14 @@
     untuosidad.untuosidad,
     poder_espumoso.poder_espumoso,
     grado_alcohol.limite_inferior as limite_inferior_grado_alcohol,
-    grado_alcohol.limite_superior as limite_superior_grado_alcohol
+    grado_alcohol.limite_superior as limite_superior_grado_alcohol,
+    ph.limite_inferior AS limite_inferior_ph,
+    ph.limite_superior AS limite_superior_ph
 FROM
     producto
 LEFT JOIN olor ON olor.id = producto.id_color
 LEFT JOIN color ON color.id = producto.id_color
-LEFT JOIN apariencia ON apariencia.apariencia = producto.id_apariencia
+LEFT JOIN apariencia ON apariencia.id = producto.id_apariencia
 LEFT JOIN ph ON ph.id = producto.id_ph
 LEFT JOIN viscosidad ON viscosidad.id = producto.id_viscosidad
 LEFT JOIN densidad_gravedad ON densidad_gravedad.id = producto.id_densidad_gravedad
