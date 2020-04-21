@@ -17,6 +17,7 @@
   <link href="../../html/css/style.css" rel="stylesheet">
   <!-- You can change the theme colors from here -->
   <link href="../../html/css/colors/blue.css" id="theme" rel="stylesheet">
+  <link rel="stylesheet" href="../../html/vendor/jquery-confirm/jquery-confirm.min.css">
 
   <link rel="stylesheet" type="text/css" href="../../html/vendor/datatables/datatables.min.css">
   <link rel="stylesheet" type="text/css"
@@ -417,12 +418,9 @@
                         <div class="row">
                           <div class="col-md-10 input-wrapper">
                             <div class="input">
-                              <input type="number" id="tiempo_instructivo" class="form-control" min="0">
+                              <input type="number" id="tiempo_instructivo" class="form-control" min="0" readonly>
                               <select id="measure" class="form-control">
-                                <option value="0">Seleccionar</option>
-                                <option value="s">Segundos</option>
                                 <option value="m">Minutos</option>
-                                <option value="h">Horas</option>
                               </select>
                             </div>
                             <div class="buttons-wrapper">
@@ -630,7 +628,9 @@
 <!--Custom JavaScript -->
 <script src="../../html/js/custom.min.js"></script>
 <script src="../../html/js/datatables.js"></script>
+<script src="../../html/vendor/jquery-confirm/jquery-confirm.min.js"></script>
 <script src="../../html/js/clock.js"></script>
+
 <script src="../../html/js/utils/preparacioninfo.js"></script>
 </body>
 

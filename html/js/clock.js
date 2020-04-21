@@ -1,6 +1,6 @@
 $(document).ready(function(){
     const measure = $('select#measure')
-    const ammount = $('input#num')
+    const ammount = $('input#tiempo_instructivo')
     const timer = $('#timer')
     const s = $(timer).find('.seconds')
     const m = $(timer).find('.minutes')
@@ -211,6 +211,8 @@ $(document).ready(function(){
         if (hours == 0 && minutes == 0 && seconds == 0 && hasStarted == true) {
             hasEnded = true
             alert('El tiempo a finalizado!')
+            queeProcess++;
+            refreshInstructivo();
         }
     }
 

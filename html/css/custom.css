@@ -19,9 +19,19 @@
     overflow: hidden;
     word-wrap: break-word;
 }
-.card-header b{
+
+.card-header b {
     font-size: 1.2rem;
 }
-.card-header .btn-link{
+
+.card-header .btn-link {
     font-size: 1.2rem;
+}
+
+.text-sucess {
+    color: #5cb85c !important;
+}
+
+.proceso-instructivo {
+    color: #000;
 }

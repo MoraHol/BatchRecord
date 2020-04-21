@@ -1,5 +1,7 @@
+let pasos;
 let idBatch = location.href.split('/')[4];
 let referencia = location.href.split('/')[5];
+let queeProcess = 0;
 
 Date.prototype.toDateInputValue = (function () {
     var local = new Date(this);
@@ -108,13 +110,33 @@ $.ajax({
     type: 'GET'
 }).done((data, status, xhr) => {
     $('#pasos_instructivo').html('');
-
+    pasos = data;
     data.forEach((instructivo, indx) => {
-        $('#pasos_instructivo').append(`<a href="javascript:void(0)" onclick="procesoTiempo(event)" class="proceso-instructivo" attr-tiempo="${instructivo.tiempo}">PASO ${indx + 1}: ${instructivo.proceso} </a>  <br/>`);
+        $('#pasos_instructivo').append(`<a href="javascript:void(0)" onclick="procesoTiempo(event)" class="proceso-instructivo" attr-indx="${indx}" attr-id="${instructivo.id}" attr-tiempo="${instructivo.tiempo}">PASO ${indx + 1}: ${instructivo.proceso} </a>  <br/>`);
     });
 });
 
 function procesoTiempo(event) {
     let tiempo = $(event.target).attr('attr-tiempo');
-    $('#tiempo_instructivo').val(tiempo);
+    let id = $(event.target).attr('attr-id');
+    let proceso = pasos[queeProcess];
+
+    if (proceso.id == id) {
+        $('#tiempo_instructivo').val(tiempo);
+    } else {
+        $.alert({
+            type: 'warning',
+            title: 'Alerta!',
+            content: 'Por favor sigue el orden'
+        });
+    }
+}
+
+function refreshInstructivo() {
+    $('#tiempo_instructivo').val(0);
+    $('.proceso-instructivo').each(function (link) {
+        if ($(this).attr('attr-indx') < queeProcess) {
+            $(this).addClass('text-sucess');
+        }
+    });
 }
