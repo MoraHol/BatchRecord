@@ -1,6 +1,6 @@
 let pasos;
-let idBatch = location.href.split('/')[4];
-let referencia = location.href.split('/')[5];
+//let idBatch = location.href.split('/')[4];
+//let referencia = location.href.split('/')[5];
 let queeProcess = 0;
 
 Date.prototype.toDateInputValue = (function () {

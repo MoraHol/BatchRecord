@@ -20,11 +20,18 @@
   $router->add('/pesajeinfo/:idBatch/:referencia', function ($idBatch, $referencia) {
     return Router::getRenderedHTML('html/pesajeinfo.html');
   });
-  $router->add('/preparacion',function (){
+  $router->add('/preparacion', function () {
     return Router::getRenderedHTML('html/preparacion.html');
   });
   $router->add('/preparacioninfo/:idBatch/:referencia', function ($idBatch, $referencia) {
     return Router::getRenderedHTML('html/preparacioninfo.html');
+  });
+
+  $router->add('/aprobacion', function () {
+    return Router::getRenderedHTML('html/aprobacion.html');
+  });
+  $router->add('/aprobacioninfo/:idBatch/:referencia', function ($idBatch, $referencia) {
+    return Router::getRenderedHTML('html/aprobacioninfo.html');
   });
 
   $router->run();

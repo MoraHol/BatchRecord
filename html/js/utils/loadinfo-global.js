@@ -33,3 +33,104 @@ $.ajax({
     });
 
 });
+
+
+function enviar() {
+    $('#myModal2').modal('hide');
+    let usuario = $('#usuariomodal2').val();
+    let contrasena = $('#contrasenamodal2').val();
+    let user = {
+        email: usuario,
+        password: contrasena
+    };
+    $.ajax({
+        type: 'POST',
+        url: '/api/user',
+        data: JSON.stringify(user),
+        dataType: 'json',
+        contentType: 'application/json; charset=utf-8',
+        success: function (resp) {
+
+            let parent = $('#in_realizado').parent();
+            $('#in_realizado').remove();
+            parent.append(`<img id="in_verificado" src="data:image/png;base64, ${resp.firma}" height="130">`);
+        }
+    });
+    return false;
+
+}
+
+function enviar2() {
+
+    $('#myModal3').modal('hide');
+    let usuario = $('#usuariomodal3').val();
+    let contrasena = $('#contrasenamodal3').val();
+    let user = {
+        email: usuario,
+        password: contrasena
+    };
+    $.ajax({
+        type: 'POST',
+        url: '/api/user',
+        data: JSON.stringify(user),
+        dataType: 'json',
+        contentType: 'application/json; charset=utf-8',
+        success: function (resp) {
+            let parent = $('#in_verificado').parent();
+            $('#in_verificado').remove();
+            parent.append(`<img id="in_verificado" src="data:image/png;base64, ${resp.firma}" height="130">`);
+        }
+    });
+    return false;
+
+}
+
+function enviar3() {
+    $('#myModal4').modal('hide');
+    let usuario = $('#usuariomodal4').val();
+    let contrasena = $('#contrasenamodal4').val();
+    let user = {
+        email: usuario,
+        password: contrasena
+    };
+    $.ajax({
+        type: 'POST',
+        url: '/api/user',
+        data: JSON.stringify(user),
+        dataType: 'json',
+        contentType: 'application/json; charset=utf-8',
+        success: function (resp) {
+
+            let parent = $('#in_realizado_2').parent();
+            $('#in_realizado_2').remove();
+            parent.append(`<img id="in_realizado_2" src="data:image/png;base64, ${resp.firma}" height="130">`);
+        }
+    });
+    return false;
+
+}
+
+function enviar4() {
+
+    $('#myModal5').modal('hide');
+    let usuario = $('#usuariomodal5').val();
+    let contrasena = $('#contrasenamodal5').val();
+    let user = {
+        email: usuario,
+        password: contrasena
+    };
+    $.ajax({
+        type: 'POST',
+        url: '/api/user',
+        data: JSON.stringify(user),
+        dataType: 'json',
+        contentType: 'application/json; charset=utf-8',
+        success: function (resp) {
+            let parent = $('#in_verificado_2').parent();
+            $('#in_verificado_2').remove();
+            parent.append(`<img  id="in_verificado_2" src="data:image/png;base64, ${resp.firma}" height="130">`);
+        }
+    });
+    return false;
+
+}
