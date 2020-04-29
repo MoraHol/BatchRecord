@@ -35,3 +35,7 @@
 .proceso-instructivo {
     color: #000;
 }
+
+#tablePesaje tbody tr {
+    font-size: 13px;
+}

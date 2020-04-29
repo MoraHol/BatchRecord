@@ -21,6 +21,7 @@
   <link rel="stylesheet" type="text/css"
         href="vendor/datatables/DataTables-1.10.20/css/dataTables.bootstrap4.min.css">
   <script src="https://kit.fontawesome.com/6589be6481.js" crossorigin="anonymous"></script>
+
   <link rel="stylesheet" href="css/custom.css">
   <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -314,7 +315,7 @@
                     <div class="col-md-4 col-2 align-self-center">
                       <label for="recipient-name" class="col-form-label">Tamaño del lote
                         Total:</label>
-                      <input type="number" name="tamanototallote" id="tamanototallote"
+                      <input type="text" name="tamanototallote" id="tamanototallote"
                              class="form-control" min="1" value="<?= $tamanototallote; ?>"
                              required/>
                     </div>
@@ -708,7 +709,18 @@
         }
     );
     $(document).ready(function () {
-        var table = $('#example').DataTable();
+        var table = $('#example').DataTable(
+            {
+                columnDefs: [
+                    {
+                        targets: [4],
+                        render: (data, type, row) => {
+                            return $.number(data, 0, ',', '.')
+                        }
+                    }
+                ]
+            }
+        );
         table.destroy();
 // Event listener to the two range filtering inputs to redraw on input
         $('#est').keyup(function () {
@@ -734,6 +746,7 @@
 <script src="js/sidebarmenu.js"></script>
 <!--stickey kit -->
 <script src="../assets/plugins/sticky-kit-master/dist/sticky-kit.min.js"></script>
+<script src="../assets/plugins/jquery/jquery.number.min.js"></script>
 <!--Custom JavaScript -->
 <script src="js/global.js"></script>
 <script src="js/custom.min.js"></script>
@@ -744,9 +757,11 @@
   <script>cargarData()</script>
 <?php } ?>
 <script>
+    $('#tamanototallote').number(true, 0, ',', '.');
 
     $('#tamanototallote').change(function () {
-        $('#unidadesxlote').val(parseFloat(this.value / $('#name-data6').val()).toFixed(2));
+        $('#unidadesxlote').val($(this).val() / $('#name-data6').val());
+        $('#unidadesxlote').number(true, 2, ',', '.');
     });
 
     function onSubmit() {

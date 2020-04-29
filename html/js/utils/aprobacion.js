@@ -8,6 +8,10 @@ $('#aprobacionTable').dataTable({
     },
     columns: [
         {
+            title: 'Fecha de Programacion',
+            data: 'fecha_programacion'
+        },
+        {
             title: '# de Orden',
             data: 'numero_orden'
         },
@@ -15,17 +19,21 @@ $('#aprobacionTable').dataTable({
             title: 'Referencia',
             data: 'referencia'
         },
-        {
+        /*{
             title: 'Nombre Referencia',
             data: 'nombre_referencia'
         },
         {
             title: 'Tamaño Lote',
             data: 'tamano_lote'
-        },
+        },*/
         {
-            title: 'Fecha de Programacion',
-            data: 'fecha_programacion'
+            title: '# lote',
+            data: 'numero_lote',
+            render: (data, type, row) => {
+                'use strict';
+                return $.number(data, 0, ',', '.');
+            }
         },
         {
             title: 'Estado',
