@@ -335,27 +335,37 @@
                 <label for="recipient-name" class="col-form-label">Fecha:</label>
                 <input type="date" class="form-control" id="in_fecha" readonly>
               </div>
-              <div class="col-md-4 col-2 align-self-right">
-                <label for="recipient-name" class="col-form-label">No. Lote:</label>
-                <input type="text" class="form-control" id="in_numero_lote" readonly>
-              </div>
               <div class="col-md-4 col-2 align-self-center">
-                <label for="recipient-name" class="col-form-label">No OP:</label>
+                <label for="recipient-name" class="col-form-label">No Orden:</label>
                 <input type="text" class="form-control" id="in_numero_orden" readonly>
+                <input type="text" class="form-control" name="idbatch"
+                       hidden>
               </div>
-            </div>
-            <div class="row" style="margin: 1%">
               <div class="col-md-4 col-2 align-self-right">
                 <label for="recipient-name" class="col-form-label">Referencia:</label>
                 <input type="text" class="form-control" id="in_referencia" readonly>
               </div>
+
+            </div>
+            <div class="row" style="margin: 1%">
               <div class="col-md-4 col-2 align-self-center">
-                <label for="recipient-name" class="col-form-label">Nombre Referencia:</label>
-                <input type="text" class="form-control" id="in_nombre_referencia" readonly>
+                <label for="in_tamano_lote" class="col-form-label">Tamaño Lote:</label>
+                <input type="text" class="form-control" id="in_tamano_lote"
+                       readonly>
               </div>
+              <div class="col-md-4 col-2 align-self-right">
+                <label for="recipient-name" class="col-form-label">No. Lote:</label>
+                <input type="text" class="form-control" id="in_numero_lote" readonly>
+              </div>
+
               <div class="col-md-4 col-2 align-self-center">
                 <label for="recipient-name" class="col-form-label">Linea:</label>
                 <input type="text" class="form-control" id="in_linea" readonly>
+              </div>
+              <div class="col-md-4 col-2 align-self-center">
+                <label for="recipient-name" class="col-form-label">Fecha de Programacion:</label>
+                <input type="date" class="form-control" id="in_fecha_programacion"
+                       readonly>
               </div>
             </div>
           </div>
@@ -694,6 +704,7 @@
 <script src="../../html/js/datatables.js"></script>
 <script src="../../html/vendor/jquery-confirm/jquery-confirm.min.js"></script>
 <script src="../../html/js/clock.js"></script>
+<script src="../../assets/plugins/jquery/jquery.number.min.js"></script>
 
 <script src="../../html/js/utils/loadinfo-global.js"></script>
 <script src="../../html/js/utils/preparacioninfo.js"></script>

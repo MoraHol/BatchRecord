@@ -21,6 +21,7 @@ $.ajax({
     $('#in_nombre_referencia').val(data.nombre_referencia);
     $('#in_linea').val(data.nombre_linea);
     $('#in_fecha_programacion').val(data.fecha_programacion);
+    $('#in_tamano_lote').val(data.tamano_lote);
 });
 
 

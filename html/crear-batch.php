@@ -20,6 +20,7 @@
   <link rel="stylesheet" type="text/css" href="vendor/datatables/DataTables-1.10.20/css/dataTables.bootstrap4.min.css">
   
   <script src="https://kit.fontawesome.com/6589be6481.js" crossorigin="anonymous"></script>
+
   <link rel="stylesheet" href="css/custom.css">
   <style type="text/css">.tcrearBatch {color:#fff;}
 
@@ -549,7 +550,18 @@
         }
     );
     $(document).ready(function () {
-        var table = $('#example').DataTable();
+        var table = $('#example').DataTable(
+            {
+                columnDefs: [
+                    {
+                        targets: [4],
+                        render: (data, type, row) => {
+                            return $.number(data, 0, ',', '.')
+                        }
+                    }
+                ]
+            }
+        );
         table.destroy();
         $('#est').keyup(function () {
             table.draw();
@@ -572,6 +584,11 @@
 
 <script src="js/sidebarmenu.js"></script>
 <script src="../assets/plugins/sticky-kit-master/dist/sticky-kit.min.js"></script>
+<<<<<<< HEAD
+=======
+<script src="../assets/plugins/jquery/jquery.number.min.js"></script>
+<!--Custom JavaScript -->
+>>>>>>> 345129c2043aae1e7c91e7e68cd4b5f9059e738f
 <script src="js/global.js"></script>
 <script src="js/custom.min.js"></script>
 <script src="js/datatables.js"></script>
@@ -581,9 +598,11 @@
   <script>cargarData()</script>
 <?php } ?>
 <script>
+    $('#tamanototallote').number(true, 0, ',', '.');
 
     $('#tamanototallote').change(function () {
-        $('#unidadesxlote').val(parseFloat(this.value / $('#name-data6').val()).toFixed(2));
+        $('#unidadesxlote').val($(this).val() / $('#name-data6').val());
+        $('#unidadesxlote').number(true, 2, ',', '.');
     });
 
     function onSubmit() {
