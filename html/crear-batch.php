@@ -3,31 +3,27 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <!-- Tell the browser to be responsive to screen width -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="">
   <meta name="author" content="">
   <!-- Favicon icon -->
   <link rel="icon" type="image/png" sizes="16x16" href="../assets/images/favicon.png">
   <title>Samara Cosmetics</title>
+  
   <!-- Bootstrap Core CSS -->
   <link href="../assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet">
   <!-- Custom CSS -->
   <link href="css/style.css" rel="stylesheet">
-  <!-- You can change the theme colors from here -->
   <link href="css/colors/blue.css" id="theme" rel="stylesheet">
   <link rel="stylesheet" type="text/css" href="vendor/datatables/datatables.min.css">
   <link rel="stylesheet" href="vendor/jquery-confirm/jquery-confirm.min.css">
-  <link rel="stylesheet" type="text/css"
-        href="vendor/datatables/DataTables-1.10.20/css/dataTables.bootstrap4.min.css">
+  <link rel="stylesheet" type="text/css" href="vendor/datatables/DataTables-1.10.20/css/dataTables.bootstrap4.min.css">
+  
   <script src="https://kit.fontawesome.com/6589be6481.js" crossorigin="anonymous"></script>
   <link rel="stylesheet" href="css/custom.css">
-  <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-  <!--[if lt IE 9]>
-  <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-  <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-  <![endif]-->
+  <style type="text/css">.tcrearBatch {color:#fff;}
+
+</style>
 
   <?php
     require('savebatch.php');
@@ -77,59 +73,30 @@
   </script>
 </head>
 <body class="fix-header fix-sidebar card-no-border">
-<!-- ============================================================== -->
-<!-- Preloader - style you can find in spinners.css -->
-<!-- ============================================================== -->
+
 <div class="preloader">
   <svg class="circular" viewBox="25 25 50 50">
     <circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="2" stroke-miterlimit="10"/>
   </svg>
 </div>
-<!-- ============================================================== -->
-<!-- Main wrapper - style you can find in pages.scss -->
-<!-- ============================================================== -->
+
 <div id="main-wrapper">
-  <!-- ============================================================== -->
-  <!-- Topbar header - style you can find in pages.scss -->
-  <!-- ============================================================== -->
   <header class="topbar">
     <nav class="navbar top-navbar navbar-toggleable-sm navbar-light">
-      <!-- ============================================================== -->
-      <!-- Logo -->
-      <!-- ============================================================== -->
       <div class="navbar-header">
         <a class="navbar-brand">
-          <!-- Logo text --><span>
-              
-              <!-- Light Logo text -->
-            <img src="../assets/images/logo-light-text2.png" class="light-logo" alt="homepage"/></span> </a>
+          <span><img src="../assets/images/logo-light-text2.png" class="light-logo" alt="homepage"/></span>
+        </a>
       </div>
-      <!-- ============================================================== -->
-      <!-- End Logo -->
-      <!-- ============================================================== -->
       <div class="navbar-collapse">
-        <!-- ============================================================== -->
-        <!-- toggle and nav items -->
-        <!-- ============================================================== -->
         <ul class="navbar-nav mr-auto mt-md-0">
-          <!-- This is  -->
           <li class="nav-item"><a class="nav-link nav-toggler hidden-md-up text-muted waves-effect waves-dark"
-                                  href="javascript:void(0)"><i class="mdi mdi-menu"></i></a></li>
-          <!-- ============================================================== -->
-          <!-- Search -->
-          <!-- ============================================================== -->
+              href="javascript:void(0)"><i class="mdi mdi-menu"></i></a></li>
         </ul>
-        <!-- ============================================================== -->
-        <!-- User profile and search -->
-        <!-- ============================================================== -->
         <ul class="navbar-nav my-lg-0">
-          <!-- ============================================================== -->
-          <!-- Profile -->
-          <!-- ============================================================== -->
           <li class="nav-item dropdown">
-            <!-- <a class="nav-link dropdown-toggle text-muted waves-effect waves-dark" href="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="../assets/images/campana.png" alt="noty" class="profile-pic m-r-12" /></a>-->
             <a class="nav-link dropdown-toggle text-muted waves-effect waves-dark" data-toggle="dropdown"
-               aria-haspopup="true" aria-expanded="true" id="dropdownMenuenlace">Jonathan Hernandez <i
+               aria-haspopup="true" aria-expanded="true" id="dropdownMenuenlace">Nombre de Usuario <i
                 class="fas fa-chevron-circle-down"></i></a>
             <div class="dropdown-menu" aria-labelledby="dropdownMenuenlace">
               <a href="#" class="dropdown-item">Cambiar contraseña</a>
@@ -140,52 +107,24 @@
       </div>
     </nav>
   </header>
-  <!-- ============================================================== -->
-  <!-- End Topbar header -->
-  <!-- ============================================================== -->
-  <!-- ============================================================== -->
-  <!-- Left Sidebar - style you can find in sidebar.scss  -->
-  <!-- ============================================================== -->
-  <!-- ============================================================== -->
-  <!-- End Left Sidebar - style you can find in sidebar.scss  -->
-  <!-- ============================================================== -->
-  <!-- ============================================================== -->
-  <!-- Page wrapper  -->
-  <!-- ============================================================== -->
-  <!-- ============================================================== -->
-  <!-- Bread crumb and right sidebar toggle -->
-  <!-- ============================================================== -->
+ 
   <div class="row page-titles">
     <div class="col-md-5 col-2 align-self-right">
       <h1 class="text-themecolor m-b-0 m-t-0" style="margin-left: 7%"><b>Batch Record</b></h1>
     </div>
     <div class="col-md-3 col-4 align-self-center">
-      <!-- Search form -->
-
+ 
     </div>
-    <!--<div class="col-md-2 col-8 align-self-center">
-      <select class="selectpicker form-control">
-        <option selected hidden>Acciones</option>
-        <option>Crear</option>
-        <option value="" id="Name2">Editar</option>
-        <option>Eliminar</option>
-      </select>
-    </div>-->
-    <!--<button type="button" onclick="displayRadioValue()">
-    Submit
-    </button> -->
     <div class="col-md-2 col-2 align-self-center">
       <div class="container">
-        <!-- Trigger the modal with a button -->
         <button type="button" class="btn waves-effect waves-light btn-danger pull-right hidden-sm-down"
                 data-toggle="modal" data-target="#myModal">Crear Batch Record
         </button>
-        <!-- Modal -->
         <div class="modal fade" id="myModal" role="dialog" tabindex="-1">
           <div class="modal-dialog modal-lg">
             <div class="modal-content">
               <div class="modal-header" style="  background-color: #FF8D6D !important;">
-                <h5 class="modal-title" id="exampleModalLabel"><b>Crear Batch Record</b></h5>
+                <h5 class="modal-title" id="exampleModalLabel"><span class="tcrearBatch"><b>Crear Batch Record</b></span></h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                   <span aria-hidden="true">&times;</span>
                 </button>
@@ -198,8 +137,7 @@
                     <div class="col-md-12 col-2 align-self-center">
 
                       <?php if ($update == false): ?>
-                        <label for="recipient-name" class="col-form-label">No.
-                          Referencia:</label>
+                        <label for="recipient-name" class="col-form-label">No. Referencia:</label>
                         <select class="form-control " name="norefenrencia" id="name" required
                                 onchange="cargarData()"
                                 value="<?= $norefenrencia; ?>">
@@ -211,9 +149,7 @@
                           ?>
                         </select>
                       <?php else: ?>
-                        <label for="recipient-name" class="col-form-label">No.
-                          Referencia:</label>
-
+                        <label for="recipient-name" class="col-form-label">No. Referencia:</label>
                         <select class="form-control " name="norefenrencia" id="name"
                                 required
                                 onchange="cargarData()"
@@ -227,7 +163,6 @@
                             }
                           ?>
                         </select>
-
                       <?php endif ?>
                     </div>
                     <div class="col-md-2 col-2 align-self-center d-none">
@@ -238,41 +173,34 @@
                   </div>
                   <div class="row page">
                     <div class="col-md-6 col-2 align-self-center">
-                      <label for="recipient-name" class="col-form-label">Nombre
-                        Referencia:</label><br>
+                      <label for="recipient-name" class="col-form-label">Nombre Referencia</label><br>
                       <input id="name-data" class="displayallinfo" readonly name="nombrereferencia">
                     </div>
                     <div class="col-md-6 col-2 align-self-center">
-                      <label for="recipient-name" class="col-form-label">Marca:</label>
+                      <label for="recipient-name" class="col-form-label">Marca</label>
                       <input id="name-data2" class="displayallinfo" readonly name="marca">
                     </div>
                   </div>
 
-                  <input type="text" name="fechahoy" value="<?= date('Y-m-d'); ?>" readonly
-                         class="form-control datepicker" hidden>
-
+                  <input type="text" name="fechahoy" value="<?= date('Y-m-d'); ?>" readonly class="form-control datepicker" hidden>
                   <div class="row page">
                     <div class="col-md-6 col-2 align-self-center">
-                      <label for="recipient-name" class="col-form-label">Notificación
-                        sanitaria:</label>
+                      <label for="recipient-name" class="col-form-label">Notificación Sanitaria</label>
                       <input id="name-data3" class="displayallinfo" readonly name="notificacionsanitaria"
                       >
                     </div>
                     <div class="col-md-6 col-2 align-self-center">
-                      <label for="recipient-name" class="col-form-label">Propietario:</label>
-                      <input id="name-data4" class="displayallinfo" readonly name="propietario"
-                      >
+                      <label for="recipient-name" class="col-form-label">Propietario</label>
+                      <input id="name-data4" class="displayallinfo" readonly name="propietario">
                     </div>
                   </div>
                   <div class="row page">
                     <div class="col-md-6 col-2 align-self-center">
-                      <label for="recipient-name" class="col-form-label">Nombre producto:</label>
-                      <input id="name-data5" class="displayallinfo" readonly name="nombreproducto"
-                             value="">
+                      <label for="recipient-name" class="col-form-label">Nombre Producto</label>
+                      <input id="name-data5" class="displayallinfo" readonly name="nombreproducto" value="">
                     </div>
                     <div class="col-md-6 col-2 align-self-center">
-                      <label for="recipient-name" class="col-form-label">Presentación
-                        comercial:</label>
+                      <label for="recipient-name" class="col-form-label">Presentación Comercial</label>
                       <input id="name-data6" class="displayallinfo" readonly name="presentacion" readonly
                              value="">
                     </div>
@@ -281,21 +209,16 @@
 
                     <?php if ($update == false): ?>
                       <div class="col-md-6 col-2 align-self-center d-none">
-                        <label for="recipient-name" class="col-form-label">Estado:</label><br>
-
-                        <select class="selectpicker form-control" id="filtrar1"
-                                name="numerodelote" style="width: 80%">
+                        <label for="recipient-name" class="col-form-label">Estado</label><br>
+                        <select class="selectpicker form-control" id="filtrar1" name="numerodelote" style="width: 80%">
                           <option value="0">Detenido</option>
                           <option value="1">Activo</option>
                         </select>
                       </div>
                     <?php else: ?>
                       <div class="col-md-6 col-2 align-self-center">
-                        <label for="recipient-name" class="col-form-label">Estado:</label><br>
-
-                        <select class="selectpicker form-control" id="filtrar1"
-                                name="numerodelote" style="width: 80%"
-                                value="<?= $estado; ?>">
+                        <label for="recipient-name" class="col-form-label">Estado</label><br>
+                        <select class="selectpicker form-control" id="filtrar1" name="numerodelote" style="width: 80%" value="<?= $estado; ?>">
                           <option value="0">Detenido</option>
                           <option value="1">Activo</option>
                           <option value="2">En proceso</option>
@@ -303,37 +226,29 @@
                       </div>
                     <?php endif ?>
 
-
                     <div class="col-md-6 col-2 align-self-center">
-                      <label for="recipient-name" class="col-form-label">Linea:</label>
-                      <input id="name-data7" class="displayallinfo" readonly name="linea"
-                             readonly>
+                      <label for="recipient-name" class="col-form-label">Linea</label>
+                      <input id="name-data7" class="displayallinfo" readonly name="linea" readonly>
                     </div>
                   </div>
                   <div class="row page">
                     <div class="col-md-4 col-2 align-self-center">
-                      <label for="recipient-name" class="col-form-label">Tamaño del lote
-                        Total:</label>
-                      <input type="number" name="tamanototallote" id="tamanototallote"
-                             class="form-control" min="1" value="<?= $tamanototallote; ?>"
-                             required/>
+                      <label for="recipient-name" class="col-form-label">Unidades por Lote</label>
+                      <input type="number" name="unidadesxlote" id="unidadesxlote" class="form-control" min="1" value="<?= $unidadesxlote; ?>" required/>
+                    </div>
+                    <div class="col-md-4 col-2 align-self-center">
+                      <label for="recipient-name" class="col-form-label">Tamaño del Lote</label>
+                      <input type="number" name="tamanototallote" id="tamanototallote" class="form-control" min="1" readonly value="<?= $tamanototallote; ?>" />
                     </div>
                     <div class="col-md-4 col-2 align-self-center d-none">
-                      <label for="recipient-name" class="col-form-label">Tamaño del lote por presentación:</label>
+                      <label for="recipient-name" class="col-form-label">Tamaño del Lote por Presentación</label>
                       <input type="number" name="tamanolotepresentacion" id="tamanolotepresentacion"
                              class="form-control" min="1" value="<?= $tamanolotepresentacion; ?>" required/>
                     </div>
-                    <div class="col-md-4 col-2 align-self-center">
-                      <label for="recipient-name" class="col-form-label">Unidades por lote
-                        solicitadas:</label>
-                      <input type="number" name="unidadesxlote" id="unidadesxlote"
-                             class="form-control" readonly min="1"
-                             value="<?= $unidadesxlote; ?>"/>
-                    </div>
                   </div>
                   <div class="row page">
                     <div class="col-md-6 col-2 align-self-center">
-                      <label for="recipient-name" class="col-form-label">Fecha de programación:</label>
+                      <label for="recipient-name" class="col-form-label">Fecha de Programación</label>
                       <input type="date" class="form-control" id="fecha" name="fechaprogramacion"
                              value="<?= $fechaprogramacion; ?>"
                              min="<?php $hoy = date("Y-m-d");
@@ -349,7 +264,7 @@
                   </div>
                   <div class="row page">
                     <div class="col-md-12 col-2 align-self-center">
-                      <label for="recipient-name" class="col-form-label">Autoriza:</label>
+                      <label for="recipient-name" class="col-form-label">Observaciones</label>
                       <input type="text" class="form-control" id="recipient-name" name="autoriza"
                              required>
                     </div>
@@ -370,8 +285,6 @@
                           });
                       </script>
                     <?php endif ?>
-                    <!-- <button type="submit" class="btn btn-primary" name="save">Crear</button>
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>-->
 
                   </div>
                 </form>
@@ -540,48 +453,10 @@
       </div>
     </div>
   </div>
-  <!-- ============================================================== -->
-  <!-- End Bread crumb and right sidebar toggle -->
-  <!-- ============================================================== -->
-  <!-- ============================================================== -->
-  <!-- Start Page Content -->
-  <!-- ============================================================== -->
-
-  <!-- ============================================================== -->
-  <!-- Container fluid  -->
-  <!-- ============================================================== -->
-
-  <!--<div class="row">
-    <div class="col-2 align-self-center">
-      <table class="table" style="margin-left: 15%; margin-bottom: 180%">
-
-        <tbody>
-          <tr><td>
-          <button type="button" class="btn waves-effect waves-light btn-danger pull-center" style="width: 80%">Todos<br/>los batch record</button></td>
-        </tr>
-
-
-        <tr><td>
-          <select class="selectpicker form-control" id="filtrar1" style="width: 80%">
-            <option selected hidden>Filtrar</option>
-            <option>Activo</option>
-            <option>Detenido</option>
-            <option>En proceso</option>
-          </select>
-        </td> </tr>
-        <tr><td>
-          <button type="button" class="btn waves-effect waves-light btn-danger pull-center" data-toggle="modal" data-target="#myModal2" style="width: 80%">Multipresentación</button>
-        </td> </tr>
-
-      </tbody>
-    </table>
-  </div>-->
   <!-- column -->
   <div class="col-md-12 col-2 align-self-right">
     <div class="card">
       <div class="card-block">
-        <!--<h4 class="card-title">Basic Table</h4>
-        <h6 class="card-subtitle">Add class <code>.table</code></h6>-->
         <div class="table-responsive">
           <table class="table table-striped table-bordered" id="example">
             <thead>
@@ -610,15 +485,11 @@
               while ($rows = mysqli_fetch_assoc($sql6)) {
                 ?>
                 <tr>
-
-
-                  <td><input type="radio" id='express' name="optradio"
-                             value="<?= $rows['id_batch']; ?>"></td>
+                  <td><input type="radio" id='express' name="optradio" value="<?= $rows['id_batch']; ?>"></td>
                   <td><?= $rows['numero_orden']; ?></td>
                   <td><?= $rows['referencia']; ?></td>
                   <td><?= $rows['nombre_referencia']; ?></td>
                   <td><?= $rows['presentacion']; ?></td>
-
                   <td><?= $rows['numero_lote'] ?></td>
                   <td><?= $rows['nombre_linea']; ?></td>
                   <td><?= $rows['nombre']; ?></td>
@@ -630,8 +501,6 @@
                          class="btn btn-primary"><i class="fas fa-edit"></i></a></td>
                   <td><a href="#" onclick="deleteBatch(event)" attr-id="<?= $rows ['id_batch']; ?>"
                          class="btn btn-primary"><i class="fas fa-trash"></i></a></td>
-
-
                 </tr>
                 <?php
               }
@@ -645,43 +514,15 @@
   </div>
 </div>
 </div>
-<!-- ============================================================== -->
-<!-- End PAge Content -->
-<!-- ============================================================== -->
 </div>
-<!-- ============================================================== -->
-<!-- End Container fluid  -->
-<!-- ============================================================== -->
-<!-- ============================================================== -->
-<!-- footer -->
-<!-- ==============================================================
-<footer class="footer">
-  ©  <b>2020</b> Desarrollado por Teenus S.A.S <a href="https://www.teenus.com.co/" target="_blank"><img src="../assets/images/logo-teenus.png" alt="Teenus"/></a></div>
-</footer>
--->
-<!-- ============================================================== -->
-<!-- End footer -->
-<!-- ============================================================== -->
 </div>
-<!-- ============================================================== -->
-<!-- End Page wrapper  -->
-<!-- ============================================================== -->
 </div>
-<!-- ============================================================== -->
-<!-- End Wrapper -->
-<!-- ============================================================== -->
-<!-- ============================================================== -->
-<!-- All Jquery -->
-<!-- ============================================================== -->
 
 <script src="../assets/plugins/jquery/jquery.min.js"></script>
-<!-- Bootstrap tether Core JavaScript -->
 <script src="../assets/plugins/bootstrap/js/tether.min.js"></script>
 <script src="../assets/plugins/bootstrap/js/bootstrap.min.js"></script>
 <script type="text/javascript" src="vendor/datatables/datatables.min.js"></script>
-<!-- slimscrollbar scrollbar JavaScript -->
 <script src="js/jquery.slimscroll.js"></script>
-<!--Wave Effects -->
 <script src="js/waves.js"></script>
 <script type="text/javascript">
     $(function () {
@@ -710,7 +551,6 @@
     $(document).ready(function () {
         var table = $('#example').DataTable();
         table.destroy();
-// Event listener to the two range filtering inputs to redraw on input
         $('#est').keyup(function () {
             table.draw();
         });
@@ -729,12 +569,9 @@
 
 
 </script>
-<!--stickey kit -->
-<!--Menu sidebar -->
+
 <script src="js/sidebarmenu.js"></script>
-<!--stickey kit -->
 <script src="../assets/plugins/sticky-kit-master/dist/sticky-kit.min.js"></script>
-<!--Custom JavaScript -->
 <script src="js/global.js"></script>
 <script src="js/custom.min.js"></script>
 <script src="js/datatables.js"></script>
@@ -778,7 +615,6 @@
 
                 },
                 cancelar: function () {
-                    // $.alert('Canceled!');
                 }
             }
         });

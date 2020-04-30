@@ -9,6 +9,7 @@
   $tamanolotepresentacion = "";
   $unidadesxlote = "";
   $update = false;
+  
   if (isset($_POST['save'])) {
     $norefenrencia = $_POST['norefenrencia'];
     $fechahoy = $_POST['fechahoy'];
