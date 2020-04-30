@@ -23,10 +23,10 @@ $result = mysqli_query($connect, $query);
     <table id="product_data" class="table table-bordered table-striped">
      <thead>
       <tr>
-                                                <th># de Orden</th>
-                                                <th>Referencia</th>
-                                                <th>Nombre Referencia</th>
-                                                <th>Propietario</th>
+        <th>No de Orden</th>
+        <th>Referencia</th>
+        <th>Nombre</th>
+        <th>Propietario</th>
       </tr>
      </thead>
     </table>

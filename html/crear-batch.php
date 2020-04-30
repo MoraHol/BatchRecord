@@ -116,11 +116,17 @@
     <div class="col-md-3 col-4 align-self-center">
  
     </div>
-    <div class="col-md-2 col-2 align-self-center">
+    <div class="col-md-4 col-2 align-self-center">
       <div class="container">
-        <button type="button" class="btn waves-effect waves-light btn-danger pull-right hidden-sm-down"
-                data-toggle="modal" data-target="#myModal">Crear Batch Record
-        </button>
+        <div class="row">
+          <div class="col-lg-2"><button type="button" class="btn waves-effect waves-light btn-danger pull-right hidden-sm-down btn-md"
+                  data-toggle="modal" data-target="#">Filtrar</button>
+          </div>
+          <div class="col-lg-8"><button type="button" class="btn waves-effect waves-light btn-danger pull-right hidden-sm-down btn-md"
+                  data-toggle="modal" data-target="#myModal">Crear Batch Record</button>
+          </div>
+        </div>
+          
         <div class="modal fade" id="myModal" role="dialog" tabindex="-1">
           <div class="modal-dialog modal-lg">
             <div class="modal-content">
@@ -265,7 +271,14 @@
                   </div>
                   <div class="row page">
                     <div class="col-md-12 col-2 align-self-center">
-                      <label for="recipient-name" class="col-form-label">Observaciones</label>
+                      <label for="recipient-name" class="col-form-label">Observaciones Pesaje</label>
+                      <input type="text" class="form-control" id="recipient-name" name="autoriza"
+                             required>
+                    </div>
+                  </div>
+                  <div class="row page">
+                    <div class="col-md-12 col-2 align-self-center">
+                      <label for="recipient-name" class="col-form-label">Observaciones Preparación</label>
                       <input type="text" class="form-control" id="recipient-name" name="autoriza"
                              required>
                     </div>
@@ -386,10 +399,8 @@
                   </thead>
                   <tbody>
                   <tr>
-                    <td><input type="text" class="form-control" id="pesogrs" value="01" readonly>
-                    </td>
-                    <td><input type="text" class="form-control" id="pesogrs" value="Materia01"
-                               readonly></td>
+                    <td><input type="text" class="form-control" id="pesogrs" value="01" readonly></td>
+                    <td><input type="text" class="form-control" id="pesogrs" value="Materia01"readonly></td>
                     <td><input type="text" class="form-control" id="pesogrs"></td>
                   </tr>
                 </table>
@@ -405,10 +416,10 @@
     </div>
   </div>
   <div class="modal fade" id="myModal4" role="dialog" tabindex="-1">
-    <div class="modal-dialog modal-lg">
+    <div class="modal-dialog modal-md">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Cantidad de Batch Record Para Crear</h5>
+          <h5 class="modal-title" id="exampleModalLabel" ><strong>Clonar Batch Record</strong></h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
@@ -416,17 +427,13 @@
         <div class="modal-body">
           <form>
             <div class="row page">
-              <div class="col-md-4 col-2 align-self-center">
-                <label for="recipient-name" class="col-form-label">Tamaño lote total:</label>
-                <input type="text" class="form-control" id="recipient-name">
-              </div>
-              <div class="col-md-8 col-2 align-self-center">
+              <div class="col-md-12 col-2 align-self-center">
                 <table class="table">
                   <thead>
                   <tr>
-                    <th>Tamaño Kilos</th>
+                    <th>Unidades</th>
+                    <th>Presentación</th>
                     <th>Cantidad</th>
-                    <th>Tamaño total Kilos</th>
                   </tr>
                   </thead>
                   <tbody>
@@ -438,13 +445,12 @@
                 </table>
               </div>
             </div>
-            <div class="row page">
+            <!-- <div class="row page">
               <div class="col-md-4 col-2 align-self-center">
                 <label for="recipient-name" class="col-form-label">Total Batch Record:</label>
                 <input type="text" class="form-control" id="recipient-name">
               </div>
-
-            </div>
+            </div> -->
           </form>
         </div>
         <div class="modal-footer">
@@ -464,15 +470,15 @@
             <tr>
               <th></th>
 
-              <th># de Orden</th>
+              <th>Orden</th>
               <th>Referencia</th>
-              <th>Nombre Referencia</th>
-              <th>Presentacion comercial</th>
-              <th># de lote de Producción</th>
+              <th>Nombre</th>
+              <th>Presentacion</th>
+              <th>Lote</th>
               <th>Linea</th>
               <th>Propietario</th>
-              <th>Fecha de Creación</th>
-              <th>Fecha de Programación</th>
+              <th>Fecha Creación</th>
+              <th>Fecha Programación</th>
               <th>Estado</th>
 
               <th></th>
