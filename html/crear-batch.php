@@ -18,7 +18,7 @@
   <link rel="stylesheet" type="text/css" href="vendor/datatables/datatables.min.css">
   <link rel="stylesheet" href="vendor/jquery-confirm/jquery-confirm.min.css">
   <link rel="stylesheet" type="text/css" href="vendor/datatables/DataTables-1.10.20/css/dataTables.bootstrap4.min.css">
-  
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
   <script src="https://kit.fontawesome.com/6589be6481.js" crossorigin="anonymous"></script>
 
   <link rel="stylesheet" href="css/custom.css">
@@ -81,7 +81,7 @@
   </svg>
 </div>
 
-<div id="main-wrapper">
+<div id="main-wrapper" style="padding-top:15px; padding-left:15px; padding-right:15px">
   <header class="topbar">
     <nav class="navbar top-navbar navbar-toggleable-sm navbar-light">
       <div class="navbar-header">
@@ -97,8 +97,8 @@
         <ul class="navbar-nav my-lg-0">
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle text-muted waves-effect waves-dark" data-toggle="dropdown"
-               aria-haspopup="true" aria-expanded="true" id="dropdownMenuenlace">Nombre de Usuario <i
-                class="fas fa-chevron-circle-down"></i></a>
+               aria-haspopup="true" aria-expanded="true" id="dropdownMenuenlace">Berney Montoya 
+               <i class="fas fa-chevron-circle-down"></i></a>
             <div class="dropdown-menu" aria-labelledby="dropdownMenuenlace">
               <a href="#" class="dropdown-item">Cambiar contraseña</a>
               <a href="../index.html" class="dropdown-item">Cerrar sesión</a>
@@ -120,13 +120,51 @@
       <div class="container">
         <div class="row">
           <div class="col-lg-2"><button type="button" class="btn waves-effect waves-light btn-danger pull-right hidden-sm-down btn-md"
-                  data-toggle="modal" data-target="#">Filtrar</button>
+                  data-toggle="modal" data-target="#filtrado">Filtrar</button>
           </div>
           <div class="col-lg-8"><button type="button" class="btn waves-effect waves-light btn-danger pull-right hidden-sm-down btn-md"
                   data-toggle="modal" data-target="#myModal">Crear Batch Record</button>
+                  <!-- <a href="#addProductModal" class="btn btn-success" data-toggle="modal"> <span>Crear Batch Record</span></a> -->
           </div>
         </div>
-          
+
+        <div class="modal" tabindex="-1" id="filtrado" role="dialog">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title"><strong>Filtrado por Fechas</strong></h5>
+                <!-- <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span></button> -->
+              </div>
+              <div class="modal-body">
+            <!-- Default unchecked -->
+                <div class="custom-control custom-radio">
+                  <input type="radio" class="custom-control-input" id="defaultUnchecked" name="defaultExampleRadios">
+                  <label class="custom-control-label" for="defaultUnchecked">Fecha de Creación</label>
+                </div>
+
+                <!-- Default checked -->
+                <div class="custom-control custom-radio">
+                  <input type="radio" class="custom-control-input" id="defaultChecked" name="defaultExampleRadios" checked>
+                  <label class="custom-control-label" for="defaultChecked">Fecha Programación</label>
+                </div>
+              
+                <div class="col-md-12 col-2 align-self-center">
+                  <label for="recipient-name" class="col-form-label"><strong>Fecha Inicial</strong></label>
+                  <input type="date" class="form-control" id="fecha" name="fechaprogramacion" value="<?= $fechaprogramacion; ?>" max="<?php $hoy = date("Y-m-d"); echo $hoy; ?>">
+                  <label for="recipient-name" class="col-form-label"><strong>Fecha Final</strong></label>
+                  <input type="date" class="form-control" id="fecha" name="fechaprogramacion" value="<?= $fechaprogramacion; ?>" max="<?php $hoy = date("Y-m-d"); echo $hoy; ?>">  
+                  </div>
+                </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-primary">Aceptar</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
         <div class="modal fade" id="myModal" role="dialog" tabindex="-1">
           <div class="modal-dialog modal-lg">
             <div class="modal-content">
@@ -425,6 +463,8 @@
           </button>
         </div>
         <div class="modal-body">
+          
+                          
           <form>
             <div class="row page">
               <div class="col-md-12 col-2 align-self-center">
@@ -432,6 +472,7 @@
                   <thead>
                   <tr>
                     <th>Unidades</th>
+                    <td><input type="text" class="form-control" id="tamaño"></td>
                     <th>Presentación</th>
                     <th>Cantidad</th>
                   </tr>
@@ -505,9 +546,9 @@
                   <td><?= $rows['estado'] == 1 ? "Activo" : "Inactivo" ?></td>
 
                   <td><a href="crear-batch.php?edit=<?= $rows ['id_batch']; ?>"
-                         class="btn btn-primary"><i class="fas fa-edit"></i></a></td>
+                         class="edit"><i class="material-icons" data-toggle="tooltip" title="Editar" style="color:rgb(255, 193, 7)">&#xE254;</i></a></td>
                   <td><a href="#" onclick="deleteBatch(event)" attr-id="<?= $rows ['id_batch']; ?>"
-                         class="btn btn-primary"><i class="fas fa-trash"></i></a></td>
+                        class="delete"><i class="material-icons" data-toggle="tooltip" title="Eliminar" style="color:rgb(234, 67, 54)">&#xE872;</i></a></td>
                 </tr>
                 <?php
               }
@@ -584,17 +625,12 @@
                     = "you Gender: " + ele[i].value;
         }
     }
-
-
 </script>
 
 <script src="js/sidebarmenu.js"></script>
 <script src="../assets/plugins/sticky-kit-master/dist/sticky-kit.min.js"></script>
-<<<<<<< HEAD
-=======
 <script src="../assets/plugins/jquery/jquery.number.min.js"></script>
 <!--Custom JavaScript -->
->>>>>>> 345129c2043aae1e7c91e7e68cd4b5f9059e738f
 <script src="js/global.js"></script>
 <script src="js/custom.min.js"></script>
 <script src="js/datatables.js"></script>
@@ -627,10 +663,10 @@
     function deleteBatch(event) {
         let id = $(event.target).attr('attr-id');
         $.confirm({
-            title: '¿Esta seguro de Eliminar?',
-            content: '',
+            title: 'Eliminar Registro',
+            content: '¿Seguro que quiere eliminar este Batch Record?',
             buttons: {
-                confirmar: function () {
+                Si: function () {
                     $.ajax({
                         url: `savebatch.php?del=${id}`,
                         type: 'GET'
@@ -639,7 +675,7 @@
                     });
 
                 },
-                cancelar: function () {
+                No: function () {
                 }
             }
         });

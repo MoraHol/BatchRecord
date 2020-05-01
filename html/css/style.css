@@ -27,7 +27,7 @@
 
 body {
   background: #fff;
-  font-family: "Roboto", sans-serif;
+  font-family: 'Varela Round', sans-serif;
   margin: 0;
   overflow-x: hidden;
   color: #67757c;
@@ -1885,7 +1885,8 @@ File: scss
   position: relative;
   z-index: 50;
   -webkit-box-shadow: 5px 0px 10px rgba(0, 0, 0, 0.5);
-  box-shadow: 5px 0px 10px rgba(0, 0, 0, 0.5); }
+  box-shadow: 5px 0px 10px rgba(0, 0, 0, 0.5); 
+  border-radius: 5px 5px 5px 5px;}
   .topbar .top-navbar {
     min-height: 70px;
     padding: 0px 15px 0 0; }
