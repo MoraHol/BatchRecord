@@ -133,3 +133,9 @@ $("#numero2").on({
         });
     }
 });
+
+//Editar Batch Record
+
+function editar_batch(datos){
+    alert(datos);
+}
