@@ -6,8 +6,8 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <!-- Tell the browser to be responsive to screen width -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="">
-  <meta name="author" content="">
+  <meta name="description" content="Batch Record">
+  <meta name="author" content="Samara Cosmetics">
   <!-- Favicon icon -->
   <link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicon.png">
   <title>Samara Cosmetics</title>
@@ -17,80 +17,43 @@
   <link href="html/css/style.css" rel="stylesheet">
   <!-- You can change the theme colors from here -->
   <link href="html/css/colors/blue.css" id="theme" rel="stylesheet">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 
   <link rel="stylesheet" type="text/css" href="html/vendor/datatables/datatables.min.css">
   <link rel="stylesheet" type="text/css"
         href="html/vendor/datatables/DataTables-1.10.20/css/dataTables.bootstrap4.min.css">
-  <script src="https://kit.fontawesome.com/6589be6481.js" crossorigin="anonymous"></script>
-
-
-  <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-  <!--[if lt IE 9]>
-  <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-  <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-  <![endif]-->
+  <!-- <script src="https://kit.fontawesome.com/6589be6481.js" crossorigin="anonymous"></script> -->
   <script src="https://code.jquery.com/jquery-1.11.2.min.js"></script>
 
 </head>
 
 <body class="fix-header fix-sidebar card-no-border">
-<!-- ============================================================== -->
-<!-- Preloader - style you can find in spinners.css -->
-<!-- ============================================================== -->
 <div class="preloader">
   <svg class="circular" viewBox="25 25 50 50">
     <circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="2" stroke-miterlimit="10"/>
   </svg>
 </div>
-<!-- ============================================================== -->
-<!-- Main wrapper - style you can find in pages.scss -->
-<!-- ============================================================== -->
-<div id="main-wrapper">
-  <!-- ============================================================== -->
-  <!-- Topbar header - style you can find in pages.scss -->
-  <!-- ============================================================== -->
+<div id="main-wrapper" style="padding-top:15px; padding-left:15px; padding-right:15px">
   <header class="topbar">
     <nav class="navbar top-navbar navbar-toggleable-sm navbar-light">
-      <!-- ============================================================== -->
-      <!-- Logo -->
-      <!-- ============================================================== -->
       <div class="navbar-header">
         <a class="navbar-brand">
-          <!-- Logo text --><span>
-                         
-                         <!-- Light Logo text -->    
-                         <img src="assets/images/logo-light-text2.png" class="light-logo" alt="homepage"/></span>
+          <span>
+          <img src="assets/images/logo-light-text2.png" class="light-logo" alt="homepage"/></span>
         </a>
       </div>
-      <!-- ============================================================== -->
-      <!-- End Logo -->
-      <!-- ============================================================== -->
       <div class="navbar-collapse">
-        <!-- ============================================================== -->
-        <!-- toggle and nav items -->
-        <!-- ============================================================== -->
         <ul class="navbar-nav mr-auto mt-md-0">
-          <!-- This is  -->
           <li class="nav-item"><a class="nav-link nav-toggler hidden-md-up text-muted waves-effect waves-dark"
-                                  href="javascript:void(0)"><i class="mdi mdi-menu"></i></a></li>
-          <!-- ============================================================== -->
-          <!-- Search -->
-          <!-- ============================================================== -->
-
+              href="javascript:void(0)"><i class="mdi mdi-menu"></i></a></li>
         </ul>
-        <!-- ============================================================== -->
-        <!-- User profile and search -->
-        <!-- ============================================================== -->
+        
         <ul class="navbar-nav my-lg-0">
-          <!-- ============================================================== -->
-          <!-- Profile -->
-          <!-- ============================================================== -->
-          <li class="nav-item dropdown">
+                  <li class="nav-item dropdown">
             <!-- <a class="nav-link dropdown-toggle text-muted waves-effect waves-dark" href="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="../assets/images/campana.png" alt="noty" class="profile-pic m-r-12" /></a>-->
             <a class="nav-link dropdown-toggle text-muted waves-effect waves-dark" data-toggle="dropdown"
-               aria-haspopup="true" aria-expanded="true" id="dropdownMenuenlace">Jonathan Hernandez <i
-              class="fas fa-chevron-circle-down"></i></a>
+               aria-haspopup="true" aria-expanded="true" id="dropdownMenuenlace">Berney Montoya 
+               <i class="large material-icons">account_circle</i></i></a>
             <div class="dropdown-menu" aria-labelledby="dropdownMenuenlace">
               <a href="#" class="dropdown-item">Cambiar contraseña</a>
               <a href="./" class="dropdown-item">Cerrar sesión</a>
@@ -100,85 +63,22 @@
       </div>
     </nav>
   </header>
-  <!-- ============================================================== -->
-  <!-- End Topbar header -->
-  <!-- ============================================================== -->
-  <!-- ============================================================== -->
-  <!-- Left Sidebar - style you can find in sidebar.scss  -->
-  <!-- ============================================================== -->
-
-  <!-- ============================================================== -->
-  <!-- End Left Sidebar - style you can find in sidebar.scss  -->
-  <!-- ============================================================== -->
-  <!-- ============================================================== -->
-  <!-- Page wrapper  -->
-  <!-- ============================================================== -->
-
-  <!-- ============================================================== -->
-  <!-- Bread crumb and right sidebar toggle -->
-  <!-- ============================================================== -->
+  
   <div class="row page-titles">
     <div class="col-md-5 col-2 align-self-right">
       <h1 class="text-themecolor m-b-0 m-t-0" style="margin-left: 7%"><b>Pesaje</b></h1>
     </div>
     <div class="col-md-3 col-4 align-self-center">
-      <!-- Search form -->
-      <input type="text" name="fechahoy" value="" readonly
-             class="form-control datepicker" hidden>
+      <input type="text" name="fechahoy" value="" readonly class="form-control datepicker" hidden>
     </div>
-    <div class="col-md-2 col-8 align-self-center">
-
-    </div>
-
+    <div class="col-md-2 col-8 align-self-center"></div>
     <div class="col-md-2 col-2 align-self-center">
-      <div class="container">
-        <!-- Trigger the modal with a button -->
-
-      </div>
+      <div class="container"></div>
     </div>
   </div>
 
-  <!-- ============================================================== -->
-  <!-- End Bread crumb and right sidebar toggle -->
-  <!-- ============================================================== -->
-  <!-- ============================================================== -->
-  <!-- Start Page Content -->
-  <!-- ============================================================== -->
-
-  <!-- ============================================================== -->
-  <!-- Container fluid  -->
-  <!-- ============================================================== -->
-
+  
   <div class="row">
-    <!--        <div class="col-2 align-self-center">-->
-    <!--            <table class="table" style="margin-left: 15%; margin-bottom: 180%">-->
-
-    <!--                <tbody>-->
-    <!--                <tr>-->
-    <!--                    <td>-->
-    <!--                        <button type="button" class="btn waves-effect waves-light btn-danger pull-center"-->
-    <!--                                style="width: 80%">Todos<br/>los batch record-->
-    <!--                        </button>-->
-    <!--                    </td>-->
-    <!--                </tr>-->
-
-
-    <!--                <tr>-->
-    <!--                    <td>-->
-    <!--                        <select class="selectpicker form-control" id="filtrar1" style="width: 80%">-->
-    <!--                            <option selected hidden>Filtrar</option>-->
-    <!--                            <option>Activo</option>-->
-    <!--                            <option>Detenido</option>-->
-    <!--                            <option>En proceso</option>-->
-    <!--                        </select>-->
-    <!--                    </td>-->
-    <!--                </tr>-->
-
-
-    <!--                </tbody>-->
-    <!--            </table>-->
-    <!--        </div>-->
-    <!-- column -->
     <div class="col-md-12 col-2 align-self-right">
       <div class="card">
         <div class="card-block">
@@ -195,137 +95,34 @@
     </div>
   </div>
 </div>
-<!-- ============================================================== -->
-<!-- End PAge Content -->
-<!-- ============================================================== -->
 </div>
-<!-- ============================================================== -->
-<!-- End Container fluid  -->
-<!-- ============================================================== -->
-<!-- ============================================================== -->
-<!-- footer -->
-<!-- ==============================================================
-<footer class="footer">
-    ©  <b>2020</b> Desarrollado por Teenus S.A.S <a href="https://www.teenus.com.co/" target="_blank"><img src="../assets/images/logo-teenus.png" alt="Teenus"/></a></div>
-</footer>
--->
-<!-- ============================================================== -->
-<!-- End footer -->
-<!-- ============================================================== -->
 </div>
-<!-- ============================================================== -->
-<!-- End Page wrapper  -->
-<!-- ============================================================== -->
 </div>
-
-<!-- ============================================================== -->
-<!-- End Wrapper -->
-<!-- ============================================================== -->
-<!-- ============================================================== -->
-<!-- All Jquery -->
-<!-- ============================================================== -->
-
 
 <script src="./assets/plugins/jquery/jquery.min.js"></script>
+
 <!-- Bootstrap tether Core JavaScript -->
 <script src="./assets/plugins/bootstrap/js/tether.min.js"></script>
 <script src="./assets/plugins/bootstrap/js/bootstrap.min.js"></script>
 <script type="text/javascript" src="./html/vendor/datatables/datatables.min.js"></script>
+
 <!-- slimscrollbar scrollbar JavaScript -->
 <script src="./html/js/jquery.slimscroll.js"></script>
+
 <!--Wave Effects -->
 <script src="./html/js/waves.js"></script>
 
-<script type="text/javascript">
-    $.fn.dataTable.ext.search.push(
-        function (settings, data, dataIndex) {
-            var est = parseInt($('#est').val(), 10);
-            var max = parseInt($('#est').val(), 10);
-            var age = parseFloat(data[10]) || 0; // use data for the age column
-
-            if ((isNaN(est) && isNaN(max)) ||
-                (isNaN(est) && age <= max) ||
-                (est <= age && isNaN(max)) ||
-                (est <= age && age <= max)) {
-                return true;
-            }
-            return false;
-        }
-    );
-
-    $(document).ready(function () {
-        var table = $('#tablePesajes').DataTable({
-            ajax: {
-                url: '/api/pesajes',
-                dataSrc: ''
-            },
-            columns: [
-                {
-                    title: 'Fecha de Programación',
-                    data: 'fecha_programacion'
-                },
-                {
-                    title: '# de Orden',
-                    data: 'numero_orden'
-                },
-                {
-                    title: 'Referencia',
-                    data: 'referencia'
-                },
-                //{
-                //  title: 'Nombre Referencia',
-                // data: 'nombre_referencia'
-                //},
-                // {
-                //     title: 'Presentacion comercial',
-                //     data: 'presentacion'
-                // },
-                /*{
-                    title: 'Linea',
-                    data: 'nombre'
-                },
-                {
-                    title: 'Propietario',
-                    data: 'nombre_linea'
-                },
-                {
-                    title: 'Fecha de Creación',
-                    data: 'fecha_creacion'
-                },*/
-
-                {
-                    title: 'Estado',
-                    data: 'estado',
-                    render: (data, type, row) => {
-                        return data == 1 ? "Activo" : "Inactivo";
-                    }
-                },
-                {
-                    title: '',
-                    data: '',
-                    render: (data, type, row) => {
-                        return `<a href="pesajeinfo/${row.id_batch}/${row.referencia}" class="btn btn-primary">Ingresar </a>`;
-                    }
-                }
-            ]
-        });
-        table.destroy();
-
-        // Event listener to the two range filtering inputs to redraw on input
-        $('#est').keyup(function () {
-            table.draw();
-        });
-    });
-</script>
-<!--stickey kit -->
 <!--Menu sidebar -->
 <script src="html/js/sidebarmenu.js"></script>
+
 <!--stickey kit -->
 <script src="assets/plugins/sticky-kit-master/dist/sticky-kit.min.js"></script>
+
 <!--Custom JavaScript -->
 <script src="html/js/global.js"></script>
 <script src="html/js/custom.min.js"></script>
 <script src="html/js/datatables.js"></script>
+<script src="html/js/utils/pesaje.js"></script>
 
 </body>
 

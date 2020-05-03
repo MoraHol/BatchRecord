@@ -155,12 +155,12 @@
         $response->getBody()->write(json_encode($user));
         return $response->withStatus(200)->withHeader('Content-Type', 'application/json');
       } else {
-        $resp = array('error' => true, 'message' => 'contraseña invalida');
+        $resp = array('error' => true, 'message' => 'Contraseña Invalida');
         $response->getBody()->write(json_encode($resp));
         return $response->withStatus(401)->withHeader('Content-Type', 'application/json');
       }
     } else {
-      $resp = array('error' => true, 'message' => 'usuario no existe');
+      $resp = array('error' => true, 'message' => 'Usuario no Existe');
       $response->getBody()->write(json_encode($resp));
       return $response->withStatus(404)->withHeader('Content-Type', 'application/json');
     }

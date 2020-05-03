@@ -5,15 +5,15 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="">
-  <meta name="author" content="">
+  <meta name="description" content="Batch Record">
+  <meta name="author" content="Samara Cosmetics">
   <link rel="icon" type="image/png" sizes="16x16" href="../assets/images/favicon.png">
   <title>Samara Cosmetics</title>
 
   <link href="../assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet">
   <link href="html/css/style.css" rel="stylesheet">
   <link href="html/css/colors/blue.css" id="theme" rel="stylesheet">
-
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
   <link rel="stylesheet" type="text/css" href="html/vendor/datatables/datatables.min.css">
   <link rel="stylesheet" type="text/css" href="html/vendor/datatables/DataTables-1.10.20/css/dataTables.bootstrap4.min.css">
 
@@ -26,7 +26,7 @@
     </svg>
   </div>
 
-  <div id="main-wrapper">
+  <div id="main-wrapper" style="padding-top:15px; padding-left:15px; padding-right:15px">
     <header class="topbar">
       <nav class="navbar top-navbar navbar-toggleable-sm navbar-light">
         <div class="navbar-header">
@@ -40,8 +40,13 @@
         <ul class="navbar-nav my-lg-0">
           <li class="nav-item dropdown">
             <!-- <a class="nav-link dropdown-toggle text-muted waves-effect waves-dark" href="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="../assets/images/campana.png" alt="noty" class="profile-pic m-r-12" /></a>-->
-            <a class="nav-link dropdown-toggle text-muted waves-effect waves-dark" href="" data-toggle="dropdown"
-               aria-haspopup="true" aria-expanded="false"><img src="../assets/images/users/1.jpg" alt="user" class="profile-pic m-r-10"/>Jonathan Hernandez</a>
+            <a class="nav-link dropdown-toggle text-muted waves-effect waves-dark" data-toggle="dropdown"
+               aria-haspopup="true" aria-expanded="true" id="dropdownMenuenlace">Berney Montoya 
+                <i class="large material-icons">account_circle</i></i></a>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuenlace">
+                  <a href="#" class="dropdown-item">Cambiar contraseña</a>
+                  <a href="./" class="dropdown-item">Cerrar sesión</a>
+                </div> 
           </li>
         </ul>
       </div>
@@ -57,74 +62,11 @@
     </div>
     <div class="col-md-2 col-8 align-self-center"></div>
     <div class="col-md-2 col-2 align-self-center">
-      <div class="container"></div>
-    </div>
-  </div>
-  
-  <div class="modal fade" id="myModal2" role="dialog" tabindex="-1">
-    <div class="modal-dialog modal-lg">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Presentación envasado</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body">
-          <form>
-            <div class="row page">
-              <div class="col-md-5 col-2 align-self-center">
-                <label for="recipient-name" class="col-form-label">Total Kilos:</label>
-                <input type="text" class="form-control" id="recipient-name">
-              </div>
-              <div class="col-md-5 col-2 align-self-center">
-                <table class="table">
-                  <thead>
-                  <tr>
-                    <th>Referencia</th>
-                    <th>Presentación</th>
-                    <th>Cantidad KG</th>
-                    <th>Unidades</th>
-                  </tr>
-                  </thead>
-                  <tbody>
-                  <tr>
-                    <td><select class="selectpicker form-control">
-                      <option selected hidden></option>
-                      <option>Mustard</option>
-                      <option>Ketchup</option>
-                      <option>Relish</option>
-                    </select>
-                    </td>
-                    <td><select class="selectpicker form-control">
-                      <option selected hidden></option>
-                      <option>Mustard</option>
-                      <option>Ketchup</option>
-                      <option>Relish</option>
-                    </select>
-                    </td>
-                    <td><input type="text" class="form-control" id="cantidad"></td>
-                    <td><input type="text" class="form-control" id="unidades"></td>
-                  </tr>
-                </table>
-              </div>
-            </div>
-            <div class="row page">
-              <div class="col-md-5 col-2 align-self-center">
-                <label for="recipient-name" class="col-form-label">Numero de presentaciones:</label>
-                <input type="text" class="form-control" id="recipient-name">
-              </div>
-
-            </div>
-          </form>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-          <button type="button" class="btn btn-primary">Aceptar</button>
-        </div>
+      <div class="container">
       </div>
     </div>
   </div>
+
 
 <div class="row">
     <div class="col-md-12 col-2 align-self-center">

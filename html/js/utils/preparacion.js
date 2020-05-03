@@ -8,11 +8,11 @@ $('#preparacionTable').dataTable({
     },
     columns: [
         {
-            title: 'Fecha de Programacion',
-            data: 'fecha_programacion'
+            title: 'Fecha Creación',
+            data: 'fecha_creacion'
         },
         {
-            title: '# de Orden',
+            title: 'No Orden',
             data: 'numero_orden'
         },
         {
@@ -20,12 +20,12 @@ $('#preparacionTable').dataTable({
             data: 'referencia'
         },
         {
-            title: '# lote',
+            title: 'No Lote',
             data: 'numero_lote',
-            render: (data, type, row) => {
+            /* render: (data, type, row) => {
                 'use strict';
-                return $.number(data, 0, ',', '.');
-            }
+                return $.number(data, 0, ',', '.'); 
+            }*/
         },
         /*{
             title: 'Nombre Referencia',
@@ -45,11 +45,11 @@ $('#preparacionTable').dataTable({
             }
         },
         {
-            title: '',
+            title: 'Ingresar',
             data: '',
             render: (data, type, row) => {
                 'use strict';
-                return `<a class="btn btn-primary" href="preparacioninfo/${row.id_batch}/${row.referencia}">Ingresar</a>`;
+                return `<a href="preparacioninfo/${row.id_batch}/${row.referencia}"<i class="large material-icons" data-toggle="tooltip" title="Ingresar" style="color:rgb(0, 154, 68)">border_color</i></a>`;
             }
         },
     ]

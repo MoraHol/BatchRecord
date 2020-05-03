@@ -26,7 +26,7 @@
   <link rel="stylesheet" href="vendor/jquery-confirm/jquery-confirm.min.css">
   <link rel="stylesheet" type="text/css" href="vendor/datatables/DataTables-1.10.20/css/dataTables.bootstrap4.min.css">
   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-  <script src="https://kit.fontawesome.com/6589be6481.js" crossorigin="anonymous"></script>
+  <!-- <script src="https://kit.fontawesome.com/6589be6481.js" crossorigin="anonymous"></script> -->
   <link rel="stylesheet" href="css/custom.css">
   
   <style type="text/css">
@@ -114,7 +114,7 @@
           <ul class="navbar-nav my-lg-0">
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle text-muted waves-effect waves-dark" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" id="dropdownMenuenlace">Berney Montoya
-                <i class="fas fa-chevron-circle-down"></i></a>
+              <i class="large material-icons">account_circle</i> <!-- <i class="fas fa-chevron-circle-down"> </i>--></a>
               <div class="dropdown-menu" aria-labelledby="dropdownMenuenlace">
                 <a href="#" class="dropdown-item">Cambiar contraseña</a>
                 <a href="../index.html" class="dropdown-item">Cerrar sesión</a>
@@ -185,8 +185,8 @@
                     <td><?= $rows['fecha_programacion']; ?></td>
                     <td><?= $rows['estado'] == 1 ? "Activo" : "Inactivo" ?></td>
                     
-                    <td><a href="crear-batch.php?edit=<?= $rows['id_batch']; ?>" class="edit"><i class="material-icons" data-toggle="tooltip" title="Editar" style="color:rgb(255, 193, 7)">&#xE254;</i></a></td>
-                    <td><a href="#" onclick="deleteBatch(event)" attr-id="<?= $rows['id_batch']; ?>" class="delete"><i class="material-icons" data-toggle="tooltip" title="Eliminar" style="color:rgb(234, 67, 54)">&#xE872;</i></a></td>
+                    <td><a href="crear-batch.php?edit=<?= $rows['id_batch']; ?>" class="edit"><i class="large material-icons" data-toggle="tooltip" title="Editar" style="color:rgb(255, 193, 7)">&#xE254;</i></a></td>
+                    <td><a href="#" onclick="deleteBatch(event)" attr-id="<?= $rows['id_batch']; ?>" class="delete"><i class="large material-icons" data-toggle="tooltip" title="Eliminar" style="color:rgb(234, 67, 54)">delete_forever</i></a></td>
                   </tr>
                 <?php
                     } 
