@@ -133,9 +133,17 @@
       <div class="col-md-8 col-2 align-self-center">
         <div class="container">
           <div class="row">
-            <div class="col-lg-7" style="padding-right:0px">
-              <button type="button"  style="background-color:#fff;color:#FF8D6D" class="btn waves-effect waves-light btn-danger pull-right hidden-sm-down btn-md" data-toggle="modal" data-target="#Modal_Multipresentacion">Multipresentación</button></div>
-            <div class="col-lg-2" style="padding-right:15px;padding-left:0px">
+            <div class="col-lg-2" style="padding-right:0px">
+              <!-- <button type="button"  style="background-color:#fff;color:#FF8D6D" class="btn waves-effect waves-light btn-danger pull-right hidden-sm-down btn-md" data-toggle="modal" data-target="#Modal_Multipresentacion">Multipresentacion</button> -->
+            <div class="dropdown">
+                <button class="btn btn-secondary dropdown-toggle" style="background-color:#fff;color:#FF8D6D; ;padding-top: 12px;padding-bottom: 12px;padding-left: 25px;padding-right: 25px;" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Acciones</button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+              <a class="dropdown-item" href="#" data-toggle="modal" data-target="#Modal_Multipresentacion">Multipresentación</a>
+              <a class="dropdown-item" href="modal/modal_clonar.php" data-toggle="modal" data-target="#ClonarModal">Clonar</a>
+            </div>
+          </div>
+            </div>
+              <div class="col-lg-2" style="padding-right:15px;padding-left:0px">
               <button type="button" style="background-color:#fff;color:#FF8D6D" class="btn waves-effect waves-light btn-danger pull-right hidden-sm-down btn-md" data-toggle="modal" data-target="#filtrado">Filtrar</button></div>
             <div class="col-lg-3"><button type="button" class="btn waves-effect waves-light btn-danger pull-right hidden-sm-down btn-md" data-toggle="modal" data-target="#myModal"><strong>Crear Batch Record</strong></button></div>
           </div>
