@@ -326,7 +326,13 @@
 <?php } ?>
 
 <script>
+
     $('#unidadesxlote').number(true, 0, ',', '.');
+    $('#unidadesxlote').keydown(function (event) {
+        if (event.keyCode == 9) {
+            event.preventDefault();
+        }
+    });
     $('#unidadesxlote').change(function () {
         $('#tamanototallote').val($(this).val() * $('#name-data6').val() * $('#densidad_in').val());
         $('#tamanototallote').number(true, 2, ',', '.');
@@ -387,26 +393,26 @@
         $(this).parent().parent().addClass('selected')
 
     });
-$('#form_clonar').submit(function(event){
-    event.preventDefault();
-    let form = $(this);
-    let obj = form.serializeToJSON();
-    obj.idbatch = $('input:radio[name=optradio]:checked').val();
-    console.log(obj)
-    $.ajax({
-        url: '/api/clonebatch',
-        type: 'post',
-        dataType: 'json',
-        contentType:"application/json; charset=utf-8",
-        data: JSON.stringify(obj)
-    }).done((data,status,xhr)=>{
-      if(data.success){
-          location.reload();
-      }else{
-          $.alert('Error al clonar');
-      }
-    });
-})
+    $('#form_clonar').submit(function (event) {
+        event.preventDefault();
+        let form = $(this);
+        let obj = form.serializeToJSON();
+        obj.idbatch = $('input:radio[name=optradio]:checked').val();
+        console.log(obj)
+        $.ajax({
+            url: '/api/clonebatch',
+            type: 'post',
+            dataType: 'json',
+            contentType: "application/json; charset=utf-8",
+            data: JSON.stringify(obj)
+        }).done((data, status, xhr) => {
+            if (data.success) {
+                location.reload();
+            } else {
+                $.alert('Error al clonar');
+            }
+        });
+    })
 
 </script>
 
