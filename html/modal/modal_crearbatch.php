@@ -98,6 +98,7 @@
                             <input id="name-data7" class="displayallinfo" readonly name="linea" readonly>
                         </div>
                     </div>
+                    <hr>
                     <div class="row page">
                         <div class="col-md-4 col-2 align-self-center">
                             <label for="recipient-name" class="col-form-label">Unidades por Lote</label>
@@ -112,19 +113,18 @@
                             <input type="number" name="tamanolotepresentacion" id="tamanolotepresentacion" class="form-control" min="1" value="<?= $tamanolotepresentacion; ?>" required />
                         </div>
                     </div>
+                    <hr>
                     <div class="row page">
                         <div class="col-md-6 col-2 align-self-center">
                             <label for="recipient-name" class="col-form-label">Fecha de Programación</label>
-                            <input type="date" class="form-control" id="fecha" name="fechaprogramacion" value="<?= $fechaprogramacion; ?>" min="<?php $hoy = date("Y-m-d");
-
-
-                                                                                                                                                echo $hoy; ?>">
+                            <input type="date" class="form-control" id="fecha" name="fechaprogramacion" value="<?= $fechaprogramacion; ?>" min="<?php $hoy = date("Y-m-d"); echo $hoy; ?>">
                         </div>
-                        <div class="col-md-6 col-2 align-self-center">
+                        <!-- <div class="col-md-6 col-2 align-self-center">
                             <button type="button" class="btn waves-effect waves-light btn-danger pull-center" data-toggle="modal" data-target="#ClonarModal" data-dismiss="modal" aria-label="Close" style="width: 80%; margin-top: 12%">Clonar Batch
                             </button>
-                        </div>
+                        </div> -->
                     </div>
+                    <hr>
                     <div class="row page">
                         <div class="col-md-12 col-2 align-self-center">
                             <label for="recipient-name" class="col-form-label">Observaciones Pesaje</label>

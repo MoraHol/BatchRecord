@@ -28,6 +28,10 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
   <!-- <script src="https://kit.fontawesome.com/6589be6481.js" crossorigin="anonymous"></script> -->
   <link rel="stylesheet" href="css/custom.css">
+  
+  <!-- Alertify -->
+  <link href="css/alertify.css" rel="stylesheet" type="text/css" />
+  <link href="css/theme/default.css" rel="stylesheet" type="text/css" />
 
   <style type="text/css">
     .tcrearBatch {
@@ -85,12 +89,14 @@
 </head>
 
 <body class="fix-header fix-sidebar card-no-border">
-<?php
-  include("modal/modal_clonar.php");
-  include("modal/modal_filtradoFechas.php");
-  include("modal/modal_crearbatch.php");
-  include("modal/modal_multipresentacion.php");
-?>
+
+<div id="contenedor">
+  <?php
+    include("modal/modal_clonar.php");
+    include("modal/modal_filtradoFechas.php");
+    include("modal/modal_crearbatch.php");
+    include("modal/modal_multipresentacion.php");
+  ?>
 
 <div class="preloader">
   <svg class="circular" viewBox="25 25 50 50">
@@ -126,6 +132,12 @@
     </nav>
   </header>
 
+ <div id="contenedor">
+
+
+ 
+ </div>
+
   <div class="row page-titles">
     <div class="col-md-3 col-2 align-self-right">
       <h1 class="text-themecolor m-b-0 m-t-0" style="margin-left: 7%"><b>Batch Record</b></h1>
@@ -135,7 +147,6 @@
       <div class="container">
         <div class="row">
           <div class="col-lg-2" style="padding-right:0px">
-            <!-- <button type="button"  style="background-color:#fff;color:#FF8D6D" class="btn waves-effect waves-light btn-danger pull-right hidden-sm-down btn-md" data-toggle="modal" data-target="#Modal_Multipresentacion">Multipresentacion</button> -->
             <div class="dropdown">
               <button class="btn btn-secondary dropdown-toggle"
                       style="background-color:#fff;color:#FF8D6D; ;padding-top: 12px;padding-bottom: 12px;padding-left: 25px;padding-right: 25px;"
@@ -144,7 +155,6 @@
               </button>
               <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                 <a class="dropdown-item" href="#" data-toggle="modal" data-target="#Modal_Multipresentacion">Multipresentación</a>
-                <!--                <a class="dropdown-item" href="modal/modal_clonar.php" data-toggle="modal" data-target="#ClonarModal">Clonar</a>-->
                 <a class="dropdown-item" href="#" onclick="clonar()">Clonar</a>
               </div>
             </div>
@@ -228,7 +238,7 @@
 </div>
 </div>
 </div>
-
+</div>
 <script src="../assets/plugins/jquery/jquery.min.js"></script>
 <script src="../assets/plugins/bootstrap/js/tether.min.js"></script>
 <script src="../assets/plugins/bootstrap/js/bootstrap.min.js"></script>
@@ -306,6 +316,9 @@
 <script src="js/datatables.js"></script>
 <script src="vendor/jquery-confirm/jquery-confirm.min.js"></script>
 
+<!--Alertify-->
+<script type="text/javascript" src="js/alertify.js"></script>
+
 <?php if ($update) { ?>
   <script>
       cargarData()
@@ -335,7 +348,7 @@
     function deleteBatch(event) {
         let id = $(event.currentTarget).attr('attr-id');
         $.confirm({
-            title: '¿Esta seguro de Eliminar?',
+            title: '¿Esta seguro de Eliminar est Batch Record?',
             content: '',
             buttons: {
                 confirmar: function () {
@@ -348,7 +361,7 @@
 
                 },
                 cancelar: function () {
-                    // $.alert('Canceled!');
+                    $.alert('Canceled!');
                 }
             }
         });
@@ -364,7 +377,8 @@
         if ($("input[name='optradio']:radio").is(':checked')) {
             $('#ClonarModal').modal('show');
         } else {
-            $.alert('Seleccione un batch');
+            //$.alert('Seleccione un batch');
+            alertify.set("notifier","position", "top-center"); alertify.error("Para Clonar seleccione un Batch Record");
         }
     }
 
@@ -395,6 +409,8 @@ $('#form_clonar').submit(function(event){
 })
 
 </script>
+
+
 
 </body>
 
