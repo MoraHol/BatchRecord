@@ -112,6 +112,89 @@
 <!--Wave Effects -->
 <script src="./html/js/waves.js"></script>
 
+<script type="text/javascript">
+    $.fn.dataTable.ext.search.push(
+        function (settings, data, dataIndex) {
+            var est = parseInt($('#est').val(), 10);
+            var max = parseInt($('#est').val(), 10);
+            var age = parseFloat(data[10]) || 0; // use data for the age column
+
+            if ((isNaN(est) && isNaN(max)) ||
+                (isNaN(est) && age <= max) ||
+                (est <= age && isNaN(max)) ||
+                (est <= age && age <= max)) {
+                return true;
+            }
+            return false;
+        }
+    );
+
+    $(document).ready(function () {
+        /*var table = $('#tablePesajes').DataTable({
+            ajax: {
+                url: '/api/pesajes',
+                dataSrc: ''
+            },
+            columns: [
+                {
+                    title: 'Fecha de Creación',
+                    data: 'fecha_creacion'
+                },
+                /!*{
+                    title: 'Fecha de Programación',
+                    data: 'fecha_programacion'
+                },*!/
+                {
+                    title: '# de Orden',
+                    data: 'numero_orden'
+                },
+                {
+                    title: 'Referencia',
+                    data: 'referencia'
+                },
+                {
+                 title: 'Número Lote',
+                data: 'nombre_referencia'
+                },
+                // {
+                //     title: 'Presentacion comercial',
+                //     data: 'presentacion'
+                // },
+                /!*{
+                    title: 'Linea',
+                    data: 'nombre'
+                },
+                {
+                    title: 'Propietario',
+                    data: 'nombre_linea'
+                },*!/
+
+
+                {
+                    title: 'Estado',
+                    data: 'estado',
+                    render: (data, type, row) => {
+                        return data == 1 ? "Activo" : "Inactivo";
+                    }
+                },
+                {
+                    title: '',
+                    data: '',
+                    render: (data, type, row) => {
+                        return `<a href="pesajeinfo/${row.id_batch}/${row.referencia}" class="btn btn-primary">Ingresar </a>`;
+                    }
+                }
+            ]
+        });*/
+        table.destroy();
+
+        // Event listener to the two range filtering inputs to redraw on input
+        $('#est').keyup(function () {
+            table.draw();
+        });
+    });
+</script>
+<!--stickey kit -->
 <!--Menu sidebar -->
 <script src="html/js/sidebarmenu.js"></script>
 

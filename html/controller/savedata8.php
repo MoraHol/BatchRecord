@@ -1,19 +1,18 @@
-<?php 
+<?php
 
-if (isset($_POST['user1']) === true && empty($_POST['user1']) === false) {
-	
-		require('../../conexion.php');
+  if (isset($_POST['user1']) === true && empty($_POST['user1']) === false) {
 
-		  $query ="SELECT * FROM producto WHERE referencia = '".$_POST['user1']."'";
-		  $result=mysqli_query($conn, $query);
+    require('../../conexion.php');
 
-		  
-
-while($row=mysqli_fetch_array($result)) {
-echo $row['nombre_referencia'];
-
-}
-}
+    $query = "SELECT * FROM producto WHERE referencia = '" . $_POST['user1'] . "'";
+    $result = mysqli_query($conn, $query);
 
 
- ?>
+    while ($row = mysqli_fetch_array($result)) {
+      echo $row['nombre_referencia'];
+
+    }
+  }
+
+
+?>

@@ -5,7 +5,7 @@
 
 
   use BatchRecord\Constants\Constants;
-  use Monolog\Handler\StreamHandler;
+  use Monolog\Handler\RotatingFileHandler;
   use Monolog\Logger;
 
   class UserDao
@@ -15,7 +15,7 @@
     public function __construct()
     {
       $this->logger = new Logger(self::class);
-      $this->logger->pushHandler(new StreamHandler(Constants::LOGS_PATH . 'querys.log', Logger::DEBUG));
+      $this->logger->pushHandler(new RotatingFileHandler(Constants::LOGS_PATH . 'querys.log', 20,Logger::DEBUG));
     }
 
     public function findByEmail($email)

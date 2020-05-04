@@ -39,6 +39,11 @@ function cargarData() {
             $('#name-data7').val(data);
 
         });
+        $.post('../html/controller/savedata9.php', {name: name}, function (data) {
+
+            $('#densidad_in').val(data);
+
+        });
 
     }
 }

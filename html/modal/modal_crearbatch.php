@@ -60,6 +60,7 @@
                             <label for="recipient-name" class="col-form-label">Propietario</label>
                             <input id="name-data4" class="displayallinfo" readonly name="propietario">
                         </div>
+                      <input type="text" hidden id="densidad_in">
                     </div>
                     <div class="row page">
                         <div class="col-md-6 col-2 align-self-center">
@@ -115,6 +116,8 @@
                         <div class="col-md-6 col-2 align-self-center">
                             <label for="recipient-name" class="col-form-label">Fecha de Programación</label>
                             <input type="date" class="form-control" id="fecha" name="fechaprogramacion" value="<?= $fechaprogramacion; ?>" min="<?php $hoy = date("Y-m-d");
+
+
                                                                                                                                                 echo $hoy; ?>">
                         </div>
                         <div class="col-md-6 col-2 align-self-center">

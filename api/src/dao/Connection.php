@@ -3,6 +3,7 @@
 namespace BatchRecord\Dao;
 
 use BatchRecord\Constants\Constants;
+use Monolog\Handler\RotatingFileHandler;
 use Monolog\Handler\StreamHandler;
 use Monolog\Logger;
 use PDO;
@@ -25,7 +26,7 @@ class Connection
     public function __construct()
     {
         $this->logger = new Logger(self::class);
-        $this->logger->pushHandler(new StreamHandler(Constants::LOGS_PATH . 'app.log', Logger::DEBUG));
+      $this->logger->pushHandler(new RotatingFileHandler(Constants::LOGS_PATH . 'querys.log', 20,Logger::DEBUG));
         $dotenv = new Dotenv();
         $dotenv->load(__DIR__ . '/../../environment.env');
         try {

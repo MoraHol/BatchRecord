@@ -7,8 +7,9 @@
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      <div class="modal-body">
-        <form>
+      <form id="form_clonar">
+        <div class="modal-body">
+
           <div class="row page">
             <div class="col-md-4 col-2 align-self-center">
               <label for="recipient-name" class="col-form-label"><strong>Unidades</strong></label>
@@ -23,12 +24,13 @@
               <input type="text" class="form-control" id="numero2" name="cantidad">
             </div>
           </div>
-        </form>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-        <button type="button" class="btn btn-primary">Aceptar</button>
-      </div>
+
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+          <button type="submit" class="btn btn-primary">Aceptar</button>
+        </div>
+      </form>
     </div>
   </div>
 </div>

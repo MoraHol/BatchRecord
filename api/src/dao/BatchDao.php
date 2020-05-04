@@ -5,7 +5,7 @@
 
 
   use BatchRecord\Constants\Constants;
-  use Monolog\Handler\StreamHandler;
+  use Monolog\Handler\RotatingFileHandler;
   use Monolog\Logger;
 
   /**
@@ -21,7 +21,7 @@
     public function __construct()
     {
       $this->logger = new Logger(self::class);
-      $this->logger->pushHandler(new StreamHandler(Constants::LOGS_PATH . 'querys.log', Logger::DEBUG));
+      $this->logger->pushHandler(new RotatingFileHandler(Constants::LOGS_PATH . 'querys.log', 20, Logger::DEBUG));
     }
 
     /**
@@ -53,6 +53,32 @@
       $batch = $stmt->fetch($connection::FETCH_ASSOC);
       $this->logger->notice("batch consultado", array('batch' => $batch));
       return $batch;
+    }
+
+    public function save($batch)
+    {
+      $connection = Connection::getInstance()->getConnection();
+      $query = "INSERT INTO batch (fecha_creacion, fecha_programacion, fecha_actual, numero_orden, numero_lote, 
+tamano_lote, lote_presentacion, unidad_lote, estado, id_producto ) VALUES(
+:fecha_creacion, :fecha_programacion, :fecha_actual,:numero_orden,:numero_lote,:tamano_lote,
+:lote_presentacion,:unidad_lote,:estado,:id_producto)";
+      $stmt = $connection->prepare($query);
+      $rows = $stmt->execute(
+        array(
+          'fecha_creacion' => date('Y-m-d'),
+          'fecha_programacion' => $batch["fecha_programacion"],
+          'fecha_actual' => date('Y-m-d'),
+          'numero_orden' => $batch["numero_orden"],
+          'numero_lote' => $batch["numero_lote"],
+          'tamano_lote' => $batch["tamano_lote"],
+          'lote_presentacion' => $batch["lote_presentacion"],
+          'unidad_lote' => $batch["unidad_lote"],
+          'estado' => $batch["estado"],
+          'id_producto' => $batch["id_producto"]
+        )
+      );
+      $this->logger->info(__FUNCTION__, array('query' => $stmt->queryString, 'errors' => $stmt->errorInfo()));
+      return $rows;
     }
 
   }
