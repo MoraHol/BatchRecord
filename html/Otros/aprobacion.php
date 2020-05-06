@@ -20,7 +20,7 @@
 
   <link rel="stylesheet" type="text/css" href="vendor/datatables/datatables.min.css">
   <link rel="stylesheet" type="text/css" href="vendor/datatables/DataTables-1.10.20/css/dataTables.bootstrap4.min.css">
-  <script src="https://kit.fontawesome.com/6589be6481.js" crossorigin="anonymous"></script>
+  <!-- <script src="https://kit.fontawesome.com/6589be6481.js" crossorigin="anonymous"></script> -->
 
 
   <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -341,14 +341,14 @@
         });
     });
 
-    <!--stickey kit -->
-    <!--Menu sidebar -->
-    <
-    script
-    src = "js/sidebarmenu.js" ></script>
+</script>
+
+
+<!--Menu sidebar -->
+<script src = "js/sidebarmenu.js" ></script>
 <!--stickey kit -->
 <script src="../assets/plugins/sticky-kit-master/dist/sticky-kit.min.js"></script>
-<!--Custom JavaScript -->
+//<!--Custom JavaScript -->
 <script src="js/global.js"></script>
 <script src="js/custom.min.js"></script>
 <script src="js/datatables.js"></script>

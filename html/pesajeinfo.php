@@ -27,11 +27,17 @@
         href="../../html/vendor/datatables/DataTables-1.10.20/css/dataTables.bootstrap4.min.css">
   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
         <!-- script src="https://kit.fontawesome.com/6589be6481.js" crossorigin="anonymous"></script> -->
+  
+        <!-- Hoja de estilos Toastr -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css">
 
-
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
 </head>
 
 <body class="fix-header fix-sidebar card-no-border">
+
+<?php include("modal/modal_firma.php"); ?>
+
 <div class="preloader">
   <svg class="circular" viewBox="25 25 50 50">
     <circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="2" stroke-miterlimit="10"/>
@@ -81,133 +87,6 @@
       </div>
       </div>
     </div>
-    
-    <!-- Modal -->
-    <div class="modal fade" id="myModal2" role="dialog" tabindex="-1">
-      <div class="modal-dialog modal-md">
-        <div class="modal-content">
-          <form onsubmit="return enviar();">
-            <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalLabel">Firmar</h5>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-              </button>
-            </div>
-            <div class="modal-body">
-              <div class="row page">
-                <div class="col-md-12 col-2 align-self-center">
-                  <label for="usuariomodal2" class="col-form-label">Usuario:</label>
-                  <input type="text" class="form-control" id="usuariomodal2" name="usuario">
-                </div>
-              </div>
-              <div class="row page">
-                <div class="col-md-12 col-2 align-self-center">
-                  <label for="contrasenamodal2" class="col-form-label">Contraseña:</label>
-                  <input type="password" class="form-control" id="contrasenamodal2" name="contrasena">
-                </div>
-              </div>
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-              <input type="submit" class="btn btn-primary" value="Firmar">
-          </form>
-        </div>
-      </div>
-    </div>
-  </div>
-  <!-- Modal -->
-  <div class="modal fade" id="myModal3" role="dialog" tabindex="-1">
-    <div class="modal-dialog modal-md">
-      <div class="modal-content">
-        <form method="post" onsubmit="return enviar2();">
-          <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">Firmar</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
-          <div class="modal-body">
-            <div class="row page">
-              <div class="col-md-12 col-2 align-self-center">
-                <label for="usuariomodal3" class="col-form-label">Usuario:</label>
-                <input type="text" class="form-control" id="usuariomodal3" name="usuario2">
-              </div>
-              <div class="col-md-12 col-2 align-self-center">
-                <label for="contrasenamodal3" class="col-form-label">Contraseña:</label>
-                <input type="password" class="form-control" id="contrasenamodal3" name="contrasena2">
-              </div>
-            </div>
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-            <input type="submit" class="btn btn-primary" value="Firmar">
-        </form>
-      </div>
-    </div>
-  </div>
-</div>
-<!-- Modal -->
-<div class="modal fade" id="myModal4" role="dialog" tabindex="-1">
-  <div class="modal-dialog modal-md">
-    <div class="modal-content">
-      <form method="post" onsubmit=" return enviar3()">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Firmar</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body">
-          <div class="row page">
-            <div class="col-md-12 col-2 align-self-center">
-              <label for="usuariomodal4" class="col-form-label">Usuario:</label>
-              <input type="text" class="form-control" id="usuariomodal4">
-            </div>
-            <div class="col-md-12 col-2 align-self-center">
-              <label for="contrasenamodal4" class="col-form-label">Contraseña:</label>
-              <input type="password" class="form-control" id="contrasenamodal4">
-            </div>
-          </div>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-          <input type="submit" class="btn btn-primary" value="Firmar">
-      </form>
-    </div>
-  </div>
-</div>
-</div>
-<!-- Modal -->
-<div class="modal fade" id="myModal5" role="dialog" tabindex="-1">
-  <div class="modal-dialog modal-md">
-    <div class="modal-content">
-      <form method="post" onsubmit=" return enviar3()">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Firma QC/Supervisor</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body">
-          <div class="row page">
-            <div class="col-md-12 col-2 align-self-center">
-              <label for="usuariomodal5" class="col-form-label">Usuario:</label>
-              <input type="text" class="form-control" id="usuariomodal5">
-            </div>
-            <div class="col-md-12 col-2 align-self-center">
-              <label for="contrasenamodal5" class="col-form-label">Contraseña:</label>
-              <input type="password" class="form-control" id="contrasenamodal5">
-            </div>
-          </div>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-          <input type="submit" class="btn btn-primary" value="Firmar">
-      </form>
-    </div>
-  </div>
-</div>
-</div>
 
 <div class="row">
   <!-- column -->
@@ -310,7 +189,7 @@
               <div class="col-md-4 col-2 align-self-right">
                 <label for="sel_producto_desinfeccion" class="col-form-label">Producto de desinfección</label>
                 <select class="selectpicker form-control in_desinfeccion" id="sel_producto_desinfeccion">
-                  <option selected>Seleccione ...</option>
+                  <option selected>Seleccione</option>
                 </select>
               </div>
               <div class="col-md-8 col-2 align-self-center">
@@ -452,10 +331,6 @@
               </div>
             </div>
 
-
-            <!-- ============================================================== -->
-            <!-- End PAge Content -->
-            <!-- ============================================================== -->
           </div>
         </div>
 
@@ -464,9 +339,6 @@
     </div>
   </div>
 </div>
-<!-- ============================================================== -->
-<!-- All Jquery -->
-<!-- ============================================================== -->
 
 
 <script src="../../assets/plugins/jquery/jquery.min.js"></script>
@@ -488,7 +360,9 @@
 <script src="../../html/js/datatables.js"></script>
 <script src="../../html/js/utils/loadinfo-global.js"></script>
 <script src="../../html/js/utils/pesajeinfo.js"></script>
-
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+  <!-- Toastr.js Después -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
 </body>
 
 </html>

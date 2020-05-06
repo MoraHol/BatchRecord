@@ -31,6 +31,8 @@ $.ajax({
 
 });
 
+
+
 let tablePesaje = $('#tablePesaje').dataTable({
     ajax: {
         url: `../../api/materiasp/${referencia}`,
@@ -65,6 +67,7 @@ let tablePesaje = $('#tablePesaje').dataTable({
     ]
 });
 
+//Validacion campos de preguntas diligenciados
 
 $('.in_desinfeccion').click((event) => {
     event.preventDefault();
@@ -76,10 +79,42 @@ $('.in_desinfeccion').click((event) => {
         let name = $(question).attr('name');
         if (!$(`input[name='${name}']:radio`).is(':checked')) {
             flag = true;
-            $.alert({
+            
+            const Toast = Swal.mixin({
+                toast: true,
+                position: 'top-end',
+                showConfirmButton: false,
+                timer: 3000,
+                timerProgressBar: true,
+                onOpen: (toast) => {
+                  toast.addEventListener('mouseenter', Swal.stopTimer)
+                  toast.addEventListener('mouseleave', Swal.resumeTimer)
+                }
+              })
+              
+              Toast.fire({
+                icon: 'error',
+                title: 'Completa todas las preguntas'
+              })
+
+            
+            /* toastr.error("Antes de continuar, complete las preguntas", "Error", {
+                "timeOut": "5000",
+                "progressBar": true,
+                "positionClass": "toast-top-center",
+                "preventDuplicates": true
+
+            }); */
+            /* swal({
+                title: "",
+                text: "Antes de seguir, Completa las preguntas",
+                icon: "error",
+                button: "Cerrar",
+              }); */
+            /* $.alert({
                 title: 'Atencion!',
                 content: 'Completa las preguntas primero',
-            });
+            }); */
         }
     });
 
@@ -94,6 +129,8 @@ Date.prototype.toDateInputValue = (function () {
 
 $('#in_fecha_pesaje').val(new Date().toDateInputValue());
 $('#in_fecha_pesaje').attr('min', new Date().toDateInputValue());
+
+//Conversion medidas de peso
 
 function cambioConversion() {
     flagWeight = !flagWeight;

@@ -55,8 +55,8 @@ $(document).ready(function () {
     });
     table.destroy();
 
-    // Event listener to the two range filtering inputs to redraw on input
-    $('#est').keyup(function () {
+// Event listener to the two range filtering inputs to redraw on input
+$('#est').keyup(function () {
         table.draw();
     });
 });

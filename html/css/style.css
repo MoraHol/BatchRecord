@@ -2273,7 +2273,8 @@ ul#themecolors {
  page title
 *******************/
 .page-titles {
-  padding-bottom: 20px; }
+  padding-bottom: 30px;
+  padding-top: 30px; }
 
 /*******************
  Footer

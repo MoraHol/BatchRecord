@@ -1,3 +1,4 @@
+
 $('#aprobacionTable').dataTable({
     ajax: {
         url: '/api/batch',

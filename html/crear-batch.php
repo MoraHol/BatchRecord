@@ -32,6 +32,7 @@
   <!-- Alertify -->
   <link href="css/alertify.css" rel="stylesheet" type="text/css" />
   <link href="css/theme/default.css" rel="stylesheet" type="text/css" />
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
 
   <style type="text/css">
     .tcrearBatch {
@@ -132,12 +133,6 @@
     </nav>
   </header>
 
- <div id="contenedor">
-
-
- 
- </div>
-
   <div class="row page-titles">
     <div class="col-md-3 col-2 align-self-right">
       <h1 class="text-themecolor m-b-0 m-t-0" style="margin-left: 7%"><b>Batch Record</b></h1>
@@ -145,7 +140,7 @@
     <div class="col-md-1 col-4 align-self-center"></div>
     <div class="col-md-8 col-2 align-self-center">
       <div class="container">
-        <div class="row">
+        <div class="row" style="position:relative; left:320px">
           <div class="col-lg-2" style="padding-right:0px">
             <div class="dropdown">
               <button class="btn btn-secondary dropdown-toggle"
@@ -233,12 +228,12 @@
       </div>
     </div>
   </div>
+<!-- </div>
 </div>
 </div>
 </div>
 </div>
-</div>
-</div>
+</div> -->
 <script src="../assets/plugins/jquery/jquery.min.js"></script>
 <script src="../assets/plugins/bootstrap/js/tether.min.js"></script>
 <script src="../assets/plugins/bootstrap/js/bootstrap.min.js"></script>
@@ -313,6 +308,7 @@
 <!--Custom JavaScript -->
 <script src="js/global.js"></script>
 <script src="js/custom.js"></script>
+<script src="js/utils/crearbatch.js"></script>
 <script src="js/datatables.js"></script>
 <script src="vendor/jquery-confirm/jquery-confirm.min.js"></script>
 
@@ -324,97 +320,6 @@
       cargarData()
   </script>
 <?php } ?>
-
-<script>
-
-    $('#unidadesxlote').number(true, 0, ',', '.');
-    $('#unidadesxlote').keydown(function (event) {
-        if (event.keyCode == 9) {
-            event.preventDefault();
-        }
-    });
-    $('#unidadesxlote').change(function () {
-        $('#tamanototallote').val($(this).val() * $('#name-data6').val() * $('#densidad_in').val());
-        $('#tamanototallote').number(true, 2, ',', '.');
-    });
-
-    function onSubmit() {
-        let fecha = $('#fecha').val()
-        if (fecha !== '') {
-            $('#filtrar1').val(1);
-        } else {
-            $('#filtrar1').val(0);
-        }
-
-        $('#tamanolotepresentacion').val($('#name-data6').val())
-        console.log($('#form-submit-batch').serialize());
-        return true;
-    }
-
-    function deleteBatch(event) {
-        let id = $(event.currentTarget).attr('attr-id');
-        $.confirm({
-            title: '¿Esta seguro de Eliminar est Batch Record?',
-            content: '',
-            buttons: {
-                confirmar: function () {
-                    $.ajax({
-                        url: `savebatch.php?del=${id}`,
-                        type: 'GET'
-                    }).done((data, status, xhr) => {
-                        location.href = '/html/crear-batch.php';
-                    });
-
-                },
-                cancelar: function () {
-                    $.alert('Canceled!');
-                }
-            }
-        });
-    }
-
-    $('#myModal').on('hidden.bs.modal', function (e) {
-        // do something...
-        history.pushState(null, '', '/html/crear-batch.php');
-        location.reload();
-    })
-
-    function clonar() {
-        if ($("input[name='optradio']:radio").is(':checked')) {
-            $('#ClonarModal').modal('show');
-        } else {
-            //$.alert('Seleccione un batch');
-            alertify.set("notifier","position", "top-center"); alertify.error("Para Clonar seleccione un Batch Record");
-        }
-    }
-
-    $('input:radio[name=optradio]').click(function () {
-        $('#example tbody tr').removeClass('selected')
-        $(this).parent().parent().addClass('selected')
-
-    });
-    $('#form_clonar').submit(function (event) {
-        event.preventDefault();
-        let form = $(this);
-        let obj = form.serializeToJSON();
-        obj.idbatch = $('input:radio[name=optradio]:checked').val();
-        console.log(obj)
-        $.ajax({
-            url: '/api/clonebatch',
-            type: 'post',
-            dataType: 'json',
-            contentType: "application/json; charset=utf-8",
-            data: JSON.stringify(obj)
-        }).done((data, status, xhr) => {
-            if (data.success) {
-                location.reload();
-            } else {
-                $.alert('Error al clonar');
-            }
-        });
-    })
-
-</script>
 
 
 
