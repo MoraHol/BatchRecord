@@ -149,7 +149,7 @@
           <div class="col-lg-2" style="padding-right:0px">
             <div class="dropdown">
               <button class="btn btn-secondary dropdown-toggle"
-                      style="background-color:#fff;color:#FF8D6D; ;padding-top: 12px;padding-bottom: 12px;padding-left: 25px;padding-right: 25px;"
+                      style="background-color:#fff;color:#FF8D6D; ;padding-top: 12px;padding-bottom: 12px;padding-left: 25px;padding-right: 25px; border-color:#FF8D6D;"
                       type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
                       aria-expanded="false">Acciones
               </button>
@@ -233,6 +233,9 @@
       </div>
     </div>
   </div>
+
+<section id="tabla-resultado"></section>
+
 <!-- </div>
 </div>
 </div>
@@ -319,34 +322,6 @@
         }
     }
 </script>
-
-<script>
-  //Filtro de busqueda por fechas
-
-  $(document).ready(function(){
-    $('#btnFiltrado').click(function(event){
-      event.preventDefault;
-      var datos = $('#formFechas').serialize();
-      var url = form.attr('action');
-      /* alert(datos);
-      return false;
- */
-    //var form = $($this);
-    
-    $.ajax({
-        type: "POST",
-        url: 'filtradofechas.php',
-        data: form.serialize(),
-        success: function(data){
-            $('#tablaBatch').html(); 
-            $('#tablaBatch').append(data);
-        }
-
-    });
-});
-});
-</script>
-
 
 <script src="js/sidebarmenu.js"></script>
 <script src="../assets/plugins/sticky-kit-master/dist/sticky-kit.min.js"></script>

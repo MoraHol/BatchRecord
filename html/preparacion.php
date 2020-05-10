@@ -20,6 +20,10 @@
 </head>
 
 <body class="fix-header fix-sidebar card-no-border">
+
+<?php 
+ include("modal/modal_cambiarContrasena.php");
+ ?>
   <div class="preloader">
     <svg class="circular" viewBox="25 25 50 50">
       <circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="2" stroke-miterlimit="10"/>
@@ -44,7 +48,7 @@
                aria-haspopup="true" aria-expanded="true" id="dropdownMenuenlace">Berney Montoya 
                 <i class="large material-icons">account_circle</i></i></a>
                 <div class="dropdown-menu" aria-labelledby="dropdownMenuenlace">
-                  <a href="#" class="dropdown-item">Cambiar contraseña</a>
+                  <a href="#" class="dropdown-item" data-toggle="modal" data-target="#modalCambiarContrasena">Cambiar Contraseña</a>
                   <a href="./" class="dropdown-item">Cerrar sesión</a>
                 </div> 
           </li>

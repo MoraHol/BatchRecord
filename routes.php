@@ -21,24 +21,24 @@
   });
   
   $router->add('/preparacion', function () {
-    return Router::getRenderedHTML('html/preparacion.html');
+    return Router::getRenderedHTML('html/preparacion.php');
   });
   $router->add('/preparacioninfo/:idBatch/:referencia', function ($idBatch, $referencia) {
     return Router::getRenderedHTML('html/preparacioninfo.php');
   });
 
   $router->add('/aprobacion', function () {
-    return Router::getRenderedHTML('html/aprobacion.html');
+    return Router::getRenderedHTML('html/aprobacion.php');
   });
   $router->add('/aprobacioninfo/:idBatch/:referencia', function ($idBatch, $referencia) {
-    return Router::getRenderedHTML('html/aprobacioninfo.html');
+    return Router::getRenderedHTML('html/aprobacioninfo.php');
   });
   
   $router->add('/envasado', function () {
-    return Router::getRenderedHTML('html/envasado.html');
+    return Router::getRenderedHTML('html/envasado.php');
   });
   $router->add('/envasadoinfo/:idBatch/:referencia', function ($idBatch, $referencia) {
-    return Router::getRenderedHTML('html/envasadoinfo.html');
+    return Router::getRenderedHTML('html/envasadoinfo.php');
   });
 
   $router->add('/loteado', function () {

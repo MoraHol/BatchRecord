@@ -148,16 +148,8 @@
       </div>
     </div>
 
-    <!-- ============================================================== -->
-    <!-- End Bread crumb and right sidebar toggle -->
-    <!-- ============================================================== -->
-    <!-- ============================================================== -->
-    <!-- Start Page Content -->
-    <!-- ============================================================== -->
-    <!-- Modal -->
 
-    <!-- Modal -->
-    <div class="modal fade" id="myModal2" role="dialog" tabindex="-1">
+<!--     <div class="modal fade" id="myModal2" role="dialog" tabindex="-1">
       <div class="modal-dialog modal-lg">
         <div class="modal-content">
           <form method="post" onsubmit="return enviar();">
@@ -188,7 +180,7 @@
     </div>
   </div>
 
-  <!-- Modal -->
+
   <div class="modal fade" id="myModal3" role="dialog" tabindex="-1">
     <div class="modal-dialog modal-lg">
       <div class="modal-content">
@@ -218,9 +210,8 @@
       </div>
     </div>
   </div>
-</div>
-<!-- Modal -->
-<!-- Modal -->
+</div> -->
+
 
 <div class="row">
   <!-- column -->

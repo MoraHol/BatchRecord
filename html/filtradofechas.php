@@ -1,5 +1,6 @@
 <?php 
 
-echo("asdadas");
+echo ($_POST);
 exit;
+
 ?>

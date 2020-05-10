@@ -130,3 +130,31 @@ $('#form_clonar').submit(function (event) {
     });
 })
 
+
+  //Filtro de busqueda por fechas
+
+  $(document).ready(function(){
+    $('#btnFiltrado').click(function(event){
+      event.preventDefault;
+      var datos = $('#formFechas').serialize();
+      //var url = form.attr('action');
+      /* alert(datos);
+      return false; */
+
+    //var form = $($this);
+    
+    $.ajax({
+        type: "POST",
+        url: 'filtradofechas.php',
+        data: datos,
+        success: function(data){
+          if (data!=""){
+            $('#tabla-resultado').html(); 
+            $('#tabla-resultado').append(data);
+          }
+          alert('error');
+        }
+
+    });
+});
+});

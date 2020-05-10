@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="Batch Record">
-  <meta name="author" content="Samara Cosmetics">
+  <meta name="author" content="Teenus SAS">
 
   <!-- Favicon icon -->
   <link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicon.png">
@@ -55,7 +55,7 @@
                aria-haspopup="true" aria-expanded="true" id="dropdownMenuenlace">Berney Montoya
                <i class="large material-icons">account_circle</i></i></a>
             <div class="dropdown-menu" aria-labelledby="dropdownMenuenlace">
-              <a href="#" class="dropdown-item">Cambiar contraseña</a>
+              <a href="#" class="dropdown-item" data-toggle="modal" data-target="#modalCambiarContrasena">Cambiar contraseña</a>
               <a href="../index.html" class="dropdown-item">Cerrar sesión</a>
             </div>
           </li>

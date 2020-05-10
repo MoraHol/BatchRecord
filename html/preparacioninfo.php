@@ -1,3 +1,11 @@
+<?php 
+    include("modal/modal_firma.php");
+    include("modal/modal_observaciones.php");
+    include("modal/modal_req_ajuste.php");
+    include("modal/modal_cambiarContrasena.php");
+    include("modal/modal_condicionesMedio.php");
+  ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -5,8 +13,8 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="">
-  <meta name="author" content="">
+  <meta name="description" content="Batch Record">
+  <meta name="author" content="Teenus SAS">
   
   <!-- Favicon icon -->
   <link rel="icon" type="image/png" sizes="16x16" href="../../assets/images/favicon.png">
@@ -31,7 +39,6 @@
 </head>
 
 <body class="fix-header fix-sidebar card-no-border">
-  <?php include("modal/modal_firma.php") ?>
 <div class="preloader">
   <svg class="circular" viewBox="25 25 50 50">
     <circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="2" stroke-miterlimit="10"/>
@@ -58,7 +65,7 @@
                aria-haspopup="true" aria-expanded="true" id="dropdownMenuenlace">Berney Montoya
                <i class="large material-icons">account_circle</i></i></a><!-- <i class="fas fa-chevron-circle-down"></i></a> -->
             <div class="dropdown-menu" aria-labelledby="dropdownMenuenlace">
-              <a href="#" class="dropdown-item">Cambiar contraseña</a>
+              <a href="#" class="dropdown-item" data-toggle="modal" data-target="#modalCambiarContrasena">Cambiar contraseña</a>
               <a href="../index.html" class="dropdown-item">Cerrar sesión</a>
             </div>
           </li>
@@ -206,48 +213,8 @@
   </div>
 </div>
 </div> -->
-<!-- Modal -->
 
 
-<!-- Modal -->
-<div class="modal fade" id="myModal1" role="dialog" tabindex="-1">
-  <div class="modal-dialog modal-lg">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Orden de suministro</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <form>
-          <div class="row page">
-            <div class="col-md-12 col-2 align-self-center">
-              <table class="table">
-                <thead>
-                <tr>
-                  <th>Materia prima para adicionar</th>
-                  <th>Procedimiento para el ajuste</th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr>
-                  <td><textarea id="matadicionar" rows="4" cols="40"></textarea></td>
-                  <td><textarea id="procajuste" rows="4" cols="40"></textarea></td>
-                  </td>
-                </tr>
-              </table>
-            </div>
-          </div>
-        </form>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-        <button type="button" class="btn btn-primary">Aceptar</button>
-      </div>
-    </div>
-  </div>
-</div>
 <div class="row">
   <!-- column -->
   <div class="col-lg-12">
@@ -320,8 +287,8 @@
           <div class="card-body">
             <div class="row" style="margin: 1%;background-color: #C0C0C0;">
               <div class="col-md-10 col-2 align-self-right">
-                <h3 for="recipient-name" class="col-form-label"
-                    style="text-align: center; background-color: #C0C0C0">Parámetros de control</h3>
+                <h3 for="recipient-name" class="col-form-label" 
+                    style="text-align: center; background-color: #C0C0C0" data-toggle="modal" data-target="#modalCondicionesMedio">Parámetros de control</h3>
               </div>
               <div class="col-md-1 col-0 align-self-center">
                 <h3 for="recipient-name" class="col-form-label"
@@ -566,11 +533,14 @@
                 </div>
               </div>
             </div>
+            <hr>
             <div class="row" style="margin: 1%">
               <div class="col-md-2 col-2 align-self-right">
+                <label for="in_realizado_2" class="col-form-label">Fecha</label>
+                <input type="text" class="form-control" id="in_realizado_2" readonly>
               </div>
               <div class="col-md-3 col-2 align-self-center">
-                <label for="in_realizado_2" class="col-form-label">Realizado Por:</label>
+                <label for="in_realizado_2" class="col-form-label">Realizado Por</label>
                 <input type="text" class="form-control" id="in_realizado_2">
               </div>
               <div class="col-md-2 col-2 align-self-center" style="margin-top: 2.8%">
@@ -579,26 +549,26 @@
               </div>
 
               <div class="col-md-3 col-2 align-self-center">
-                <label for="in_verificado_2" class="col-form-label">Verificado Por:</label>
+                <label for="in_verificado_2" class="col-form-label">Verificado Por</label>
                 <input type="text" class="form-control" id="in_verificado_2">
               </div>
               <div class="col-md-2 col-2 align-self-center" style="margin-top: 2.8%">
                 <input type="button" class="btn btn-danger" data-toggle="modal" data-target="#myModal5"
                        style="width: 100%; height: 38px;" value="Firmar">
               </div>
-
-
             </div>
+            <hr>
             <div class="row" style="margin: 1%">
               <button type="button" class="btn waves-effect waves-light btn-danger pull-right hidden-sm-down"
-                      data-toggle="modal" data-target="#myModal1" style="margin-left: 1%">Requiere Ajuste
+                      data-toggle="modal" data-target="#modalAjuste" style="margin-left: 1%">¿Se requiere algún ajuste?
               </button>
             </div>
+            <hr>
             <div class="row" style="margin: 1%">
               <div class="col-md-12 col-2 align-self-center" style="margin-left: 85%">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-                <button type="button" class="btn btn-primary"
-                        onclick="window.location.href = '../html/aprobacion.html';">Aceptar
+                <!-- <button type="button" class="btn btn-primary" onclick="window.location.href = '../html/aprobacion.html';">Aceptar -->
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalObservaciones">Aceptar
                 </button>
               </div>
             </div>

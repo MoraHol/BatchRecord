@@ -39,6 +39,7 @@
 <?php 
   include('modal/modal_firma.php');
   include('modal/modal_cambiarContrasena.php');
+  include('modal/modal_observaciones.php');
   ?>
 
 <div class="preloader">
@@ -285,6 +286,7 @@
               <input type="text" class="form-control text-center" id="cargo-4" readonly>
             </div>
           </div>
+          <hr>
           <div class="card-body">
             <div class="row" style="margin: 1%">
               <div class="col-md-12 col-2 align-self-center">
@@ -328,8 +330,8 @@
             <div class="row justify-content-end mt-5" style="margin: 1%;text-align: right">
               <div class="col-md-12 col-2 align-self-end">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-                <button type="button" class="btn btn-primary"
-                        onclick="window.location.href = '/preparacion';">Aceptar
+                <!-- <button type="button" class="btn btn-primary" onclick="window.location.href = '/preparacion';">Aceptar -->
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalObservaciones">Aceptar
                 </button>
               </div>
             </div>
