@@ -31,7 +31,7 @@ body {
   margin: 0;
   overflow-x: hidden;
   color: #67757c;
-  font-weight: 300; }
+  font-weight: 300;}
 
 html {
   position: relative;
@@ -350,6 +350,19 @@ html body .b-t {
 
 html body .b-all {
   border: 1px solid rgba(120, 130, 140, 0.13); }
+
+  .modal-header {
+    padding:9px 15px;
+    border-bottom:1px solid #eee;
+    background-color: green;
+    color: #fff;
+    -webkit-border-top-left-radius: 5px;
+    -webkit-border-top-right-radius: 5px;
+    -moz-border-radius-topleft: 5px;
+    -moz-border-radius-topright: 5px;
+     border-top-left-radius: 5px;
+     border-top-right-radius: 5px;
+  }x
 
 /*******************
 Thumb size
@@ -906,8 +919,8 @@ Buttons
 
 .btn-primary,
 .btn-primary.disabled {
-  background: #7460ee;
-  border: 1px solid #7460ee;
+  background: #FF8D6D;
+  border: 1px solid #FF8D6D;
   -webkit-box-shadow: 0 2px 2px 0 rgba(116, 96, 238, 0.14), 0 3px 1px -2px rgba(116, 96, 238, 0.2), 0 1px 5px 0 rgba(116, 96, 238, 0.12);
   box-shadow: 0 2px 2px 0 rgba(116, 96, 238, 0.14), 0 3px 1px -2px rgba(116, 96, 238, 0.2), 0 1px 5px 0 rgba(116, 96, 238, 0.12);
   -webkit-transition: 0.2s ease-in;
@@ -915,14 +928,14 @@ Buttons
   transition: 0.2s ease-in; }
   .btn-primary:hover,
   .btn-primary.disabled:hover {
-    background: #7460ee;
+    background: #FF8D6D;
     -webkit-box-shadow: 0 14px 26px -12px rgba(116, 96, 238, 0.42), 0 4px 23px 0 rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(116, 96, 238, 0.2);
     box-shadow: 0 14px 26px -12px rgba(116, 96, 238, 0.42), 0 4px 23px 0 rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(116, 96, 238, 0.2);
-    border: 1px solid #7460ee; }
+    border: 1px solid #FF8D6D; }
   .btn-primary.active, .btn-primary:focus,
   .btn-primary.disabled.active,
   .btn-primary.disabled:focus {
-    background: #6352ce;
+    background: #FF8D6D;
     -webkit-box-shadow: 0 14px 26px -12px rgba(116, 96, 238, 0.42), 0 4px 23px 0 rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(116, 96, 238, 0.2);
     box-shadow: 0 14px 26px -12px rgba(116, 96, 238, 0.42), 0 4px 23px 0 rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(116, 96, 238, 0.2); }
 

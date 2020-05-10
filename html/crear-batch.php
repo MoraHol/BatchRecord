@@ -22,11 +22,15 @@
   <!-- Custom CSS -->
   <link href="css/style.css" rel="stylesheet">
   <link href="css/colors/blue.css" id="theme" rel="stylesheet">
+  <!-- <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css"> -->
   <link rel="stylesheet" type="text/css" href="vendor/datatables/datatables.min.css">
   <link rel="stylesheet" href="vendor/jquery-confirm/jquery-confirm.min.css">
   <link rel="stylesheet" type="text/css" href="vendor/datatables/DataTables-1.10.20/css/dataTables.bootstrap4.min.css">
   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
   <!-- <script src="https://kit.fontawesome.com/6589be6481.js" crossorigin="anonymous"></script> -->
+  <!-- <link rel="stylesheet" href="//oss.maxcdn.com/jquery.bootstrapvalidator/0.5.2/css/bootstrapValidator.min.css"> -->
+  <!-- <link href="/vendor/bootstrap-datetimepicker/css/bootstrap-datetimepicker.min.css" rel="stylesheet" /> -->
+  
   <link rel="stylesheet" href="css/custom.css">
   
   <!-- Alertify -->
@@ -73,8 +77,9 @@
       $estado = $n["estado"];
     }
   ?>
-  <script src="https://code.jquery.com/jquery-1.11.2.min.js"></script>
-  <script type="text/javascript">
+  
+  
+<!--   <script type="text/javascript">
       $(function () {
           $('#tamanototallote, #tamanolotepresentacion').keyup(function () {
               var value1 = parseFloat($('#tamanototallote').val()) || 0;
@@ -86,7 +91,7 @@
       function cargarreferencia() {
           $('#name-submit').click();
       }
-  </script>
+  </script> -->
 </head>
 
 <body class="fix-header fix-sidebar card-no-border">
@@ -175,7 +180,7 @@
     <div class="card">
       <div class="card-block">
         <div class="table-responsive">
-          <table class="table table-striped table-bordered" id="example">
+          <table class="table table-striped table-bordered" id="example" name="tablaBatch">
             <thead>
             <tr>
               <th></th>
@@ -234,6 +239,7 @@
 </div>
 </div>
 </div> -->
+<!-- <script src="https://code.jquery.com/jquery-1.11.2.min.js"></script> -->
 <script src="../assets/plugins/jquery/jquery.min.js"></script>
 <script src="../assets/plugins/bootstrap/js/tether.min.js"></script>
 <script src="../assets/plugins/bootstrap/js/bootstrap.min.js"></script>
@@ -241,6 +247,18 @@
 <script src="js/jquery.slimscroll.js"></script>
 <script src="vendor/jquery/jquery.serializeToJSON.min.js"></script>
 <script src="js/waves.js"></script>
+<script src="js/autoNumeric.js"></script>
+<script src="//oss.maxcdn.com/jquery.bootstrapvalidator/0.5.2/js/bootstrapValidator.min.js"></script>
+<!-- <script src="/vendor/bootstrap-datetimepicker/js/bootstrap-datetimepicker.min.js"></script> -->
+<script src="js/validadores.js"></script>
+
+<!-- <script>
+  new AutoNumeric('tamanototallote',{
+    decimalPlaces:'0',
+    decimalCharacter:',',
+    digitGroupSeparator:'.'
+  }) 
+</script> -->
 
 
 <script type="text/javascript">
@@ -301,6 +319,34 @@
         }
     }
 </script>
+
+<script>
+  //Filtro de busqueda por fechas
+
+  $(document).ready(function(){
+    $('#btnFiltrado').click(function(event){
+      event.preventDefault;
+      var datos = $('#formFechas').serialize();
+      var url = form.attr('action');
+      /* alert(datos);
+      return false;
+ */
+    //var form = $($this);
+    
+    $.ajax({
+        type: "POST",
+        url: 'filtradofechas.php',
+        data: form.serialize(),
+        success: function(data){
+            $('#tablaBatch').html(); 
+            $('#tablaBatch').append(data);
+        }
+
+    });
+});
+});
+</script>
+
 
 <script src="js/sidebarmenu.js"></script>
 <script src="../assets/plugins/sticky-kit-master/dist/sticky-kit.min.js"></script>

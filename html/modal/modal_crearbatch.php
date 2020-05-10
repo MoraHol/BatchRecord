@@ -105,7 +105,7 @@
                             <input type="text" name="unidadesxlote" id="unidadesxlote" class="form-control" min="1" value="<?= $unidadesxlote; ?>" required />
                         </div>
                         <div class="col-md-4 col-2 align-self-center">
-                            <label for="recipient-name" class="col-form-label">Tamaño del Lote</label>
+                            <label for="recipient-name" class="col-form-label" type="number">Tamaño del Lote</label>
                             <input type="number" name="tamanototallote" id="tamanototallote" class="form-control" min="1" readonly value="<?= $tamanototallote; ?>" />
                         </div>
                         <div class="col-md-4 col-2 align-self-center d-none">

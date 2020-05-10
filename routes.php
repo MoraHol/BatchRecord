@@ -14,7 +14,7 @@
   });
 
   $router->add('/pesaje', function () {
-    return Router::getRenderedHTML('html/pesaje.html');
+    return Router::getRenderedHTML('html/pesaje.php');
   });
   $router->add('/pesajeinfo/:idBatch/:referencia', function ($idBatch, $referencia) {
     return Router::getRenderedHTML('html/pesajeinfo.php');

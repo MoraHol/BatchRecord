@@ -90,7 +90,7 @@
   $app->post('/clonebatch', function (Request $request, Response $response, $args) use ($batchDao) {
     $requestBody = json_decode($request->getBody(), true);
     $batch = $batchDao->findById($requestBody['idbatch']);
-    $batch["unidad_lote"] = $requestBody['unidades'];
+    //$batch["unidad_lote"] = $requestBody['unidades'];
     $duplicates = $requestBody['cantidad'];
     for ($i = 0; $i < $duplicates; $i++) {
       $rows = $batchDao->save($batch);

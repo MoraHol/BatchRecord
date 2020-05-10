@@ -26,6 +26,9 @@
   <script src="https://code.jquery.com/jquery-1.11.2.min.js"></script>
 
 </head>
+<?php 
+  include('modal/modal_cambiarContrasena.php');
+?>
 
 <body class="fix-header fix-sidebar card-no-border">
 <div class="preloader">
@@ -39,7 +42,7 @@
       <div class="navbar-header">
         <a class="navbar-brand">
           <span>
-          <img src="assets/images/logo-light-text2.png" class="light-logo" alt="homepage"/></span>
+          <img src="assets/images/logo-light-text2.png" class="light-logo" alt="Samara Cosmetics"/></span>
         </a>
       </div>
       <div class="navbar-collapse">
@@ -55,8 +58,8 @@
                aria-haspopup="true" aria-expanded="true" id="dropdownMenuenlace">Berney Montoya 
                <i class="large material-icons">account_circle</i></i></a>
             <div class="dropdown-menu" aria-labelledby="dropdownMenuenlace">
-              <a href="#" class="dropdown-item">Cambiar contraseña</a>
-              <a href="./" class="dropdown-item">Cerrar sesión</a>
+              <a href="#" class="dropdown-item" data-toggle="modal" data-target="#modalCambiarContrasena">Cambiar Contraseña</a>
+              <a href="./" class="dropdown-item">Cerrar Sesión</a>
             </div>
           </li>
         </ul>
