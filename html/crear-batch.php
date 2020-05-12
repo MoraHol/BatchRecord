@@ -326,16 +326,16 @@
 <script src="js/sidebarmenu.js"></script>
 <script src="../assets/plugins/sticky-kit-master/dist/sticky-kit.min.js"></script>
 <script src="../assets/plugins/jquery/jquery.number.min.js"></script>
-<!--Custom JavaScript -->
-<script src="js/global.js"></script>
-<script src="js/custom.js"></script>
-<script src="js/utils/crearbatch.js"></script>
-<script src="js/datatables.js"></script>
-<script src="vendor/jquery-confirm/jquery-confirm.min.js"></script>
+  <!--Custom JavaScript -->
+  <script src="js/global.js"></script>
+  <script src="js/custom.js"></script>
+  <script src="js/utils/crearbatch.js"></script>
+  <script src="js/datatables.js"></script>
+  <script src="vendor/jquery-confirm/jquery-confirm.min.js"></script>
 
-<!--Alertify-->
-<script type="text/javascript" src="js/alertify.js"></script>
-
+  <!--Alertify-->
+  <script type="text/javascript" src="js/alertify.js"></script>
+  <script src="js/filterDate.js"></script>
 <?php if ($update) { ?>
   <script>
       cargarData()

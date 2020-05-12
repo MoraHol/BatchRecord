@@ -27,48 +27,48 @@ function onSubmit() {
 function deleteBatch(event) {
     let id = $(event.currentTarget).attr('attr-id');
     Swal.fire({
-    title: 'Está seguro?',
-    text: "Esta acción no podra reversarse!",
-    icon: 'warning',
-    showCancelButton: true,
-    cancelButtonText: 'Cancelar!',
-    confirmButtonColor: '#3085d6',
-    cancelButtonColor: '#d33',
-    confirmButtonText: 'Si, eliminarlo!'
-  }).then((result) => {
-    if (result.value) {
-      $.ajax({
-              url: `savebatch.php?del=${id}`,
-              type: 'GET'
-                }).done((data, status, xhr) => {
-                  location.href = '/html/crear-batch.php';
-                  Swal.fire(
+        title: 'Está seguro?',
+        text: "Esta acción no podra reversarse!",
+        icon: 'warning',
+        showCancelButton: true,
+        cancelButtonText: 'Cancelar!',
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Si, eliminarlo!'
+    }).then((result) => {
+        if (result.value) {
+            $.ajax({
+                url: `savebatch.php?del=${id}`,
+                type: 'GET'
+            }).done((data, status, xhr) => {
+                location.href = '/html/crear-batch.php';
+                Swal.fire(
                     'Eliminado!',
                     'El Batch Record ha sido eliminado.',
                     'success'
-                    )
-                });  
-            }
-  })
-
-  /*$.confirm({
-        title: '¿Está seguro de Eliminar?',
-        content: '',
-        buttons: {
-            confirmar: function () {
-                $.ajax({
-                    url: `savebatch.php?del=${id}`,
-                    type: 'GET'
-                }).done((data, status, xhr) => {
-                    location.href = '/html/crear-batch.php';
-                });
-
-            },
-            cancelar: function () {
-                //$.alert('Canceled!');
-            }
+                )
+            });
         }
-    }); */
+    })
+
+    /*$.confirm({
+          title: '¿Está seguro de Eliminar?',
+          content: '',
+          buttons: {
+              confirmar: function () {
+                  $.ajax({
+                      url: `savebatch.php?del=${id}`,
+                      type: 'GET'
+                  }).done((data, status, xhr) => {
+                      location.href = '/html/crear-batch.php';
+                  });
+
+              },
+              cancelar: function () {
+                  //$.alert('Canceled!');
+              }
+          }
+      }); */
 }
 
 $('#myModal').on('hidden.bs.modal', function (e) {
@@ -92,16 +92,16 @@ function clonar() {
             timer: 3000,
             timerProgressBar: true,
             onOpen: (toast) => {
-              toast.addEventListener('mouseenter', Swal.stopTimer)
-              toast.addEventListener('mouseleave', Swal.resumeTimer)
+                toast.addEventListener('mouseenter', Swal.stopTimer)
+                toast.addEventListener('mouseleave', Swal.resumeTimer)
             }
-          })
-          
-          Toast.fire({
+        })
+
+        Toast.fire({
             icon: 'error',
             title: 'Selecciona el Batch record a Clonar'
-          })
-      }
+        })
+    }
 }
 
 $('input:radio[name=optradio]').click(function () {
@@ -128,33 +128,34 @@ $('#form_clonar').submit(function (event) {
             $.alert('Error al clonar');
         }
     });
-})
+});
 
 
-  //Filtro de busqueda por fechas
+//Filtro de busqueda por fechas
 
-  $(document).ready(function(){
-    $('#btnFiltrado').click(function(event){
-      event.preventDefault;
-      var datos = $('#formFechas').serialize();
-      //var url = form.attr('action');
-      /* alert(datos);
-      return false; */
+/*$(document).ready(function () {
+    $('#btnFiltrado').click(function (event) {
+        event.preventDefault;
+        var datos = $('#formFechas').serialize();
+        //var url = form.attr('action');
+        /!* alert(datos);
+        return false;
 
-    //var form = $($this);
-    
-    $.ajax({
-        type: "POST",
-        url: 'filtradofechas.php',
-        data: datos,
-        success: function(data){
-          if (data!=""){
-            $('#tabla-resultado').html(); 
-            $('#tabla-resultado').append(data);
-          }
-          alert('error');
-        }
 
+        //var form = $($this);
+
+        $.ajax({
+            type: "POST",
+            url: 'filtradofechas.php',
+            data: datos,
+            success: function (data) {
+                if (data != "") {
+                    $('#tabla-resultado').html();
+                    $('#tabla-resultado').append(data);
+                }
+                alert('error');
+            }
+
+        });
     });
-});
-});
+});*/
