@@ -52,18 +52,23 @@ let tablePesaje = $('#tablePesaje').dataTable({
             data: 'alias'
         },
         {
-            title: 'Peso (<a href="javascript:cambioConversion();" class="conversion_weight">g</a>)',
+            title: 'Peso (<a href="javascript:cambioConversion();" class="conversion_weight">Kg</a>)',
             className: 'conversion_weight_column',
             data: 'porcentaje',
             render: (data, type, row) => {
                 if (flagWeight) {
-                    return (data * batch.tamano_lote) / 1000;
-                } else {
                     return data * batch.tamano_lote;
+                } else {
+                    return (data * batch.tamano_lote) / 1000;
                 }
 
             }
+        },
+        {
+            title: 'Impresión',
+            defaultContent: '<a href="#" data-toggle="modal" data-target="#imprimirEtiquetas"><i class="large material-icons">print</i></a>'
         }
+        
     ]
 });
 
@@ -135,7 +140,7 @@ $('#in_fecha_pesaje').attr('min', new Date().toDateInputValue());
 function cambioConversion() {
     flagWeight = !flagWeight;
     tablePesaje.api().ajax.reload();
-    $(tablePesaje.api().column(2).header()).html(`Peso (<a href="javascript:cambioConversion();" class="conversion_weight">${flagWeight ? 'kg' : 'g'}</a>)`);
+    $(tablePesaje.api().column(2).header()).html(`Peso (<a href="javascript:cambioConversion();" class="conversion_weight">${flagWeight ? 'Kg' : 'g'}</a>)`);
 }
 
 

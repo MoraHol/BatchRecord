@@ -189,10 +189,10 @@
               <th>Nombre</th>
               <th>Presentacion</th>
               <th>Lote</th>
-              <th>Linea</th>
+              <th>Tamaño(kg)</th>
               <th>Propietario</th>
-              <th>Fecha Creación</th>
-              <th>Fecha Programación</th>
+              <th>Creación</th>
+              <th>Programación</th>
               <th>Estado</th>
               <th></th>
               <th></th>
@@ -210,7 +210,7 @@
                   <td><?= $rows['nombre_referencia']; ?></td>
                   <td><?= $rows['presentacion']; ?></td>
                   <td><?= $rows['numero_lote'] ?></td>
-                  <td><?= $rows['nombre_linea']; ?></td>
+                  <td><?= $rows['tamano_lote']; ?></td>
                   <td><?= $rows['nombre']; ?></td>
                   <td><?= $rows['fecha_creacion']; ?></td>
                   <td><?= $rows['fecha_programacion']; ?></td>
@@ -250,18 +250,11 @@
 <script src="js/jquery.slimscroll.js"></script>
 <script src="vendor/jquery/jquery.serializeToJSON.min.js"></script>
 <script src="js/waves.js"></script>
-<script src="js/autoNumeric.js"></script>
 <script src="//oss.maxcdn.com/jquery.bootstrapvalidator/0.5.2/js/bootstrapValidator.min.js"></script>
 <!-- <script src="/vendor/bootstrap-datetimepicker/js/bootstrap-datetimepicker.min.js"></script> -->
-<script src="js/validadores.js"></script>
+<script src="../../html/js/validadores.js"></script>
 
-<!-- <script>
-  new AutoNumeric('tamanototallote',{
-    decimalPlaces:'0',
-    decimalCharacter:',',
-    digitGroupSeparator:'.'
-  }) 
-</script> -->
+
 
 
 <script type="text/javascript">
@@ -336,6 +329,9 @@
   <!--Alertify-->
   <script type="text/javascript" src="js/alertify.js"></script>
   <script src="js/filterDate.js"></script>
+  <script src="js/autoNumeric.min.js"></script>
+  <script src="html/vendor/bootstrap/js/popper.js"></script>
+
 <?php if ($update) { ?>
   <script>
       cargarData()

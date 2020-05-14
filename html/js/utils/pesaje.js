@@ -20,10 +20,13 @@ $(document).ready(function () {
             url: '/api/pesajes',
             dataSrc: ''
         },
+        language:{
+            url: '//cdn.datatables.net/plug-ins/1.10.20/i18n/Spanish.json'
+        },
         columns: [
             {
-                title: 'Fecha Creación',
-                data: 'fecha_creacion'
+                title: 'Fecha Programación',
+                data: 'fecha_programacion'
             },
             {
                 title: 'No Orden',

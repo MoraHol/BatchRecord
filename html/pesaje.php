@@ -1,34 +1,38 @@
+<?php 
+  include('modal/modal_cambiarContrasena.php');
+?>
+
 <!DOCTYPE html>
 <html lang="es">
 
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <!-- Tell the browser to be responsive to screen width -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="Batch Record">
   <meta name="author" content="Samara Cosmetics">
+  
   <!-- Favicon icon -->
   <link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicon.png">
   <title>Samara Cosmetics</title>
+  
   <!-- Bootstrap Core CSS -->
   <link href="assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  
   <!-- Custom CSS -->
   <link href="html/css/style.css" rel="stylesheet">
+  
   <!-- You can change the theme colors from here -->
   <link href="html/css/colors/blue.css" id="theme" rel="stylesheet">
   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 
+  <!-- Datatables -->
   <link rel="stylesheet" type="text/css" href="html/vendor/datatables/datatables.min.css">
-  <link rel="stylesheet" type="text/css"
-        href="html/vendor/datatables/DataTables-1.10.20/css/dataTables.bootstrap4.min.css">
+  <link rel="stylesheet" type="text/css" href="html/vendor/datatables/DataTables-1.10.20/css/dataTables.bootstrap4.min.css">
   <!-- <script src="https://kit.fontawesome.com/6589be6481.js" crossorigin="anonymous"></script> -->
-  <script src="https://code.jquery.com/jquery-1.11.2.min.js"></script>
+ 
 
 </head>
-<?php 
-  include('modal/modal_cambiarContrasena.php');
-?>
 
 <body class="fix-header fix-sidebar card-no-border">
 <div class="preloader">
@@ -205,10 +209,12 @@
 <script src="assets/plugins/sticky-kit-master/dist/sticky-kit.min.js"></script>
 
 <!--Custom JavaScript -->
+<!-- <script src="html/vendor/jquery/jquery-3.2.1.min.js"></script> -->
 <script src="html/js/global.js"></script>
 <script src="html/js/custom.min.js"></script>
 <script src="html/js/datatables.js"></script>
 <script src="html/js/utils/pesaje.js"></script>
+<!-- <script src="html/vendor/bootstrap/js/popper.js"></script> -->
 
 </body>
 

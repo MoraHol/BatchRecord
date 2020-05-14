@@ -19,13 +19,13 @@
   <link href="../../html/css/style.css" rel="stylesheet">
   
   <!-- You can change the theme colors from here -->
-  <link href="../../html/css/colors/blue.css" id="theme" rel="stylesheet">
-  <link href="../../html/css/custom.css" rel="stylesheet">
+  <link rel="stylesheet" href="../../html/css/colors/blue.css" id="theme">
+  <link rel="stylesheet" href="../../html/css/custom.css">
   <link rel="stylesheet" href="../../html/vendor/jquery-confirm/jquery-confirm.min.css">
   <link rel="stylesheet" type="text/css" href="../../html/vendor/datatables/datatables.min.css">
-  <link rel="stylesheet" type="text/css"
-        href="../../html/vendor/datatables/DataTables-1.10.20/css/dataTables.bootstrap4.min.css">
+  <link rel="stylesheet" type="text/css" href="../../html/vendor/datatables/DataTables-1.10.20/css/dataTables.bootstrap4.min.css">
   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  
         <!-- script src="https://kit.fontawesome.com/6589be6481.js" crossorigin="anonymous"></script> -->
   
         <!-- Hoja de estilos Toastr -->
@@ -129,8 +129,8 @@
             </div>
             <div class="row" style="margin: 1%">
               <div class="col-md-4 col-2 align-self-center">
-                <label for="in_tamano_lote" class="col-form-label">Tamaño Lote:</label>
-                <input type="text" class="form-control" id="in_tamano_lote"
+                <label for="in_tamano_lote" class="col-form-label">Tamaño Lote (Kg)</label>
+                <input type="text" class="form-control Numeric" id="in_tamano_lote"
                        readonly>
               </div>
               <div class="col-md-4 col-2 align-self-center">
@@ -351,6 +351,7 @@
 <script src="../../assets/plugins/bootstrap/js/tether.min.js"></script>
 <script src="../../assets/plugins/bootstrap/js/bootstrap.min.js"></script>
 <script type="text/javascript" src="../../html/vendor/datatables/datatables.min.js"></script>
+<script src="html/vendor/bootstrap/js/popper.js"></script>
 <!-- slimscrollbar scrollbar JavaScript -->
 <script src="../../html/js/jquery.slimscroll.js"></script>
 <!--Wave Effects -->
@@ -365,6 +366,7 @@
 <script src="../../html/js/datatables.js"></script>
 <script src="../../html/js/utils/loadinfo-global.js"></script>
 <script src="../../html/js/utils/pesajeinfo.js"></script>
+<script src="../../html/js/validadores.js"></script>
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
   <!-- Toastr.js Después -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>

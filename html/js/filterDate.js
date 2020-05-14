@@ -14,7 +14,7 @@ $.fn.dataTableExt.afnFiltering.push(
             if (typeFilter == 1) {
                 _date = new Date(aData[8]).getTime();
             } else {
-                // fecha de programacacion
+                // fecha de programacion
                 _date = new Date(aData[9]).getTime();
             }
         } else {

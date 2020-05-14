@@ -29,3 +29,7 @@ $(document).ready(function() {
         }
     });
 });
+
+//Iniciador libreria numerica
+
+new AutoNumeric('.Numeric', { currencySymbol : '$' });  

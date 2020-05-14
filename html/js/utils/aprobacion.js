@@ -9,8 +9,8 @@ $('#aprobacionTable').dataTable({
     },
     columns: [
         {
-            title: 'Fecha Creación',
-            data: 'fecha_creacion'
+            title: 'Fecha Programación',
+            data: 'fecha_programacion'
         },
         {
             title: 'No de Orden',
@@ -20,11 +20,11 @@ $('#aprobacionTable').dataTable({
             title: 'Referencia',
             data: 'referencia'
         },
-        /*{
+        {
             title: 'Nombre Referencia',
             data: 'nombre_referencia'
         },
-        {
+        /*{
             title: 'Tamaño Lote',
             data: 'tamano_lote'
         },*/

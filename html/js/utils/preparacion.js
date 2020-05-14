@@ -8,8 +8,8 @@ $('#preparacionTable').dataTable({
     },
     columns: [
         {
-            title: 'Fecha Creación',
-            data: 'fecha_creacion'
+            title: 'Fecha Programación',
+            data: 'fecha_programacion'
         },
         {
             title: 'No Orden',
