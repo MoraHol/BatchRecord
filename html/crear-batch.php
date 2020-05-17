@@ -1,5 +1,5 @@
 <?php
-  require_once('./sesion.php');
+  require_once('./sesion/sesion.php');
 ?>
 
 <!DOCTYPE html>
@@ -58,7 +58,7 @@
   ?>
   
   
-<!--   <script type="text/javascript">
+  <script type="text/javascript">
       $(function () {
           $('#tamanototallote, #tamanolotepresentacion').keyup(function () {
               var value1 = parseFloat($('#tamanototallote').val()) || 0;
@@ -70,7 +70,7 @@
       function cargarreferencia() {
           $('#name-submit').click();
       }
-  </script> -->
+  </script>
 </head>
 
 <body class="fix-header fix-sidebar card-no-border">

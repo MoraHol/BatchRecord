@@ -14,7 +14,7 @@
         <ul class="navbar-nav my-lg-0">
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle text-muted waves-effect waves-dark" data-toggle="dropdown"
-               aria-haspopup="true" aria-expanded="true" id="dropdownMenuenlace">Berney Montoya
+               aria-haspopup="true" aria-expanded="true" id="dropdownMenuenlace"><?php echo $_SESSION['nombre'] .' '. $_SESSION['apellido']; ?>
               <i class="large material-icons">account_circle</i> <!-- <i class="fas fa-chevron-circle-down"> </i>--></a>
             <div class="dropdown-menu" aria-labelledby="dropdownMenuenlace">
               <a href="#" class="dropdown-item" data-toggle="modal" data-target="#modalCambiarContrasena">Cambiar contraseña</a>
