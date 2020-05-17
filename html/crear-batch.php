@@ -1,5 +1,5 @@
 <?php
-  //session_start();
+  require_once('./sesion.php');
 ?>
 
 <!DOCTYPE html>
@@ -16,28 +16,8 @@
   <link rel="icon" type="image/png" sizes="16x16" href="../assets/images/favicon.png">
   <title>Samara Cosmetics</title>
 
-  <!-- Bootstrap Core CSS -->
-  <link href="../assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-
-  <!-- Custom CSS -->
-  <link href="css/style.css" rel="stylesheet">
-  <link href="css/colors/blue.css" id="theme" rel="stylesheet">
-  <!-- <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css"> -->
-  <link rel="stylesheet" type="text/css" href="vendor/datatables/datatables.min.css">
-  <link rel="stylesheet" href="vendor/jquery-confirm/jquery-confirm.min.css">
-  <link rel="stylesheet" type="text/css" href="vendor/datatables/DataTables-1.10.20/css/dataTables.bootstrap4.min.css">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-  <!-- <script src="https://kit.fontawesome.com/6589be6481.js" crossorigin="anonymous"></script> -->
-  <!-- <link rel="stylesheet" href="//oss.maxcdn.com/jquery.bootstrapvalidator/0.5.2/css/bootstrapValidator.min.css"> -->
-  <!-- <link href="/vendor/bootstrap-datetimepicker/css/bootstrap-datetimepicker.min.css" rel="stylesheet" /> -->
+  <?php include('./partials/scripts.php'); ?>
   
-  <link rel="stylesheet" href="css/custom.css">
-  
-  <!-- Alertify -->
-  <link href="css/alertify.css" rel="stylesheet" type="text/css" />
-  <link href="css/theme/default.css" rel="stylesheet" type="text/css" />
-  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
-
   <style type="text/css">
     .tcrearBatch {
       color: #fff;
@@ -50,8 +30,7 @@
     $edit = false;
     $sql5 = mysqli_query($conn, "SELECT * From producto");
     $sql6 = mysqli_query($conn, "SELECT * FROM producto INNER JOIN batch ON batch.id_producto = producto.referencia INNER JOIN linea ON producto.id_linea = linea.id INNER JOIN propietario ON producto.id_propietario = propietario.id INNER JOIN presentacion_comercial ON producto.id_presentacion_comercial = presentacion_comercial.id");
-    //$_SESSION['SQL'] = $sql6;
-
+   
     if (isset($_GET['edit'])) {
       $idbatch = $_GET['edit'];
       $update = true;
@@ -102,6 +81,7 @@
     include("modal/modal_filtradoFechas.php");
     include("modal/modal_crearbatch.php");
     include("modal/modal_multipresentacion.php");
+    include("modal/modal_cambiarContrasena.php");
   ?>
 
 <div class="preloader">
@@ -111,32 +91,8 @@
 </div>
 
 <div id="main-wrapper" style="padding-top:15px; padding-left:15px; padding-right:15px">
-  <header class="topbar">
-    <nav class="navbar top-navbar navbar-toggleable-sm navbar-light">
-      <div class="navbar-header">
-        <a class="navbar-brand">
-          <span><img src="../assets/images/logo-light-text2.png" class="light-logo" alt="homepage"/></span>
-        </a>
-      </div>
-      <div class="navbar-collapse">
-        <ul class="navbar-nav mr-auto mt-md-0">
-          <li class="nav-item"><a class="nav-link nav-toggler hidden-md-up text-muted waves-effect waves-dark"
-                                  href="javascript:void(0)"><i class="mdi mdi-menu"></i></a></li>
-        </ul>
-        <ul class="navbar-nav my-lg-0">
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle text-muted waves-effect waves-dark" data-toggle="dropdown"
-               aria-haspopup="true" aria-expanded="true" id="dropdownMenuenlace">Berney Montoya
-              <i class="large material-icons">account_circle</i> <!-- <i class="fas fa-chevron-circle-down"> </i>--></a>
-            <div class="dropdown-menu" aria-labelledby="dropdownMenuenlace">
-              <a href="#" class="dropdown-item">Cambiar contraseña</a>
-              <a href="../index.html" class="dropdown-item">Cerrar sesión</a>
-            </div>
-          </li>
-        </ul>
-      </div>
-    </nav>
-  </header>
+  
+<?php include('./partials/header.php'); ?>
 
   <div class="row page-titles">
     <div class="col-md-3 col-2 align-self-right">
@@ -187,7 +143,7 @@
               <th>Orden</th>
               <th>Referencia</th>
               <th>Nombre</th>
-              <th>Presentacion</th>
+              <th>Presentación</th>
               <th>Lote</th>
               <th>Tamaño(kg)</th>
               <th>Propietario</th>

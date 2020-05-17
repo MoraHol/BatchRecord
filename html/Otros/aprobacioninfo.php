@@ -31,13 +31,13 @@
     require('../conexion.php'); 
     $idbatch = $_POST['idbatch'];
     $referencia = $_POST['referencia'];
- $sql6 = mysqli_query($conn, "SELECT * FROM producto INNER JOIN batch ON batch.id_producto = producto.referencia INNER JOIN linea ON producto.id_linea = linea.id INNER JOIN propietario ON producto.id_propietario = propietario.id INNER JOIN presentacion_comercial ON producto.id_presentacion_comercial = presentacion_comercial.id WHERE batch.id_batch = $idbatch");
-$sql5 = mysqli_query($conn, "SELECT * FROM preguntas ORDER BY RAND()");   
-$sql4 = mysqli_query($conn, "SELECT * FROM desinfectante");   
-$sql3 = mysqli_query($conn, "SELECT cargo FROM cargo WHERE id = 1"); 
-$sql2 = mysqli_query($conn, "SELECT * FROM formula INNER JOIN materia_prima ON formula.id_materiaprima = materia_prima.referencia WHERE formula.id_producto = $referencia");  
-$sql1 = mysqli_query($conn, "SELECT * FROM agitador");    
-$sql1 = mysqli_query($conn, "SELECT * FROM marmita");    
+    $sql6 = mysqli_query($conn, "SELECT * FROM producto INNER JOIN batch ON batch.id_producto = producto.referencia INNER JOIN linea ON producto.id_linea = linea.id INNER JOIN propietario ON producto.id_propietario = propietario.id INNER JOIN presentacion_comercial ON producto.id_presentacion_comercial = presentacion_comercial.id WHERE batch.id_batch = $idbatch");
+    $sql5 = mysqli_query($conn, "SELECT * FROM preguntas ORDER BY RAND()");   
+    $sql4 = mysqli_query($conn, "SELECT * FROM desinfectante");   
+    $sql3 = mysqli_query($conn, "SELECT cargo FROM cargo WHERE id = 1"); 
+    $sql2 = mysqli_query($conn, "SELECT * FROM formula INNER JOIN materia_prima ON formula.id_materiaprima = materia_prima.referencia WHERE formula.id_producto = $referencia");  
+    $sql1 = mysqli_query($conn, "SELECT * FROM agitador");    
+    $sql1 = mysqli_query($conn, "SELECT * FROM marmita");    
  ?>
 </head>
 

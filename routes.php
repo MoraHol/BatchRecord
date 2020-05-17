@@ -10,7 +10,7 @@
 
   $router->setBasePath('');
   $router->add('/', function () {
-    return file_get_contents('index.html');
+    return file_get_contents('index.php');
   });
 
   $router->add('/pesaje', function () {
