@@ -12,6 +12,11 @@
 <link rel="stylesheet" href="vendor/jquery-confirm/jquery-confirm.min.css">
 <link rel="stylesheet" type="text/css" href="vendor/datatables/DataTables-1.10.20/css/dataTables.bootstrap4.min.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
+  <!-- Alertify -->
+  <link href="vendor/alertify/css/alertify.css" rel="stylesheet" type="text/css" />
+  <link href="vendor/alertify/css/themes/default.css" rel="stylesheet" type="text/css" />
+
 <!-- <script src="https://kit.fontawesome.com/6589be6481.js" crossorigin="anonymous"></script> -->
 <!-- <link rel="stylesheet" href="//oss.maxcdn.com/jquery.bootstrapvalidator/0.5.2/css/bootstrapValidator.min.css"> -->
 <!-- <link href="/vendor/bootstrap-datetimepicker/css/bootstrap-datetimepicker.min.css" rel="stylesheet" /> -->
