@@ -24,7 +24,7 @@
             if($result > 0){
                echo $alert='El usuario ya existe';     
             }else{
-                $query_insert = mysqli_query($conn,"INSERT INTO usuarios (nombre, apellido, email, clave, id_modulo, id_cargo)
+                $query_insert = mysqli_query($conn,"INSERT INTO usuario (nombre, apellido, email, clave, id_modulo, id_cargo)
                                                     VALUES('$nombre', '$apellido', '$email', '$clave', '$modulo', '$cargo')");
 
                 if($query_insert){

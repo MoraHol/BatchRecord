@@ -70,6 +70,10 @@
 		<input type="password" name="clave" class="form-control" placeholder="Contraseña">
 		
 		<div class="mb-3">
+			<div class="form-check">
+    			<input type="checkbox" class="form-check-input" id="Adminchecked">
+    				<label class="form-check-label" for="Adminchecked">Administrador</label>
+			</div>
 			<a href="" data-toggle="modal" data-target="#ModalRecuperarClave">Recuperar Contraseña</a>
 		</div>
 		
