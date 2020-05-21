@@ -16,6 +16,7 @@
   <link rel="icon" type="image/png" sizes="16x16" href="../assets/images/favicon.png">
   <title>Samara Cosmetics</title>
 
+
   <?php include('./partials/scripts.php'); ?>
   
   <style type="text/css">

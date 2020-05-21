@@ -13,7 +13,7 @@
 				//echo '<script>alertify.set("notifier","position", "top-right"); alertify.success("Agregado con éxito.");</script>';
 				//'<script>swal("Hello world!");</script>';
 			}else{
-				require_once('conexion.php');
+				require_once('./conexion.php');
 				$email = mysqli_real_escape_string($conn,$_POST['email']); 
 				$pass = md5(mysqli_real_escape_string($conn,$_POST['clave']));
 				
@@ -52,14 +52,23 @@
 	<meta name="author" content="Teenus SAS">
     <title>Samara Cosmetics</title>
 
-	<!-- <link rel="stylesheet" type="text/css" href="html/vendor/bootstrap/css/bootstrap.min.css">
-	<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/alertify.min.css"/>
-	<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/default.min.css"/>-->
-	<link href="/html/css/sesion.css" rel="stylesheet">
 	
-	<?php 
-	include('./html/partials/scripts.php');
-	?>
+	<!-- Bootstrap Core CSS -->
+	<link href="../assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+	<!-- Custom CSS -->
+	<link href="/html/css/sesion.css" rel="stylesheet">
+
+	<!-- <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css"> -->
+	<link rel="stylesheet" type="text/css" href="html/vendor/datatables/datatables.min.css">
+	<link rel="stylesheet" href="html/vendor/jquery-confirm/jquery-confirm.min.css">
+	<link rel="stylesheet" type="text/css" href="html/vendor/datatables/DataTables-1.10.20/css/dataTables.bootstrap4.min.css">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
+  <!-- Alertify -->
+  	<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/alertify.min.css"/>
+  	<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/default.min.css"/>  
+
 
 </head>
 

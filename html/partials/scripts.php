@@ -6,11 +6,10 @@
 <link href="css/style.css" rel="stylesheet">
 <link href="css/colors/blue.css" id="theme" rel="stylesheet">
 
-
 <!-- <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css"> -->
-<link rel="stylesheet" type="text/css" href="vendor/datatables/datatables.min.css">
-<link rel="stylesheet" href="vendor/jquery-confirm/jquery-confirm.min.css">
-<link rel="stylesheet" type="text/css" href="vendor/datatables/DataTables-1.10.20/css/dataTables.bootstrap4.min.css">
+<link rel="stylesheet" type="text/css" href="html/vendor/datatables/datatables.min.css">
+<link rel="stylesheet" href="html/vendor/jquery-confirm/jquery-confirm.min.css">
+<link rel="stylesheet" type="text/css" href="html/vendor/datatables/DataTables-1.10.20/css/dataTables.bootstrap4.min.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 
   <!-- Alertify -->
@@ -21,7 +20,7 @@
 <!-- <link rel="stylesheet" href="//oss.maxcdn.com/jquery.bootstrapvalidator/0.5.2/css/bootstrapValidator.min.css"> -->
 <!-- <link href="/vendor/bootstrap-datetimepicker/css/bootstrap-datetimepicker.min.css" rel="stylesheet" /> -->
 
-<link rel="stylesheet" href="css/custom.css">
+<link rel="stylesheet" href="html/css/custom.css">
 
 <!-- Alertify -->
 <link href="css/alertify.css" rel="stylesheet" type="text/css" />
