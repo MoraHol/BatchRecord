@@ -41,7 +41,7 @@
 
 <?php 
   if(empty($_GET['id'])){
-    header('Location: listaUsuarios.php');
+    header('Location: usuarios.php');
   }
 
   $idUser = $_GET['id'];

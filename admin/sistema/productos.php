@@ -1,6 +1,4 @@
 
-
-
 <!DOCTYPE html>
 <html lang="es">
 
@@ -9,7 +7,7 @@
   <link rel="apple-touch-icon" sizes="76x76" href="../assets/img/apple-icon.png">
   <link rel="icon" type="image/png" href="../assets/img/favicon.png">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-  <title>Samara Cosmetics | Usuarios</title>
+  <title>Samara Cosmetics | Productos</title>
   <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
   
   <!--     Fonts and icons     -->
@@ -46,22 +44,36 @@
           <div class="col-md-12">
             <div class="card">
               <div class="card-header">
-                <h4 class="card-title">Usuarios Registrados</h4>
-                <!-- <a class="btn btn-primary" href="crearUsuarios.php" role="button">Crear Usuario</a> -->
+                <h4 class="card-title"> <strong>Productos Registrados</strong></h4>
+                <a class="btn btn-primary" href="crearUsuarios.php" role="button">Crear Producto</a>
               </div>
               <div class="card-body">
                 <div class="table-responsive">
-                  <table id="listaUsuarios" class="table-striped row-borde" style="width:100%">
+                  <table id="listarProductos" class="table-striped row-borde" style="width:100%">
                     <thead>
                       <tr>
-                        <th>Nombres</th>
-                        <th>Apellidos</th>
-                        <th>Email</th>
-                        <th>Cargo</th>
-                        <th>Módulo</th>
                         <th></th>
                         <th></th>
-                        <th></th>
+                        <th>Referencia</th>
+                        <th>Nombre</th>
+                        <th>Producto</th>
+                        <th>Notificación Sanitaria</th>
+                        <th>Linea</th>
+                        <th>Marca</th>
+                        <th>Propietario</th>
+                        <th>Presentación</th>
+                        <th>Color</th>
+                        <th>Apariencia</th>
+                        <th>Untuosidad</th>
+                        <th>Poder Espumoso</th>
+                        <th>Recuento Mesofilos</th>
+                        <th>Pseudomona</th>
+                        <th>Escherichia</th>
+                        <th>Staphylococcus</th>
+                        <th>PH</th>
+                        <th>Viscosidad</th>
+                        <th>Densidad</th>
+                        <th>Alcohol</th>
                       </tr>
                     </thead>
                     <tbody>
@@ -103,32 +115,7 @@
   <!-- <script src="../assets/demo/demo.js"></script> -->
 
   <!-- javascript inicializacion datatables -->
-  <script src="js/funciones.js"></script>
-
-  <script>  
- //Cargue de datos Tabla Usuarios
-
- $(document).ready(function() {
-    $("#listaUsuarios").DataTable({
-    "ajax":{
-      "method":"POST",
-        "url":"listar.php",
-    },
-
-    "columns":[
-        {"data": "nombre"},
-        {"data": "apellido"},
-        {"data": "email"},
-        {"data": "cargo"},
-        {"data": "modulo"},
-        {"defaultContent": "<a href='crearUsuarios.php' <i class='large material-icons' data-toggle='tooltip' title='Adicionar' style='color:rgb(0, 154, 68)'>how_to_reg</i></a>"},
-        {"defaultContent": "<a href='actualizarUsuarios.php' <i class='large material-icons' data-toggle='tooltip' title='Editar' style='color:rgb(255, 165, 0)'>edit</i></a>"},
-        {"defaultContent": "<a href='#' <i class='large material-icons' data-toggle='tooltip' title='Eliminar' style='color:rgb(255, 0, 0)'>clear</i></a>"}  
-      ]
-    });
-  });
-
-  </script>
+  <script src="/admin/sistema/js/funciones.js"></script>
 
   </body>
 

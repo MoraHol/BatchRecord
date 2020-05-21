@@ -9,8 +9,9 @@
 		if(!empty($_POST)){
 			if(empty($_POST['email']) or empty($_POST['clave'])){
 				$alert="Ingrese su usuario y password";
-				/* echo '<script>alertify.error("Ingrese su usuario y password.");</script>'; */
-				'<script>swal("Hello world!");</script>';
+				//echo '<script>alertify.error("Ingrese su usuario y password.");</script>';
+				//echo '<script>alertify.set("notifier","position", "top-right"); alertify.success("Agregado con éxito.");</script>';
+				//'<script>swal("Hello world!");</script>';
 			}else{
 				require_once('conexion.php');
 				$email = mysqli_real_escape_string($conn,$_POST['email']); 
@@ -86,8 +87,9 @@
 	<script src="html/vendor/jquery/jquery-3.2.1.min.js" type="text/javascript"></script>
 	<script src="html/vendor/bootstrap/js/popper.js" type="text/javascript"></script>
 	<script src="html/vendor/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
+	<!-- <script src="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/alertify.min.js"></script> -->
+	<!-- <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script> -->
 	<script src="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/alertify.min.js"></script>
-	<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
 </body>
 
