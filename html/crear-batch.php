@@ -2,30 +2,7 @@
   require_once('./sesion/sesion.php');
 ?>
 
-<!DOCTYPE html>
-<html lang="es">
-
-<head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Sistema de Ordenes de Producción">
-  <meta name="author" content="Samara Cosmetics">
-
-  <!-- Favicon icon -->
-  <link rel="icon" type="image/png" sizes="16x16" href="../assets/images/favicon.png">
-  <title>Samara Cosmetics</title>
-
-
-  <?php include('./partials/scripts.php'); ?>
-  
-  <style type="text/css">
-    .tcrearBatch {
-      color: #fff;
-    }
-  </style>
-
-  <?php
+<?php
     require('savebatch.php');
     $idbatch = "";
     $edit = false;
@@ -40,7 +17,7 @@
 
       $edit = true;
       $n = mysqli_fetch_array($record);
-      $norefenrencia = $n['referencia'];
+      $noreferencia = $n['referencia'];
       $nombrereferencia = $n['nombre_referencia'];
       $nombreproducto = $n['id_nombre_producto'];
       $notificacionsanitaria = $n['id_notificacion_sanitaria'];
@@ -57,8 +34,30 @@
       $estado = $n["estado"];
     }
   ?>
+
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Sistema de Ordenes de Producción">
+  <meta name="author" content="Teenus SAS">
+
+  <!-- Favicon icon -->
+  <link rel="icon" type="image/png" sizes="16x16" href="../assets/images/favicon.png">
+  <title>Samara Cosmetics</title>
+
+
+  <?php include('./partials/scripts.php'); ?>
   
-    
+  <style type="text/css">
+    .tcrearBatch {
+      color: #fff;
+    }
+  </style>
+  
   <script type="text/javascript">
       $(function () {
           $('#tamanototallote, #tamanolotepresentacion').keyup(function () {
@@ -190,28 +189,21 @@
       </div>
     </div>
   </div>
-
 <section id="tabla-resultado"></section>
 
-<!-- </div>
-</div>
-</div>
-</div>
-</div>
-</div> -->
-<!-- <script src="https://code.jquery.com/jquery-1.11.2.min.js"></script> -->
+
+<!-- jquery -->
 <script src="../assets/plugins/jquery/jquery.min.js"></script>
-<script src="../assets/plugins/bootstrap/js/tether.min.js"></script>
-<script src="../assets/plugins/bootstrap/js/bootstrap.min.js"></script>
-<script type="text/javascript" src="vendor/datatables/datatables.min.js"></script>
 <script src="js/jquery.slimscroll.js"></script>
 <script src="vendor/jquery/jquery.serializeToJSON.min.js"></script>
+
+<!-- Bootstrap -->
+<script src="../assets/plugins/bootstrap/js/tether.min.js"></script>
+<script src="../assets/plugins/bootstrap/js/bootstrap.min.js"></script>
 <script src="js/waves.js"></script>
-<script src="//oss.maxcdn.com/jquery.bootstrapvalidator/0.5.2/js/bootstrapValidator.min.js"></script>
-<!-- <script src="/vendor/bootstrap-datetimepicker/js/bootstrap-datetimepicker.min.js"></script> -->
-<script src="../../html/js/validadores.js"></script>
 
-
+<!-- Datatables -->
+<script type="text/javascript" src="vendor/datatables/datatables.min.js"></script>
 
 
 <script type="text/javascript">
@@ -231,7 +223,7 @@
 </script>
 
 <script type="text/javascript">
-    $.fn.dataTable.ext.search.push(
+/*     $.fn.dataTable.ext.search.push(
         function (settings, data, dataIndex) {
             var est = parseInt($('#est').val(), 10);
             var max = parseInt($('#est').val(), 10);
@@ -259,7 +251,7 @@
         $('#est').keyup(function () {
             table.draw();
         });
-    });
+    }); */
 </script>
 
 <script>

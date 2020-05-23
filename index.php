@@ -1,5 +1,4 @@
-<?php 
-	include('./html/modal/modal_recuperarClave.php');
+<?php 	
 	session_start();
 
 	if(!empty($_SESSION['active'])){
@@ -9,9 +8,7 @@
 		if(!empty($_POST)){
 			if(empty($_POST['email']) or empty($_POST['clave'])){
 				$alert="Ingrese su usuario y password";
-				//echo '<script>alertify.error("Ingrese su usuario y password.");</script>';
-				//echo '<script>alertify.set("notifier","position", "top-right"); alertify.success("Agregado con éxito.");</script>';
-				//'<script>swal("Hello world!");</script>';
+
 			}else{
 				require_once('./conexion.php');
 				$email = mysqli_real_escape_string($conn,$_POST['email']); 
@@ -33,7 +30,6 @@
 					header('location: html/crear-batch.php');
 				}else{
 					$alert="El usuario o la contraseña no son validos";
-					/* echo '<script>alertify.set("notifier","position", "top-right"); alertify.error("EL usuario o la clave son incorrectos.");</script>'; */
 					session_destroy();
 				}
 				
@@ -65,19 +61,20 @@
 	<link rel="stylesheet" type="text/css" href="html/vendor/datatables/DataTables-1.10.20/css/dataTables.bootstrap4.min.css">
 	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 
-  <!-- Alertify -->
-  	<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/alertify.min.css"/>
-  	<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/default.min.css"/>  
+	<!-- Alertify -->
+	<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/alertify.min.css"/>
+	<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/default.min.css"/>  
 
 
 </head>
 
 <body class="text-center">
+	<?php include('./html/modal/modal_recuperarClave.php'); ?>
 	<form class="form-signin" action="" method="POST">
 		<img class="mb-4" src="/assets/images/logo-light-text2.png" alt="" width="200" height="100">
 		<h1 class="h3 mb-3 font-weight-normal" style="color:slategrey">Iniciar Sesión</h1><br>
-		<input type="text" name="email" class="form-control mb-3" placeholder="Usuario" autofocus>
-		<input type="password" name="clave" class="form-control" placeholder="Contraseña">
+		<input type="text" name="email" class="form-control mb-3" placeholder="Usuario" required autofocus>
+		<input type="password" name="clave" class="form-control" placeholder="Contraseña" required>
 		
 		<div class="mb-3">
 			<div class="form-check">
@@ -96,9 +93,9 @@
 	<script src="html/vendor/jquery/jquery-3.2.1.min.js" type="text/javascript"></script>
 	<script src="html/vendor/bootstrap/js/popper.js" type="text/javascript"></script>
 	<script src="html/vendor/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
-	<!-- <script src="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/alertify.min.js"></script> -->
-	<!-- <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script> -->
-	<script src="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/alertify.min.js"></script>
+
+  	<!-- Alertify -->
+  	<script src="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/alertify.min.js"></script>
 
 </body>
 

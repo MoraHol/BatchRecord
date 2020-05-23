@@ -1,4 +1,6 @@
-
+<?php 
+  include('./modal/modalDespejedeLinea.php');
+?>
 <!DOCTYPE html>
 <html lang="es">
 
@@ -13,22 +15,19 @@
   <!--     Fonts and icons     -->
   <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,200" rel="stylesheet" />
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-  
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+
   <!-- CSS Files -->
   <link href="../assets/css/bootstrap.min.css" rel="stylesheet" />
   <link href="../assets/css/now-ui-dashboard.css?v=1.5.0" rel="stylesheet" />
   
   <!-- Datatables -->
-  <!-- <link rel="stylesheet" href="../assets/datatables/datatables.min.css">
-  <link rel="stylesheet" href="./htdocs/assets/datatables/DataTables-1.10.21/css/dataTables.bootstrap4.css"> -->
   <link rel="stylesheet" href="https://cdn.datatables.net/1.10.21/css/jquery.dataTables.min.css">
 
+  <!-- Alertify -->
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/alertify.min.css"/>
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/default.min.css"/>  
 
-  <!-- Icons -->
-  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
-  
-  <!-- CSS Just for demo purpose, don't include it in your project -->
-  <!-- <link href="../assets/demo/demo.css" rel="stylesheet" /> -->
 </head>
 
 <body class="">
@@ -44,16 +43,18 @@
           <div class="col-md-12">
             <div class="card">
               <div class="card-header">
-                <h4 class="card-title"> <strong>Despeje de Linea de los Procesos y Verificaciones Iniciales</strong></h4>
-                <a class="btn btn-primary" href="crearUsuarios.php" role="button">Crear Parametro</a>
+                <h4 class="card-title"> <strong>Despeje de Linea de los Procesos</strong></h4>
+                <!-- <a class="btn btn-primary" href="crearUsuarios.php" role="button">Crear Parametro</a> -->
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalDespejedeLinea">Crear Parametro</button>
               </div>
               <div class="card-body">
                 <div class="table-responsive">
                   <table id="listarDespeje" class="table-striped row-borde" style="width:100%">
                     <thead>
                       <tr>
+                        <th>Id</th>
                         <th>Parametro de Control</th>
-                         <th>Módulo</th>
+                        <th>Respuesta</th>
                         <!--<th>No</th> -->
                         <th></th>
                         <th></th>
@@ -94,11 +95,14 @@
   <script src="../assets/js/plugins/bootstrap-notify.js"></script>
  
   <!-- Control Center for Now Ui Dashboard: parallax effects, scripts for the example pages etc -->
-  <script src="../assets/js/now-ui-dashboard.min.js?v=1.5.0" type="text/javascript"></script><!-- Now Ui Dashboard DEMO methods, don't include it in your project! -->
+  <!-- <script src="../assets/js/now-ui-dashboard.min.js?v=1.5.0" type="text/javascript"></script> --><!-- Now Ui Dashboard DEMO methods, don't include it in your project! -->
   <!-- <script src="../assets/demo/demo.js"></script> -->
 
+  <!-- Alertify -->
+  <script src="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/alertify.min.js"></script>
+
   <!-- javascript inicializacion datatables -->
-  <script src="/admin/sistema/js/funciones.js"></script>
+  <script src="/admin/sistema/js/despejedelinea.js"></script>
 
   </body>
 

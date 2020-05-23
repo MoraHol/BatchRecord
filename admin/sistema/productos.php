@@ -115,7 +115,7 @@
   <!-- <script src="../assets/demo/demo.js"></script> -->
 
   <!-- javascript inicializacion datatables -->
-  <script src="/admin/sistema/js/funciones.js"></script>
+  <script src="/admin/sistema/js/productos.js"></script>
 
   </body>
 

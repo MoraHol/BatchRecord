@@ -15,7 +15,7 @@
                             <?php if ($update == false) : ?>
                                 <label for="recipient-name" class="col-form-label">No. Referencia:</label>
                                 <select class="form-control " name="norefenrencia" id="name" required onchange="cargarData()" value="<?= $norefenrencia; ?>">
-                                    <option value="<?= $norefenrencia; ?>">Seleccione...</option>
+                                    <option value="<?= $noreferencia; ?>">Seleccione...</option>
                                     <?php
                                     while ($row = mysqli_fetch_array($sql5)) {
                                         echo "<option value='" . $row['referencia'] . "'>" . $row['referencia'] . "</option>";
@@ -75,22 +75,22 @@
                     <div class="row page">
 
                         <?php if ($update == false) : ?>
-                           <!--  <div class="col-md-6 col-2 align-self-center d-none">
+                            <div class="col-md-6 col-2 align-self-center d-none">
                                 <label for="recipient-name" class="col-form-label">Estado</label><br>
                                 <select class="selectpicker form-control" id="filtrar1" name="numerodelote" style="width: 80%">
                                     <option value="0">Detenido</option>
                                     <option value="1">Activo</option>
                                 </select>
-                            </div> -->
+                            </div>
                         <?php else : ?>
-                            <!-- <div class="col-md-6 col-2 align-self-center">
+                            <div class="col-md-6 col-2 align-self-center">
                                 <label for="recipient-name" class="col-form-label">Estado</label><br>
                                 <select class="selectpicker form-control" id="filtrar1" name="numerodelote" style="width: 80%" value="<?= $estado; ?>">
                                     <option value="0">Detenido</option>
                                     <option value="1">Activo</option>
                                     <option value="2">En proceso</option>
                                 </select>
-                            </div> -->
+                            </div>
                         <?php endif ?>
 
                         <div class="col-md-6 col-2 align-self-center">

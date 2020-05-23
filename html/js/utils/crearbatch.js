@@ -22,7 +22,7 @@ function onSubmit() {
     return true;
 }
 
-//Borrado de Batch
+//Borrado de Batch Record
 
 function deleteBatch(event) {
     let id = $(event.currentTarget).attr('attr-id');
@@ -41,6 +41,7 @@ function deleteBatch(event) {
                 url: `savebatch.php?del=${id}`,
                 type: 'GET'
             }).done((data, status, xhr) => {
+                //refreshTableBatch();
                 location.href = '/html/crear-batch.php';
                 Swal.fire(
                     'Eliminado!',
@@ -50,9 +51,14 @@ function deleteBatch(event) {
             });
         }
     })
+/* 
+    function refreshTableBatch() {
+        $('#example').DataTable().clear();
+        $('#example').DataTable().ajax.reload();
+    } */
 
     /*$.confirm({
-          title: '¿Está seguro de Eliminar?',
+          title : '¿Está seguro de Eliminar?',
           content: '',
           buttons: {
               confirmar: function () {

@@ -54,7 +54,7 @@
               <div class="card-header">
                 <h4 class="card-title">Usuarios Registrados</h4>
                 <!-- <a class="btn btn-primary" href="crearUsuarios1.php" role="button">Crear Usuario</a> -->
-                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#ModalCrearUsuarios">Crear Usuarios</button>                
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalCrearUsuarios">Crear Usuarios</button>                
                 <!-- <a class="btn btn-primary" role="button" href='crearUsuarios.php' <i class='large material-icons' data-toggle='tooltip' title='Adicionar' style='color:rgb(0, 154, 68)'>how_to_reg</i></a> -->
               </div>
               <div class="card-body">
@@ -62,6 +62,7 @@
                   <table id="listaUsuarios" class="table-striped row-borde" style="width:100%">
                     <thead>
                       <tr>
+                        <th>id</th>
                         <th>Nombres</th>
                         <th>Apellidos</th>
                         <th>Email</th>
@@ -113,7 +114,7 @@
   <script src="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/alertify.min.js"></script>
 
   <!-- javascript inicializacion datatables -->
-  <script src="/admin/sistema/js/funciones.js"></script>
+  <script src="/admin/sistema/js/usuarios.js"></script>
 
   </body>
 

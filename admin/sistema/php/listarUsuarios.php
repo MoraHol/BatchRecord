@@ -1,7 +1,7 @@
 <?php 
-  include('../../conexion.php');
+  require_once('../../../conexion.php');
   
-  $query_usuarios = mysqli_query($conn, "SELECT * FROM Productos");
+  $query_usuarios = mysqli_query($conn, "SELECT u.id, u.nombre, u.apellido, u.email, c.cargo, m.modulo FROM usuario u INNER JOIN cargo c INNER JOIN modulo m ON u.id_cargo = c.id AND u.id_modulo = m.id");
   $result = mysqli_num_rows($query_usuarios);
   
   if($result > 0){

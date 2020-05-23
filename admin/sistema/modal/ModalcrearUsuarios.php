@@ -2,7 +2,6 @@
     require_once('/Desarrollo/BatchRecord/htdocs/conexion.php');
 ?>
 
-
 <div class="modal fade" id="ModalCrearUsuarios" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-lg" role="document">
     <div class="modal-content">
@@ -26,13 +25,13 @@
                     <div class="col-md-6 pr-1">
                       <div class="form-group">
                         <label for="nombre">Nombres</label>
-                        <input type="text" name="nombre" id="nombre" class="form-control" placeholder="Nombres Completos">
+                        <input type="text" name="nombre" id="nombre" class="form-control" placeholder="Nombres Completos" required>
                       </div>
                     </div>
                     <div class="col-md-6 pl-1">
                       <div class="form-group">
                         <label>Apellidos</label>
-                        <input type="text" name="apellido" id="apellido" class="form-control" placeholder="Apellidos Completos">
+                        <input type="text" name="apellido" id="apellido" class="form-control" placeholder="Apellidos Completos" required>
                       </div>
                     </div>
                   </div> 
@@ -40,7 +39,7 @@
                       <div class="col-md-6 pr-1">
                         <div class="form-group">
                           <label for="email">Correo Electrónico</label>
-                          <input type="email" name="email" id="email" class="form-control" placeholder="Email">
+                          <input type="email" name="email" id="email" class="form-control" placeholder="Email" required>
                         </div>
                       </div> 
 
@@ -57,6 +56,7 @@
                           $result_cargo = mysqli_num_rows($query_cargo);
                         ?>
                         <select class="form-control" name="cargo" id="cargo">
+                        <option value="" disabled selected>Selecciona una opción</option>
                         <?php 
                           if($result_cargo > 0){
                             while($cargo = mysqli_fetch_array($query_cargo)){
@@ -92,6 +92,7 @@
                         ?>
                 
                         <select class="form-control" name="modulo" id="modulo">
+                        <option value="" disabled selected>Selecciona una opción</option>
                         <?php 
                             if($result_modulo > 0){
                                 while($modulo = mysqli_fetch_array($query_modulo)){
@@ -108,12 +109,12 @@
                     <div class="col-md-4 pl-1">
                       <div class="form-group">
                         <label>Password</label>
-                        <input type="password" name="clave" id="clave" class="form-control" placeholder="Clave de Acceso">
+                        <input type="password" name="clave" id="clave" class="form-control" placeholder="Clave de Acceso" required>
                       </div>
                     </div>
                   </div>
 
-                  <button id="btnCerrar" class="btn btn-secondary">Cerrar</button>
+                  <button id="btnCerrar" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
                   <button id="btnguardarUsuarios" type="submit" class="btn btn-primary">Crear Usuario</button>
                   
                 <!-- <div> <?php //echo ($alert); ?> </div> -->
