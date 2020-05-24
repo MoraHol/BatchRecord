@@ -1,3 +1,38 @@
+/* Inicializar tabla Batch  */
+
+$(document).ready(function() {
+    $("#tablaBatch").DataTable({
+        scrollY:        '50vh',
+        scrollCollapse: true,
+        paging:         false,
+        /* language: {url: 'admin_componentes/es-ar.json'}, */
+
+        "ajax":{
+            method : "POST",
+            url : "php/crearbatch.php",
+            data : {"operacion" : "1"},
+        },
+
+        "columns":[
+            {"data": "referencia"},
+            {"data": "nombre_referencia"},
+            {"data": "fecha_creacion"},
+            {"data": "fecha_programacion"},
+            {"data": "numero_orden"},
+            {"data": "numero_lote"},
+            {"data": "tamano_lote"},
+            {"data": "lote_presentacion"},
+            {"data": "numero_orden"},
+            {"data": "numero_orden"},
+
+            {"defaultContent": "<a href='#' <i class='large material-icons' data-toggle='tooltip' title='Editar' style='color:rgb(255, 193, 7)'>&#xE254;</i></a>"},
+            {"defaultContent": "<a href='#' <i class='large material-icons' data-toggle='tooltip' title='Eliminar' style='color:rgb(234, 67, 54)'>delete_forever</i></a>"},
+        ]
+    });
+});
+
+
+
 $('#unidadesxlote').number(true, 0, ',', '.');
 $('#unidadesxlote').keydown(function (event) {
     if (event.keyCode == 9) {
@@ -51,11 +86,11 @@ function deleteBatch(event) {
             });
         }
     })
-/* 
-    function refreshTableBatch() {
+ 
+    /* function refreshTableBatch() {
         $('#example').DataTable().clear();
         $('#example').DataTable().ajax.reload();
-    } */
+    } */ 
 
     /*$.confirm({
           title : '¿Está seguro de Eliminar?',
@@ -77,7 +112,7 @@ function deleteBatch(event) {
       }); */
 }
 
-$('#myModal').on('hidden.bs.modal', function (e) {
+$('#modalCrearBatch').on('hidden.bs.modal', function (e) {
     // do something...
     history.pushState(null, '', '/html/crear-batch.php');
     location.reload();
@@ -111,10 +146,10 @@ function clonar() {
 }
 
 $('input:radio[name=optradio]').click(function () {
-    $('#example tbody tr').removeClass('selected')
+    $('#tablaBatch tbody tr').removeClass('selected')
     $(this).parent().parent().addClass('selected')
-
 });
+
 $('#form_clonar').submit(function (event) {
     event.preventDefault();
     let form = $(this);

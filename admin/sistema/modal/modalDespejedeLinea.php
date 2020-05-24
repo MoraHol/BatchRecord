@@ -45,7 +45,7 @@
                         <!-- <input type="text" name="respuesta" id="respuesta" class="form-control" placeholder="Respuesta"> -->
                       </div>
                     </div>
-                  <div class="col-md-5 pl-1">
+                  <div class="col-md-4 pl-1">
                       <div class="form-group">
                         <label> <b>Módulo de Acceso</b></label>
                         <?php 
@@ -53,8 +53,8 @@
                           $result_modulo = mysqli_num_rows($query_modulo);
                         ?>
                 
-                        <select class="form-control" name="modulo" id="modulo" required>
-                        <option value="" disabled selected>Seleccione una opción</option>
+                        <select class="" name="modulo" id="modulo" multiple="multiple" required>
+                        <!-- <option value="" disabled selected>Seleccione una opción</option> -->
                         <?php 
                             if($result_modulo > 0){
                                 while($modulo = mysqli_fetch_array($query_modulo)){

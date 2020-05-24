@@ -2,9 +2,9 @@
 
 //$('#example').DataTable(); //Para inicializar datatables de la manera más simple
 
-$(document).ready(function() {    
+/* $(document).ready(function() {    
 
-    $('#example').DataTable({
+    $('#tablaBatch').DataTable({
     //para cambiar el lenguaje a español
         "language": {
                 "lengthMenu": "Mostrar _MENU_ registros",
@@ -28,4 +28,4 @@ jQuery(document).ready(function($) {
     $(".clickable-row").click(function() {
         window.location = $(this).data("href");
     });
-});
+}); */

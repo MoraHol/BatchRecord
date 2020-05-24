@@ -41,7 +41,7 @@
 
       if (count($record) == 1) {
         $n = mysqli_fetch_array($record);
-        $norefenrencia = $n['referencia'];
+        $noreferencia = $n['referencia'];
         $nombrereferencia = $n['nombre_referencia'];
         $nombreproducto = $n['id_nombre_producto'];
         $notificacionsanitaria = $n['id_notificacion_sanitaria'];

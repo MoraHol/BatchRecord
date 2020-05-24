@@ -28,6 +28,9 @@
   <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/alertify.min.css"/>
   <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/themes/default.min.css"/>  
 
+  <!-- Seleccion Multiple -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-multiselect/0.9.13/css/bootstrap-multiselect.css">
+
 </head>
 
 <body class="">
@@ -103,6 +106,10 @@
 
   <!-- javascript inicializacion datatables -->
   <script src="/admin/sistema/js/despejedelinea.js"></script>
+
+  <!-- Multiple Seleccion -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-multiselect/0.9.13/js/bootstrap-multiselect.js"></script>
+
 
   </body>
 

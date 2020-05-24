@@ -46,7 +46,7 @@
 
     if (count($record) == 1 ) {
       $n = mysqli_fetch_array($record);
-      $norefenrencia = $n['numero_orden'];
+      $noreferencia = $n['numero_orden'];
       $nombrereferencia = $n['nombre_referencia'];
       $nombreproducto = $n['id_producto'];
       $notificacionsanitaria =$n['notificacion_sanitaria'];
@@ -196,7 +196,7 @@
                                 <div class="row page">
                               <div class="col-md-12 col-2 align-self-center">
                                 <label for="recipient-name" class="col-form-label">No. Referencia:</label>
-                                <input type="text" class="form-control" name="norefenrencia"  value="<?php echo $norefenrencia; ?>">
+                                <input type="text" class="form-control" name="noreferencia"  value="<?php echo $noreferencia; ?>">
                               </div>
                               </div>
                                 <div class="row page">

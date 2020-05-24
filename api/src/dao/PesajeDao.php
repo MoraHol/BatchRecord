@@ -11,8 +11,8 @@
   /**
    * Class PesajeDao
    * @package BatchRecord\Dao
-   * @author Alexis Holguin <MoraHol>
    */
+  
   class PesajeDao
   {
     private $logger;

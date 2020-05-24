@@ -14,7 +14,7 @@
                         <div class="col-md-12 col-2 align-self-center">
                             <?php if ($update == false) : ?>
                                 <label for="recipient-name" class="col-form-label">No. Referencia:</label>
-                                <select class="form-control " name="norefenrencia" id="name" required onchange="cargarData()" value="<?= $norefenrencia; ?>">
+                                <select class="form-control " name="noreferencia" id="name" required onchange="cargarData()" value="<?= $noreferencia; ?>">
                                     <option value="<?= $noreferencia; ?>">Seleccione...</option>
                                     <?php
                                     while ($row = mysqli_fetch_array($sql5)) {
@@ -24,11 +24,11 @@
                                 </select>
                             <?php else : ?>
                                 <label for="recipient-name" class="col-form-label">No. Referencia:</label>
-                                <select class="form-control " name="norefenrencia" id="name" required onchange="cargarData()" value="<?= $norefenrencia; ?>">
+                                <select class="form-control " name="noreferencia" id="name" required onchange="cargarData()" value="<?= $noreferencia; ?>">
 
                                     <?php
                                     while ($row = mysqli_fetch_array($sql5)) { ?>
-                                        <option value='<?= $row['referencia'] ?>' <?= $row['referencia'] == $norefenrencia ? "selected" : "" ?>> <?= $row['referencia'] ?></option>
+                                        <option value='<?= $row['referencia'] ?>' <?= $row['referencia'] == $noreferencia ? "selected" : "" ?>> <?= $row['referencia'] ?></option>
                                     <?php
                                     }
                                     ?>
