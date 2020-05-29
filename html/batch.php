@@ -1,5 +1,6 @@
 <?php
   require_once('./sesion/sesion.php');
+  require_once('../conexion.php');
   include("modal/modal_clonar.php");
   include("modal/modal_filtradoFechas.php");
   include("modal/m_crearbatch.php");

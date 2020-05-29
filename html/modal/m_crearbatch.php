@@ -1,5 +1,5 @@
 <?php 
-    include_once('/Desarrollo/BatchRecord/htdocs/conexion.php');
+    //include_once("../../conexion.php");
 ?>
 
 <div class="modal fade" id="modalCrearBatch" role="dialog" tabindex="-1">
