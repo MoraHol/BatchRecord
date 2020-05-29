@@ -330,8 +330,8 @@ function CalculoTamanolote (valor) {
     //console.log(densidad);
     presentacion = document.getElementById('presentacioncomercial').value;
     //console.log(presentacion);
-    total = (valor) * (densidad) * (presentacion);
-    //console.log(total);    
+    total = ((valor) * (densidad) * (presentacion))/1000;
+    console.log(total);    
     document.getElementById('tamanototallote').value = total //formatter.format(total);
 }
 
@@ -406,7 +406,7 @@ function cerrarModal(){
 }
 
 /* Adicionar y elimina campos para los tanques al crear batch record */
-var maxField = 4;
+var maxField = 5;
 var ps = 1;
 var pr = 1;
 

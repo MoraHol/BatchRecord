@@ -1,6 +1,3 @@
-<?php 
-    //include_once("../../conexion.php");
-?>
 
 <div class="modal fade" id="modalCrearBatch" role="dialog" tabindex="-1">
     <div class="modal-dialog modal-lg">
