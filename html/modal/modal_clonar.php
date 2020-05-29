@@ -20,7 +20,7 @@
             </div> -->
             <div class="col-md-12 col-2"> <!-- align-self-center -->
               <label for="recipient-name" class="col-form-label"><strong>Cantidad</strong></label>
-              <input type="text" class="form-control" id="numero2" name="cantidad">
+              <input type="text" class="form-control" id="cantidad" name="cantidad">
             </div>
           </div>
 

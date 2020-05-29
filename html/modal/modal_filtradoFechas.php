@@ -18,7 +18,7 @@
 
           <div class="col-md-12 col-2 align-self-center">
             <label for="recipient-name" class="col-form-label"><strong>Fecha Inicial</strong></label>
-            <input type="date" class="form-control  mb-3" id="fechaInicial" name="fechaInicial" value="<?= $fechaprogramacion; ?>">
+            <input type="date" class="form-control mb-3" id="fechaInicial" name="fechaInicial" value="<?= $fechaprogramacion; ?>">
                 <label for="recipient-name" class="col-form-label"><strong>Fecha Final</strong></label>
                 <input type="date" class="form-control" id="fechaFinal" name="fechaFinal" value="<?= $fechaprogramacion; ?>">  
                 </div>

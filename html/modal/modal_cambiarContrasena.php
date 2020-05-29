@@ -7,9 +7,9 @@
       </div>
       <div class="modal-body">
         <label for="inputPassword5">Ingrese su contraseña anterior</label>
-        <input type="password" id="inputPassword5" class="form-control">
+        <input type="password" id="anteriorClave" class="form-control">
         <label for="inputPassword5">Ingrese su contraseña nueva</label>
-        <input type="password" id="inputPassword5" class="form-control">
+        <input type="password" id="nuevaClave" class="form-control">
     </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>

@@ -85,6 +85,7 @@ $(document).ready(function(){
             type: "POST",
             url: "php/operacionesDespejedelinea.php",
             data: datos,
+            //data: {operacion : "3", id : id},
             success: function(r){
                 if(r==1){
                     alertify.set("notifier","position", "top-right"); alertify.success("Agregado con éxito.");

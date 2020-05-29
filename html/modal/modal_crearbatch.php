@@ -128,13 +128,13 @@
                     <div class="row page">
                         <div class="col-md-12 col-2 align-self-center">
                             <label for="recipient-name" class="col-form-label">Observaciones Pesaje</label>
-                            <input type="text" class="form-control" id="recipient-name" name="autoriza" required>
+                            <input type="text" class="form-control" id="obpesaje" name="obpesaje" required>
                         </div>
                     </div>
                     <div class="row page">
                         <div class="col-md-12 col-2 align-self-center">
                             <label for="recipient-name" class="col-form-label">Observaciones Preparación</label>
-                            <input type="text" class="form-control" id="recipient-name" name="autoriza" required>
+                            <input type="text" class="form-control" id="obpreparacion" name="obpreparacion" required>
                         </div>
                     </div>
                     <div class="modal-footer">

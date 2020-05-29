@@ -1,41 +1,7 @@
 <?php 	
 	session_start();
-
-	if(!empty($_SESSION['active'])){
-		header('location: html/crear-batch.php');
-	}else{
-		$alert = '';
-		if(!empty($_POST)){
-			if(empty($_POST['email']) or empty($_POST['clave'])){
-				$alert="Ingrese su usuario y password";
-
-			}else{
-				require_once('./conexion.php');
-				$email = mysqli_real_escape_string($conn,$_POST['email']); 
-				$pass = md5(mysqli_real_escape_string($conn,$_POST['clave']));
-				
-				$query = mysqli_query($conn, "SELECT * FROM usuario WHERE email ='$email' AND clave='$pass'");
-				$result = mysqli_num_rows($query);
-
-				if($result>0){
-					$data= mysqli_fetch_array($query);
-					$_SESSION['active']=true;
-					$_SESSION['idUser']=$data['id'];
-					$_SESSION['nombre']=$data['nombre'];
-					$_SESSION['apellido']=$data['apellido'];
-					$_SESSION['email']=$data['email'];
-					$_SESSION['idModulo']=$data['id_modulo'];
-					$_SESSION['cargo']=$data['id_cargo'];
-					
-					header('location: html/crear-batch.php');
-				}else{
-					$alert="El usuario o la contraseña no son validos";
-					session_destroy();
-				}
-				
-			}
-		}
-	}	
+	require_once('./html/php/login.php');
+	include('./html/modal/modal_recuperarClave.php');
 ?>
 
 <!DOCTYPE html>
@@ -69,11 +35,10 @@
 </head>
 
 <body class="text-center">
-	<?php include('./html/modal/modal_recuperarClave.php'); ?>
 	<form class="form-signin" action="" method="POST">
 		<img class="mb-4" src="/assets/images/logo-light-text2.png" alt="" width="200" height="100">
 		<h1 class="h3 mb-3 font-weight-normal" style="color:slategrey">Iniciar Sesión</h1><br>
-		<input type="text" name="email" class="form-control mb-3" placeholder="Usuario" required autofocus>
+		<input type="text" name="email" class="form-control mb-3" placeholder="Usuario" autocomplete="off" required autofocus>
 		<input type="password" name="clave" class="form-control" placeholder="Contraseña" required>
 		
 		<div class="mb-3">
