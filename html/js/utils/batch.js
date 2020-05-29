@@ -331,7 +331,7 @@ function CalculoTamanolote (valor) {
     presentacion = document.getElementById('presentacioncomercial').value;
     //console.log(presentacion);
     total = ((valor) * (densidad) * (presentacion))/1000;
-    console.log(total);    
+    //console.log(total);    
     document.getElementById('tamanototallote').value = total //formatter.format(total);
 }
 

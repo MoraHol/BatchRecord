@@ -154,6 +154,7 @@
                                         </select>
                                         </td>
                                         <td><input type="number" class="form-control" id="obpesaje" name="obpesaje" ></td>
+                                        <td><input type="number" class="form-control" id="totalpesaje" name="obpesaje" ></td>
                                         <td class="eliminarPesaje"> <input class="btn btn-warning" type="button" value="-"> </td> 
                                     </tr>
                                 </table>    
@@ -185,6 +186,7 @@
                                         </select>
                                         </td>
                                         <td><input type="number" class="form-control" id="obpreparacion" name="obpreparacion" ></td>
+                                        <td><input type="number" class="form-control" id="totalpreparacion" name="obpreparacion" ></td>
                                         <td class="eliminarPreparacion"> <input class="btn btn-warning" type="button" value="-"></td> 
                                     </tr>
                                 </table>    
