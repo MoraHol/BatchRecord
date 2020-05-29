@@ -59,7 +59,7 @@
                         </div>
                     </div>
                     
-                    <input type="date" name="fechahoy" id="fechahoy" value="<?= date('Y-m-d'); ?>" readonly >
+                    <!-- <input type="text" name="fechahoy" id="fechahoy" value="<?= $fecha; ?>" readonly > -->
                     
                     <div class="row page">
                         <div class="col-md-4 col-2 align-self-center">

@@ -1,6 +1,6 @@
 <?php
 
 $servername = "localhost";
-$database = "batch_record";
+$database = "batch_record1";
 $username = "root";
 $password = "";

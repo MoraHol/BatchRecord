@@ -348,6 +348,11 @@ const formatter = new Intl.NumberFormat('de-DE', {
 $(document).ready(function(){
     $('#formBatch').submit(function(e){
         e.preventDefault();
+        var d = new Date();
+
+        var month = d.getMonth()+1;
+        var day = d.getDate();
+        var output = d.getFullYear() + '/' + (month<10 ? '0' : '') + month + '/' + (day<10 ? '0' : '') + day;
 
         if(!editar){
             datos = {
@@ -358,7 +363,8 @@ $(document).ready(function(){
                 lote: $('#tamanototallote').val(),
                 presentacion: $('#presentacioncomercial').val(),
                 programacion: $('#fechaprogramacion').val(),
-                fecha: $('#fechahoy').val(),
+                /* fecha: $('#fechahoy').val(), */
+                fecha : output,
                 
                 };
         }else{
