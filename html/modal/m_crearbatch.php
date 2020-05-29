@@ -108,7 +108,8 @@
                         </div>
                         <div class="col-md-4 col-2 align-self-center">
                             <label for="recipient-name" class="col-form-label" type="number">Tamaño del Lote (Kg)</label>
-                            <input type="number" name="tamanototallote" id="tamanototallote" class="form-control Numeric" min="1" readonly value="" />
+                            <input type="number" name="tamanototallote" id="tamanototallote" class="form-control Numeric" 
+                            min="1" readonly value="" style= "padding-top: 20px; height: 70px; font-size: xx-large; width: 120;" />
                         </div>
                         <!-- <div class="col-md-4 col-2 align-self-center d-none">
                             <label for="recipient-name" class="col-form-label">Tamaño del Lote por Presentación</label>
