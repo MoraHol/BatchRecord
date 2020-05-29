@@ -159,7 +159,7 @@
       if($result > 0){
 
         while($data = mysqli_fetch_array($query_nref)){
-          $arreglo["datos"][] =$data;
+          $arreglo["datos"] =$data;
      
         }
         

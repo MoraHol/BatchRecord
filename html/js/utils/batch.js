@@ -345,8 +345,7 @@ const formatter = new Intl.NumberFormat('de-DE', {
 
   /* Guardar datos Crear y Actualizar batch*/
 
-  $(document).ready(function(){
-    
+$(document).ready(function(){
     $('#formBatch').submit(function(e){
         e.preventDefault();
 

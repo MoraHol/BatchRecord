@@ -58,8 +58,8 @@
                             <input id="propietario" class="displayallinfo" readonly name="propietario">
                         </div>
                     </div>
-
-                    <input type="text" name="fechahoy" id="fechahoy" value="<?= date('Y-m-d'); ?>" readonly class="form-control datepicker" hidden>
+                    
+                    <input type="date" name="fechahoy" id="fechahoy" value="<?= date('Y-m-d'); ?>" readonly >
                     
                     <div class="row page">
                         <div class="col-md-4 col-2 align-self-center">
@@ -130,9 +130,9 @@
                         </div> -->
                     </div>
                     <hr>
-                    <!-- <div class="row page">
+                    <div class="row page">
                         <div class="col-md-6 col-2 align-self-center">
-                            <form action="" method="POST">
+                            <!-- <form action="" method="POST"> -->
                                 <label for="recipient-name" class="col-form-label">Observaciones Pesaje</label>
                                 <button id="adicionarPesaje" name="adicionarPesaje" type="button" class="btn btn-primary">+</button>
                             
@@ -157,13 +157,13 @@
                                         </select>
                                         </td>
                                         <td><input type="number" class="form-control" id="obpesaje" name="obpesaje" ></td>
-                                        <td class="eliminarPesaje"> <button class="btn btn-warning">-</button> </td> 
+                                        <td class="eliminarPesaje"> <input class="btn btn-warning" type="button" value="-"> </td> 
                                     </tr>
                                 </table>    
-                            </form>
+                            <!-- </form> -->
                         </div>
                         <div class="col-md-6 col-2 align-self-center">
-                            <form action="" method="POST">
+                            <!-- <form action="" method="POST"> -->
                                 <label for="recipient-name" class="col-form-label">Observaciones Preparación</label>
                                 <button id="adicionarPreparacion" name="adicionarPreparacion" type="button" class="btn btn-primary">+</button>
                             
@@ -174,7 +174,7 @@
                                             $query_tanquep = mysqli_query($conn, 'SELECT capacidad FROM tanques');
                                             $result = mysqli_num_rows($query_referencia);
                                         ?>
-                                        <select class="form-control" name="tanquePesaje" id="tanquePesaje" >
+                                        <select class="form-control" name="tanquePrepracion" id="tanquePrepracion" >
                                             <option disabled selected>Tanque</option>
                                                 <?php 
                                                     if($result > 0){
@@ -188,19 +188,17 @@
                                         </select>
                                         </td>
                                         <td><input type="number" class="form-control" id="obpreparacion" name="obpreparacion" ></td>
-                                        <td class="eliminarPreparacion"> <button class="btn btn-warning">-</button> </td> 
+                                        <td class="eliminarPreparacion"> <input class="btn btn-warning" type="button" value="-"></td> 
                                     </tr>
                                 </table>    
-                            </form>
+                           <!--  </form> -->
                         </div>    
-                    </div>  -->           
+                    </div>            
                     
                     <div class="modal-footer">
-                        <button type="submit" class="btn btn-primary" name="guardarBatch" id="guardarBatch">Crear</button>
+                        <button type="submit" class="btn btn-primary crearbatch" name="guardarBatch" id="guardarBatch">Crear</button>
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-                        <!-- <button type="submit" class="btn btn-primary" name="update">Modificar</button> -->
                         
-
                     </div>
                 </form>
             </div>
