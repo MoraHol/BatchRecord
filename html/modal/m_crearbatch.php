@@ -10,36 +10,18 @@
             </div>
             <div class="modal-body">
                 <form action=""  id="formBatch" name="formBatch" method="POST" autocomplete="off">
-                    <input  id="idbatch"  type="hidden" class="displayallinfo" name="idbatch"> <!-- type="hidden" -->
+                    <input  id="idbatch" class="displayallinfo" name="idbatch" hidden>
                     
                     <div class="row page">
                         <div class="col-md-3 col-2 align-self-center">
                             <label for="recipient-name" class="col-form-label">Referencia</label>
-                            <input  id="referencia" type="" class="displayallinfo" name="referencia" readonly> <!-- type="hidden" -->
-                            <?php 
-                                $query_referencia = mysqli_query($conn, 'SELECT referencia FROM producto');
-                                $result = mysqli_num_rows($query_referencia);
-                            ?>
-                            
-                            <select class="form-control" name="cmbNoReferencia" id="cmbNoReferencia" required>
-                                <option disabled selected>Seleccione la referencia</option>
-
-                                <?php 
-                                    if($result > 0){
-                                        while($data = mysqli_fetch_array($query_referencia)){
-                                ?>
-                                <option value=""> <?php echo $data['referencia'] ?> </option>
-                                <?php            
-                                }
-                            }
-                        ?>
-                            </select>
-                                           
+                            <input  id="referencia" type="" class="displayallinfo" name="referencia" readonly>
+                            <select class="form-control" name="cmbNoReferencia" id="cmbNoReferencia" required></select>
                         </div>
+                        
                         <div class="col-md-9 col-2 align-self-center">
                             <label for="recipient-name" class="col-form-label">Nombre</label><br>
                             <input id="nombrereferencia" class="displayallinfo" readonly name="nombrereferencia">
-                            
                         </div>
                         
                     </div>
@@ -56,8 +38,6 @@
                         </div>
                     </div>
                     
-                    <!-- <input type="text" name="fechahoy" id="fechahoy" value="<?= $fecha; ?>" readonly > -->
-                    
                     <div class="row page">
                         <div class="col-md-4 col-2 align-self-center">
                             <label for="recipient-name" class="col-form-label">Producto</label>
@@ -72,24 +52,7 @@
                             <input id="linea" class="displayallinfo" readonly name="linea" readonly>
                         </div>
                     </div>
-                    <!-- <div class="row page">
-                        <div class="col-md-6 col-2 align-self-center d-none">
-                            <label for="recipient-name" class="col-form-label">Estado</label><br>
-                            <select class="selectpicker form-control" id="filtrar1" name="numerodelote" style="width: 80%">
-                                <option value="0">Detenido</option>
-                                <option value="1">Activo</option>
-                            </select>
-                        </div>
-                    
-                        <div class="col-md-6 col-2 align-self-center">
-                            <label for="recipient-name" class="col-form-label">Estado</label><br>
-                            <select class="selectpicker form-control" id="filtrar1" name="numerodelote" style="width: 80%" value="">
-                                <option value="0">Detenido</option>
-                                <option value="1">Activo</option>
-                                <option value="2">En proceso</option>
-                            </select>
-                        </div>
-                    </div> -->
+
                     <hr>
                     
                     <div class="row page">
@@ -98,7 +61,7 @@
                             <input id="notificacionSanitaria" class="displayallinfo" readonly name="notificacionSanitaria">
                         </div>
                         
-                      <input type="text" id="densidad" hidden> <!-- hidden -->
+                      <input type="text" id="densidad" hidden>
                     </div>
                     <hr>
                     <div class="row page">
@@ -109,12 +72,9 @@
                         <div class="col-md-4 col-2 align-self-center">
                             <label for="recipient-name" class="col-form-label" type="number">Tamaño del Lote (Kg)</label>
                             <input type="number" name="tamanototallote" id="tamanototallote" class="form-control Numeric" 
-                            min="1" readonly value="" style= "padding-top: 20px; height: 70px; font-size: xx-large; width: 120;" />
+                            min="1" readonly value="" style= "height: 70px; font-size: xx-large; width: 140; text-align: center" />
                         </div>
-                        <!-- <div class="col-md-4 col-2 align-self-center d-none">
-                            <label for="recipient-name" class="col-form-label">Tamaño del Lote por Presentación</label>
-                            <input type="number" name="tamanolotepresentacion" id="tamanolotepresentacion" class="form-control" min="1" value="" />
-                        </div> -->
+
                     </div>
                     <hr>
                     <div class="row page">
@@ -122,10 +82,7 @@
                             <label for="recipient-name" class="col-form-label">Fecha de Programación</label>
                             <input type="date" class="form-control" id="fechaprogramacion" name="fechaprogramacion" value="" min="<?php $hoy = date("Y-m-d"); echo $hoy; ?>">
                         </div>
-                        <!-- <div class="col-md-6 col-2 align-self-center">
-                            <button type="button" class="btn waves-effect waves-light btn-danger pull-center" data-toggle="modal" data-target="#ClonarModal" data-dismiss="modal" aria-label="Close" style="width: 80%; margin-top: 12%">Clonar Batch
-                            </button>
-                        </div> -->
+
                     </div>
                     <hr>
                     <div class="row page">
@@ -136,10 +93,10 @@
                             
                                 <table id="addTanquePesaje" class="mt-3">
                                     <tr>
-                                        <td>
+                                        <td width = "120">
                                         <?php 
                                             $query_tanquep = mysqli_query($conn, 'SELECT capacidad FROM tanques');
-                                            $result = mysqli_num_rows($query_referencia);
+                                            $result = mysqli_num_rows($query_tanquep);
                                         ?>
                                         <select class="form-control" name="tanquePesaje" id="tanquePesaje" >
                                             <option disabled selected>Tanque</option>
@@ -168,10 +125,10 @@
                             
                                 <table id="addTanquePreparacion" class="mt-3">
                                     <tr>
-                                        <td>
+                                        <td width = "120">
                                         <?php 
                                             $query_tanquep = mysqli_query($conn, 'SELECT capacidad FROM tanques');
-                                            $result = mysqli_num_rows($query_referencia);
+                                            $result = mysqli_num_rows($query_tanquep);
                                         ?>
                                         <select class="form-control" name="tanquePrepracion" id="tanquePrepracion" >
                                             <option disabled selected>Tanque</option>
@@ -196,7 +153,7 @@
                     </div>            
                     
                     <div class="modal-footer">
-                        <button type="submit" class="btn btn-primary crearbatch" name="guardarBatch" id="guardarBatch">Crear</button>
+                        <button type="button" onclick="guardarDatos();" class="btn btn-primary crearbatch" name="guardarBatch" id="guardarBatch">Crear</button>
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
                         
                     </div>

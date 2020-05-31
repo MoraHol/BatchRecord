@@ -2,7 +2,7 @@
   require_once('./sesion/sesion.php');
   require_once('../conexion.php');
   include("modal/modal_clonar.php");
-  include("modal/modal_filtradoFechas.php");
+  //include("modal/modal_filtradoFechas.php");
   include("modal/m_crearbatch.php");
   include("modal/modal_multipresentacion.php");
   include("modal/modal_cambiarContrasena.php");
@@ -97,10 +97,8 @@
             </div>
           </div>
         </div>
-      <!-- </div> 
+<!--       </div> 
     </div> -->
-
-  
 
   <!-- Tabla -->
   <!-- <div id="colabatch"></div> -->
@@ -156,10 +154,15 @@
 
 <!--Custom JavaScript -->
 <!-- <script src="js/global.js"></script> -->
-<script src="js/custom.js"></script>
-<script src="js/utils/batch.js"></script>
 <script src="js/datatables.js"></script>
 <script src="vendor/jquery-confirm/jquery-confirm.min.js"></script>
+<script src="js/custom.js"></script>
+<script src="js/batch/batch.js"></script>
+<script src="js/batch/clonar.js"></script>
+<script src="js/batch/crearbatch.js"></script>
+<script src="js/batch/filtradofechas.js"></script>
+<script src="js/batch/multipresentacion.js"></script>
+
 
 <!--Alertify-->
 <script src="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/alertify.min.js"></script>

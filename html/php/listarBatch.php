@@ -17,8 +17,7 @@
         }
         
         echo json_encode($arreglo, JSON_UNESCAPED_UNICODE);
-        
-        //echo $arreglo;
+
         exit();
 
       }else{
@@ -44,18 +43,18 @@
     break;
 
     case 3: //cargar selector de referencias
-      $query_referencia = mysqli_query($conn, "SELECT referencia FROM producto");
+      
+      $query_referencia = mysqli_query($conn, "SELECT @curRow := @curRow + 1 AS id, referencia FROM producto JOIN (SELECT @curRow := 0) r");
     
       $result = mysqli_num_rows($query_referencia);
       
       if($result > 0){
-        while($data = mysqli_fetch_array($query_referencia)){
-          echo '<option>'. $data['referencia'].'</option>';
-          
-        }
-
+        while($data = mysqli_fetch_assoc($query_referencia)){
+          $arreglo[] = $data;}
+        
+          echo json_encode($arreglo, JSON_UNESCAPED_UNICODE);
       }else{
-        echo false;
+        echo "Error";
       }
       mysqli_free_result($query_referencia);
       mysqli_close($conn);
@@ -63,22 +62,25 @@
 
     case 4: //recargar datos de acuerdo con seleccion de referencia
       $id_referencia = $_POST['id'];
-      //echo $id_referencia;
-      //exit();
+      
       $query_producto = mysqli_query($conn, "SELECT p.referencia, p.nombre_referencia as nombre, m.nombre as marca, ns.notificacion_sanitaria, pp.nombre as propietario, np.nombre_producto as producto, pc.presentacion, l.nombre_linea as linea, l.densidad 
                                              FROM producto p INNER JOIN marca m INNER JOIN notificacion_sanitaria ns INNER JOIN propietario pp INNER JOIN nombre_producto np INNER JOIN presentacion_comercial pc INNER JOIN linea l 
                                              ON p.id_marca = m.id AND p.id_notificacion_sanitaria = ns.id AND p.id_propietario=pp.id AND p.id_nombre_producto= np.id AND p.id_presentacion_comercial=pc.id AND p.id_linea=l.id 
                                              WHERE p.referencia = $id_referencia");
                                              
-      $result = mysqli_fetch_row($query_producto);
-      
-      if($result){
-        echo json_encode($result, JSON_UNESCAPED_UNICODE);
+      $result = mysqli_num_rows($query_producto);
+
+      if($result > 0){
+
+        while($data = mysqli_fetch_assoc($query_producto)){
+          $arreglo[] = $data;}
+        
+        echo json_encode($arreglo, JSON_UNESCAPED_UNICODE);
+
       }else{
-        echo 'No exitoso';
-      }
-      mysqli_free_result($query_producto);
-      mysqli_close($conn);    
+        echo "Error";
+      }  
+                                       
     break;
   
     case 5: // Guardar
@@ -89,6 +91,12 @@
       $fechaprogramacion = $_POST['programacion'];
       $fechahoy = $_POST['fecha'];
       $tamanolotepresentacion = $_POST['presentacion'];
+
+      echo $id;
+      /* echo $fechaprogramacion;
+      echo $fechahoy; */
+
+      
 
       if ($fechaPrograma = "") {
        $estado = 'null';
@@ -150,7 +158,7 @@
     case 8: //carga modal Multipresentacion
       $id_batch = $_POST['id'];
     
-      $query_nref = mysqli_query($conn, "SELECT nombre_referencia FROM producto WHERE multi = 
+      $query_nref = mysqli_query($conn, "SELECT @curRow := @curRow + 1 AS id, nombre_referencia FROM producto JOIN (SELECT @curRow := 0) r WHERE multi = 
                                         (SELECT multi FROM producto WHERE producto.referencia = 
                                         (SELECT batch.id_producto FROM batch WHERE batch.id_batch = $id_batch))");
       
@@ -158,8 +166,8 @@
       
       if($result > 0){
 
-        while($data = mysqli_fetch_array($query_nref)){
-          $arreglo["datos"] =$data;
+        while($data = mysqli_fetch_assoc($query_nref)){
+          $arreglo[] = $data;
      
         }
         
