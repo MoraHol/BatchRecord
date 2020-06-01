@@ -279,9 +279,9 @@
   <script type="text/javascript" src="js/alertify.js"></script>
   <script src="js/filterDate.js"></script>
   <script src="js/autoNumeric.min.js"></script>
-  <script src="html/vendor/bootstrap/js/popper.js"></script>
+  <script src="vendor/bootstrap/js/popper.js"></script>
 
-<?php if ($update) { ?>
+  <?php if ($update) { ?>
   <script>
       cargarData()
   </script>

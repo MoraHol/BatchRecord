@@ -9,6 +9,7 @@
 
 <!-- <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css"> -->
 
+<script src="vendor/jquery-3.2.1.min.js"></script>
 <link rel="stylesheet" href="vendor/jquery-confirm/jquery-confirm.min.css">
 
 <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
